@@ -2,6 +2,8 @@
 CREATE TABLE "users" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "name" TEXT NOT NULL,
+    "email" TEXT,
+    "email_verified" DATETIME,
     "avatar_url" TEXT,
     "created_at" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
@@ -26,11 +28,11 @@ CREATE TABLE "categories" (
 -- CreateTable
 CREATE TABLE "CategoriesOnBooks" (
     "book_id" TEXT NOT NULL,
-    "categoryId" TEXT NOT NULL,
+    "category_id" TEXT NOT NULL,
 
-    PRIMARY KEY ("book_id", "categoryId"),
+    PRIMARY KEY ("book_id", "category_id"),
     CONSTRAINT "CategoriesOnBooks_book_id_fkey" FOREIGN KEY ("book_id") REFERENCES "books" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
-    CONSTRAINT "CategoriesOnBooks_categoryId_fkey" FOREIGN KEY ("categoryId") REFERENCES "categories" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+    CONSTRAINT "CategoriesOnBooks_category_id_fkey" FOREIGN KEY ("category_id") REFERENCES "categories" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 -- CreateTable
@@ -72,7 +74,13 @@ CREATE TABLE "sessions" (
 );
 
 -- CreateIndex
+CREATE UNIQUE INDEX "users_email_key" ON "users"("email");
+
+-- CreateIndex
 CREATE UNIQUE INDEX "categories_name_key" ON "categories"("name");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "accounts_provider_provider_account_id_key" ON "accounts"("provider", "provider_account_id");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "sessions_session_token_key" ON "sessions"("session_token");

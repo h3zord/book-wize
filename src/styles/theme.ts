@@ -71,7 +71,7 @@ export const defaultTheme = {
   radii: {
     xs: '2.5px',
     sm: '5px',
-    md: '10px',
+    md: '8px',
     lg: '20px',
     full: '99999px',
   },
