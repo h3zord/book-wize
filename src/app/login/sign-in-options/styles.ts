@@ -23,15 +23,7 @@ export const SignInButton = styled.button`
   line-height: ${(props) => props.theme.lineHeights.base};
   cursor: pointer;
 
-  & > svg {
-    background-color: ${(props) => props.theme.colors.gray[600]};
-  }
-
   &:hover {
-    background-color: ${(props) => props.theme.colors.gray[500]};
-  }
-
-  &:hover > svg {
     background-color: ${(props) => props.theme.colors.gray[500]};
   }
 `

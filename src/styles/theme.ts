@@ -72,7 +72,8 @@ export const defaultTheme = {
     xs: '2.5px',
     sm: '5px',
     md: '8px',
-    lg: '20px',
+    lg: '12px',
+    xl: '20px',
     full: '99999px',
   },
 }

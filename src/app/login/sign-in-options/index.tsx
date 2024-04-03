@@ -9,17 +9,30 @@ import { useRouter } from 'next/navigation'
 
 export default function SignInOptions() {
   const router = useRouter()
+
+  function LoginWithGoogle() {
+    signIn('google', { callbackUrl: '/home' })
+  }
+
+  function LoginWithGithub() {
+    signIn('github', { callbackUrl: '/home' })
+  }
+
+  function LoginAsGuest() {
+    router.push('/home')
+  }
+
   return (
     <SignInContent>
-      <SignInButton onClick={() => signIn('google', { callbackUrl: '/home' })}>
+      <SignInButton onClick={LoginWithGoogle}>
         <FcGoogle size={32} />
         Entrar com Google
       </SignInButton>
-      <SignInButton onClick={() => signIn('github', { callbackUrl: '/home' })}>
+      <SignInButton onClick={LoginWithGithub}>
         <FaGithub size={32} />
         Entrar com Github
       </SignInButton>
-      <SignInButton onClick={() => router.push('/home')}>
+      <SignInButton onClick={LoginAsGuest}>
         <PiRocketLaunchLight size={32} color="#8381D9" />
         Acessar como visitante
       </SignInButton>

@@ -11,11 +11,11 @@ export const LoginContainer = styled.div`
 `
 
 export const SignInContainer = styled.section`
+  flex: 1;
   display: flex;
   align-items: center;
   flex-direction: column;
   gap: ${(props) => props.theme.space[10]};
-  width: calc(100vw - 598px);
 `
 
 export const WelcomeText = styled.div`

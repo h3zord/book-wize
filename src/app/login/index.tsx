@@ -6,7 +6,7 @@ export default function Login() {
   return (
     <LoginContainer>
       <Image
-        src="/logo.svg"
+        src="/login-logo.svg"
         alt="book wize logo"
         width={598}
         height={912}
