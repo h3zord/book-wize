@@ -21,14 +21,14 @@ export const SignInContainer = styled.section`
 export const WelcomeText = styled.div`
   width: 24.75rem;
 
-  h2 {
+  & > h2 {
     font-size: ${(props) => props.theme.fontSizes['2xl']};
     line-height: ${(props) => props.theme.lineHeights.short};
     color: ${(props) => props.theme.colors.gray[100]};
     font-weight: ${(props) => props.theme.fontWeights.bold};
   }
 
-  p {
+  & > p {
     font-size: ${(props) => props.theme.fontSizes.md};
     line-height: ${(props) => props.theme.lineHeights.base};
     color: ${(props) => props.theme.colors.gray[200]};

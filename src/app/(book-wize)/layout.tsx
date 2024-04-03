@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import { Binoculars, ChartLineUp, SignIn, User } from 'phosphor-react'
 import {
   LayoutContainer,
   LoginButton,
@@ -8,7 +9,6 @@ import {
   NavigationOptions,
   SideBarContainer,
 } from './styles'
-import { Binoculars, ChartLineUp, SignIn, User } from 'phosphor-react'
 
 export default function CustomerLayout({
   children,

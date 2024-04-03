@@ -14,16 +14,8 @@ export const SideBarContainer = styled.aside`
   height: calc(100vh - 2.5rem);
   border-radius: ${(props) => props.theme.radii.lg};
   padding: ${(props) => props.theme.space[10]};
-  background-image: url('/background.png');
-  /* background: linear-gradient(
-    5deg,
-    rgba(37, 93, 106, 1) 0%,
-    rgba(42, 40, 121, 1) 10%,
-    rgba(24, 28, 42, 1) 30%,
-    rgba(24, 28, 42, 1) 70%,
-    rgba(42, 40, 121, 1) 89%,
-    rgba(37, 93, 106, 1) 100%
-  ); */
+  background-image: url('/sidebar-background.png');
+  margin-right: 5rem;
 `
 export const NavigationOptions = styled.section`
   display: flex;
