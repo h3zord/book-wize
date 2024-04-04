@@ -6,6 +6,9 @@ import {
   LastReadingCard,
   LastReadingContainer,
   LastReadingInformation,
+  RecentRatingCard,
+  RecentRatingContainer,
+  RecentRatingInformation,
 } from './styles'
 import Image from 'next/image'
 
@@ -51,6 +54,47 @@ export default function Home() {
           </LastReadingInformation>
         </LastReadingCard>
       </LastReadingContainer>
+
+      <RecentRatingContainer>
+        <p>Avaliações mais recentes</p>
+
+        <RecentRatingCard>
+          <div>
+            <div>
+              <Image src="/avatar.png" height={40} width={40} alt="test" />
+
+              <h5>
+                Jaxson Dias
+                <p>Hoje</p>
+              </h5>
+            </div>
+
+            <Image src="/rating.png" width={96} height={16} alt="test" />
+          </div>
+
+          <RecentRatingInformation>
+            <Image src="/book.png" height={152} width={108} alt="test" />
+
+            <div>
+              <div>
+                <h4>O Hobbit</h4>
+                <p>J.R.R Tolkien</p>
+              </div>
+
+              <div>
+                <p>
+                  test test test test test test test test test test test test
+                  test test test test test test test test test test test test
+                  test test test test test test test test test test test test
+                  test test test test test testtest test test test test test
+                  test test test test test test test test test test test test
+                  test test test test test test test test
+                </p>
+              </div>
+            </div>
+          </RecentRatingInformation>
+        </RecentRatingCard>
+      </RecentRatingContainer>
     </HomeContainer>
   )
 }
