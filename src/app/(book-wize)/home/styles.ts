@@ -3,8 +3,8 @@
 import styled from 'styled-components'
 
 export const HomeContainer = styled.div`
-  border: 1px solid red;
   margin-top: ${(props) => props.theme.space[10]};
+  margin-left: 6rem;
 
   & > h1 {
     display: flex;
@@ -37,13 +37,19 @@ export const LastReadingContainer = styled.section`
     }
 
     & > span {
+      border-radius: ${(props) => props.theme.radii.sm};
       color: ${(props) => props.theme.colors.purple[100]};
       font-weight: ${(props) => props.theme.fontWeights.bold};
       display: flex;
       align-items: center;
       justify-content: center;
       gap: ${(props) => props.theme.space[1]};
+      padding-left: ${(props) => props.theme.space[2]};
       cursor: pointer;
+
+      &:hover {
+        background-color: ${(props) => props.theme.colors.gray[600]};
+      }
     }
   }
 `
@@ -137,7 +143,8 @@ export const RecentRatingCard = styled.main`
         line-height: ${(props) => props.theme.lineHeights.base};
         font-weight: ${(props) => props.theme.fontWeights.regular};
 
-        & > p {
+        & > span {
+          display: block;
           color: ${(props) => props.theme.colors.gray[400]};
           font-size: ${(props) => props.theme.fontSizes.sm};
         }
@@ -181,5 +188,75 @@ export const RecentRatingInformation = styled.div`
         text-overflow: ellipsis;
       }
     }
+  }
+`
+
+export const PopularBookContainer = styled.aside`
+  width: 20.25rem;
+  margin-top: 7.1rem;
+  margin-left: 4rem;
+  line-height: ${(props) => props.theme.lineHeights.base};
+
+  & > div:nth-child(1) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: ${(props) => props.theme.fontSizes.sm};
+
+    & > p {
+      color: ${(props) => props.theme.colors.gray[100]};
+    }
+
+    & > span {
+      border-radius: ${(props) => props.theme.radii.sm};
+      color: ${(props) => props.theme.colors.purple[100]};
+      font-weight: ${(props) => props.theme.fontWeights.bold};
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: ${(props) => props.theme.space[1]};
+      padding-left: ${(props) => props.theme.space[2]};
+      cursor: pointer;
+
+      &:hover {
+        background-color: ${(props) => props.theme.colors.gray[600]};
+      }
+    }
+  }
+`
+export const PopularBookCard = styled.div`
+  border-radius: ${(props) => props.theme.radii.md};
+  background-color: ${(props) => props.theme.colors.gray[700]};
+  margin-top: ${(props) => props.theme.space[4]};
+  padding: ${(props) => props.theme.space[4]};
+  display: flex;
+  gap: ${(props) => props.theme.space[4]};
+`
+
+export const PopularBookInformation = styled.div`
+  & > div {
+    height: 4.125rem;
+
+    & > h4 {
+      color: ${(props) => props.theme.colors.gray[100]};
+      line-height: ${(props) => props.theme.lineHeights.shorter};
+      font-weight: ${(props) => props.theme.fontWeights.bold};
+
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    & > p {
+      color: ${(props) => props.theme.colors.gray[400]};
+      line-height: ${(props) => props.theme.lineHeights.base};
+      font-size: ${(props) => props.theme.fontSizes.sm};
+    }
+  }
+
+  img {
+    margin-top: ${(props) => props.theme.space[1]};
   }
 `

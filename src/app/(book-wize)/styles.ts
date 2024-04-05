@@ -15,7 +15,6 @@ export const SideBarContainer = styled.aside`
   border-radius: ${(props) => props.theme.radii.lg};
   padding: ${(props) => props.theme.space[10]};
   background-image: url('/sidebar-background.png');
-  margin-right: 5rem;
 `
 export const NavigationOptions = styled.section`
   display: flex;
@@ -73,5 +72,9 @@ export const LoginButton = styled.button`
 
   & > svg {
     color: ${(props) => props.theme.colors.green[100]};
+  }
+
+  &:hover {
+    opacity: 0.8;
   }
 `
