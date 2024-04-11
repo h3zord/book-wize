@@ -1,69 +1,73 @@
-'use client'
-
-import { CaretRight, ChartLineUp } from 'phosphor-react'
+import Image from 'next/image'
+import { CaretRight } from '@phosphor-icons/react/dist/ssr/CaretRight'
+import { ChartLineUp } from '@phosphor-icons/react/dist/ssr/ChartLineUp'
 import {
+  AvatarAndRatingContainer,
   HomeContainer,
   LastReadingCard,
   LastReadingContainer,
   LastReadingInformation,
+  MainContainer,
   PopularBookCard,
   PopularBookContainer,
   PopularBookInformation,
-  RecentRatingCard,
-  RecentRatingContainer,
-  RecentRatingInformation,
+  RecentReviewCard,
+  RecentReviewContainer,
+  RecentReviewInformation,
+  SeeAllContainer,
 } from './styles'
-import Image from 'next/image'
 
 export default function Home() {
   return (
-    <>
-      <HomeContainer>
+    <HomeContainer>
+      <MainContainer>
         <h1>
           <ChartLineUp size={32} /> Início
         </h1>
 
         <LastReadingContainer>
-          <div>
+          <SeeAllContainer>
             <p>Sua última leitura</p>
             <span>
               Ver todas <CaretRight size={16} />
             </span>
-          </div>
+          </SeeAllContainer>
 
           <LastReadingCard>
-            <Image src="/book.png" height={152} width={108} alt="test" />
-
             <LastReadingInformation>
-              <div>
-                <p>Há 2 dias</p>
-                <Image src="/rating.png" width={96} height={16} alt="test" />
-              </div>
+              <Image src="/book.png" height={152} width={108} alt="test" />
 
               <div>
-                <h4>Entendendo Algoritmos</h4>
-                <p>Aditya Bhargava</p>
-              </div>
+                <div>
+                  <p>Há 2 dias</p>
+                  <Image src="/rating.png" width={96} height={16} alt="test" />
+                </div>
 
-              <div>
-                <p>
-                  test test test test test test test test test test test test
-                  test test test test test test test test test test test test
-                  test test test test test test test test test test test test
-                  test test test test test testtest test test test test test
-                  test test test test test test test test test test test test
-                  test test test test test test test test
-                </p>
+                <div>
+                  <h4>Entendendo Algoritmos</h4>
+                  <p>Aditya Bhargava</p>
+                </div>
+
+                <div>
+                  <p>
+                    test test test test test test test test test test test test
+                    test test test test test test test test test test test test
+                    test test test test test test test test test test test test
+                    test test test test test testtest test test test test test
+                    test test test test test test test test test test test test
+                    test test test test test test test test
+                  </p>
+                </div>
               </div>
             </LastReadingInformation>
           </LastReadingCard>
         </LastReadingContainer>
 
-        <RecentRatingContainer>
+        <RecentReviewContainer>
           <p>Avaliações mais recentes</p>
 
-          <RecentRatingCard>
-            <div>
+          <RecentReviewCard>
+            <AvatarAndRatingContainer>
               <div>
                 <Image src="/avatar.png" height={40} width={40} alt="test" />
 
@@ -74,9 +78,9 @@ export default function Home() {
               </div>
 
               <Image src="/rating.png" width={96} height={16} alt="test" />
-            </div>
+            </AvatarAndRatingContainer>
 
-            <RecentRatingInformation>
+            <RecentReviewInformation>
               <Image src="/book.png" height={152} width={108} alt="test" />
 
               <div>
@@ -96,18 +100,18 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-            </RecentRatingInformation>
-          </RecentRatingCard>
-        </RecentRatingContainer>
-      </HomeContainer>
+            </RecentReviewInformation>
+          </RecentReviewCard>
+        </RecentReviewContainer>
+      </MainContainer>
 
       <PopularBookContainer>
-        <div>
+        <SeeAllContainer>
           <p>Livros populares</p>
           <span>
             Ver todas <CaretRight size={16} />
           </span>
-        </div>
+        </SeeAllContainer>
 
         <PopularBookCard>
           <Image src="/book.png" width={64} height={94} alt="test" />
@@ -122,6 +126,6 @@ export default function Home() {
           </PopularBookInformation>
         </PopularBookCard>
       </PopularBookContainer>
-    </>
+    </HomeContainer>
   )
 }

@@ -1,7 +1,8 @@
-'use client'
-
 import Image from 'next/image'
-import { Binoculars, ChartLineUp, SignIn, User } from 'phosphor-react'
+import { ChartLineUp } from '@phosphor-icons/react/dist/ssr/ChartLineUp'
+import { User } from '@phosphor-icons/react/dist/ssr/User'
+import { SignIn } from '@phosphor-icons/react/dist/ssr/SignIn'
+import { Binoculars } from '@phosphor-icons/react/dist/ssr/Binoculars'
 import {
   LayoutContainer,
   LoginButton,
