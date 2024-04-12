@@ -9,6 +9,8 @@ export const HomeContainer = styled.div`
 `
 
 export const MainContainer = styled.main`
+  width: 38rem;
+
   & > h1 {
     display: flex;
     align-items: center;
@@ -25,7 +27,6 @@ export const MainContainer = styled.main`
 `
 
 export const LastReadingContainer = styled.section`
-  width: 38rem;
   margin-top: ${(props) => props.theme.space[10]};
   line-height: ${(props) => props.theme.lineHeights.base};
 `
@@ -67,7 +68,6 @@ export const LastReadingCard = styled.div`
 `
 
 export const LastReadingInformation = styled.div`
-  width: 100%;
   display: flex;
   gap: ${(props) => props.theme.space[5]};
 
@@ -85,8 +85,10 @@ export const LastReadingInformation = styled.div`
 
   div > div:nth-child(2) {
     margin-top: ${(props) => props.theme.space[2]};
+    height: 2.75rem;
 
     & > h4 {
+      font-size: ${(props) => props.theme.fontSizes.md};
       color: ${(props) => props.theme.colors.gray[100]};
       line-height: ${(props) => props.theme.lineHeights.short};
       font-weight: ${(props) => props.theme.fontWeights.bold};
@@ -100,7 +102,7 @@ export const LastReadingInformation = styled.div`
   }
 
   div > div:nth-child(3) {
-    margin-top: ${(props) => props.theme.space[5]};
+    margin-top: ${(props) => props.theme.space[6]};
 
     & > p {
       color: ${(props) => props.theme.colors.gray[300]};
@@ -117,7 +119,6 @@ export const LastReadingInformation = styled.div`
 `
 
 export const RecentReviewContainer = styled.section`
-  width: 38rem;
   margin-top: ${(props) => props.theme.space[10]};
 
   & > p {
@@ -145,13 +146,14 @@ export const AvatarAndRatingContainer = styled.div`
     gap: ${(props) => props.theme.space[4]};
   }
 
-  div > h5 {
+  div > h4 {
+    font-size: ${(props) => props.theme.fontSizes.md};
     color: ${(props) => props.theme.colors.gray[100]};
     line-height: ${(props) => props.theme.lineHeights.base};
     font-weight: ${(props) => props.theme.fontWeights.regular};
   }
 
-  h5 > span {
+  h4 > span {
     display: block;
     color: ${(props) => props.theme.colors.gray[400]};
     font-size: ${(props) => props.theme.fontSizes.sm};
@@ -164,7 +166,10 @@ export const RecentReviewInformation = styled.div`
   gap: ${(props) => props.theme.space[5]};
 
   div > div:nth-child(1) {
+    height: 2.75rem;
+
     & > h4 {
+      font-size: ${(props) => props.theme.fontSizes.md};
       color: ${(props) => props.theme.colors.gray[100]};
       font-weight: ${(props) => props.theme.fontWeights.bold};
       line-height: ${(props) => props.theme.lineHeights.short};
@@ -178,7 +183,7 @@ export const RecentReviewInformation = styled.div`
   }
 
   div > div:nth-child(2) {
-    margin-top: ${(props) => props.theme.space[5]};
+    margin-top: ${(props) => props.theme.space[6]};
 
     & > p {
       color: ${(props) => props.theme.colors.gray[300]};
@@ -219,6 +224,7 @@ export const PopularBookInformation = styled.div`
   }
 
   div > h4 {
+    font-size: ${(props) => props.theme.fontSizes.md};
     color: ${(props) => props.theme.colors.gray[100]};
     line-height: ${(props) => props.theme.lineHeights.shorter};
     font-weight: ${(props) => props.theme.fontWeights.bold};

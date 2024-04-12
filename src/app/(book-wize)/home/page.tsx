@@ -44,7 +44,7 @@ export default function Home() {
                 </div>
 
                 <div>
-                  <h4>Entendendo Algoritmos</h4>
+                  <h4>14 Hábitos de Desenvolvedores Altamente Produtivos</h4>
                   <p>Aditya Bhargava</p>
                 </div>
 
@@ -71,10 +71,10 @@ export default function Home() {
               <div>
                 <Image src="/avatar.png" height={40} width={40} alt="test" />
 
-                <h5>
+                <h4>
                   Jaxson Dias
                   <span>Hoje</span>
-                </h5>
+                </h4>
               </div>
 
               <Image src="/rating.png" width={96} height={16} alt="test" />
@@ -108,10 +108,10 @@ export default function Home() {
               <div>
                 <Image src="/avatar.png" height={40} width={40} alt="test" />
 
-                <h5>
+                <h4>
                   Jaxson Dias
                   <span>Hoje</span>
-                </h5>
+                </h4>
               </div>
 
               <Image src="/rating.png" width={96} height={16} alt="test" />
@@ -155,7 +155,7 @@ export default function Home() {
 
           <PopularBookInformation>
             <div>
-              <h4>Entendendo Algoritmos</h4>
+              <h4>14 Hábitos de Desenvolvedores Altamente Produtivos</h4>
               <p>Aditya Bhargava</p>
             </div>
 

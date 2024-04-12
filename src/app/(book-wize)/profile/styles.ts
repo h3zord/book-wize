@@ -9,6 +9,8 @@ export const ProfileContainer = styled.div`
 `
 
 export const MainContainer = styled.main`
+  width: 39rem;
+
   & > h1 {
     display: flex;
     align-items: center;
@@ -27,7 +29,6 @@ export const MainContainer = styled.main`
 export const SearchReviewedBookForm = styled.form`
   position: relative;
   margin-top: ${(props) => props.theme.space[10]};
-  width: 39rem;
 
   & > button {
     display: flex;
@@ -76,7 +77,6 @@ export const ReviewedBookContainer = styled.section`
   display: flex;
   flex-direction: column;
   gap: ${(props) => props.theme.space[6]};
-  width: 39rem;
 
   & > span {
     font-size: ${(props) => props.theme.fontSizes.sm};
@@ -110,11 +110,13 @@ export const ReviewedBookInformation = styled.div`
   gap: ${(props) => props.theme.space[6]};
 
   div > img {
-    margin-top: 4rem;
+    margin-top: 2.5rem;
   }
 
   div > div {
-    & > h4 {
+    height: 4.5rem;
+
+    & > h3 {
       color: ${(props) => props.theme.colors.gray[100]};
       font-size: ${(props) => props.theme.fontSizes.lg};
       line-height: ${(props) => props.theme.lineHeights.short};
@@ -146,13 +148,13 @@ export const AvatarContainer = styled.div`
   justify-content: center;
   gap: ${(props) => props.theme.space[5]};
 
-  & > h5 {
+  & > h2 {
     font-size: ${(props) => props.theme.fontSizes.xl};
     color: ${(props) => props.theme.colors.gray[100]};
     line-height: ${(props) => props.theme.lineHeights.short};
   }
 
-  h5 > span {
+  h2 > span {
     color: ${(props) => props.theme.colors.gray[400]};
     font-size: ${(props) => props.theme.fontSizes.sm};
     line-height: ${(props) => props.theme.lineHeights.base};
@@ -188,14 +190,15 @@ export const ProfileInformation = styled.section`
     color: ${(props) => props.theme.colors.green[100]};
   }
 
-  div > h5 {
+  div > h4 {
+    font-size: ${(props) => props.theme.fontSizes.md};
     color: ${(props) => props.theme.colors.gray[200]};
     line-height: ${(props) => props.theme.lineHeights.short};
     font-size: ${(props) => props.theme.fontSizes.md};
     font-weight: ${(props) => props.theme.fontWeights.bold};
   }
 
-  h5 > span {
+  h4 > span {
     display: block;
     color: ${(props) => props.theme.colors.gray[300]};
     line-height: ${(props) => props.theme.lineHeights.base};
