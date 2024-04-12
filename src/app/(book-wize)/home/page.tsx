@@ -102,6 +102,43 @@ export default function Home() {
               </div>
             </RecentReviewInformation>
           </RecentReviewCard>
+
+          <RecentReviewCard>
+            <AvatarAndRatingContainer>
+              <div>
+                <Image src="/avatar.png" height={40} width={40} alt="test" />
+
+                <h5>
+                  Jaxson Dias
+                  <span>Hoje</span>
+                </h5>
+              </div>
+
+              <Image src="/rating.png" width={96} height={16} alt="test" />
+            </AvatarAndRatingContainer>
+
+            <RecentReviewInformation>
+              <Image src="/book.png" height={152} width={108} alt="test" />
+
+              <div>
+                <div>
+                  <h4>O Hobbit</h4>
+                  <p>J.R.R Tolkien</p>
+                </div>
+
+                <div>
+                  <p>
+                    test test test test test test test test test test test test
+                    test test test test test test test test test test test test
+                    test test test test test test test test test test test test
+                    test test test test test testtest test test test test test
+                    test test test test test test test test test test test test
+                    test test test test test test test test
+                  </p>
+                </div>
+              </div>
+            </RecentReviewInformation>
+          </RecentReviewCard>
         </RecentReviewContainer>
       </MainContainer>
 
@@ -112,6 +149,19 @@ export default function Home() {
             Ver todas <CaretRight size={16} />
           </span>
         </SeeAllContainer>
+
+        <PopularBookCard>
+          <Image src="/book.png" width={64} height={94} alt="test" />
+
+          <PopularBookInformation>
+            <div>
+              <h4>Entendendo Algoritmos</h4>
+              <p>Aditya Bhargava</p>
+            </div>
+
+            <Image src="/rating.png" width={96} height={16} alt="test" />
+          </PopularBookInformation>
+        </PopularBookCard>
 
         <PopularBookCard>
           <Image src="/book.png" width={64} height={94} alt="test" />

@@ -71,49 +71,47 @@ export const LastReadingInformation = styled.div`
   display: flex;
   gap: ${(props) => props.theme.space[5]};
 
-  & > div {
-    & > div:nth-child(1) {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+  div > div:nth-child(1) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-      & > p {
-        color: ${(props) => props.theme.colors.gray[300]};
-        font-size: ${(props) => props.theme.fontSizes.sm};
-        line-height: ${(props) => props.theme.lineHeights.base};
-      }
+    & > p {
+      color: ${(props) => props.theme.colors.gray[300]};
+      font-size: ${(props) => props.theme.fontSizes.sm};
+      line-height: ${(props) => props.theme.lineHeights.base};
+    }
+  }
+
+  div > div:nth-child(2) {
+    margin-top: ${(props) => props.theme.space[2]};
+
+    & > h4 {
+      color: ${(props) => props.theme.colors.gray[100]};
+      line-height: ${(props) => props.theme.lineHeights.short};
+      font-weight: ${(props) => props.theme.fontWeights.bold};
     }
 
-    & > div:nth-child(2) {
-      margin-top: ${(props) => props.theme.space[2]};
-
-      & > h4 {
-        color: ${(props) => props.theme.colors.gray[100]};
-        line-height: ${(props) => props.theme.lineHeights.short};
-        font-weight: ${(props) => props.theme.fontWeights.bold};
-      }
-
-      & > p {
-        color: ${(props) => props.theme.colors.gray[400]};
-        line-height: ${(props) => props.theme.lineHeights.base};
-        font-size: ${(props) => props.theme.fontSizes.sm};
-      }
+    & > p {
+      color: ${(props) => props.theme.colors.gray[400]};
+      line-height: ${(props) => props.theme.lineHeights.base};
+      font-size: ${(props) => props.theme.fontSizes.sm};
     }
+  }
 
-    & > div:nth-child(3) {
-      margin-top: ${(props) => props.theme.space[5]};
+  div > div:nth-child(3) {
+    margin-top: ${(props) => props.theme.space[5]};
 
-      & > p {
-        color: ${(props) => props.theme.colors.gray[300]};
-        font-size: ${(props) => props.theme.fontSizes.sm};
-        line-height: ${(props) => props.theme.lineHeights.base};
+    & > p {
+      color: ${(props) => props.theme.colors.gray[300]};
+      font-size: ${(props) => props.theme.fontSizes.sm};
+      line-height: ${(props) => props.theme.lineHeights.base};
 
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 2;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 `
@@ -145,18 +143,18 @@ export const AvatarAndRatingContainer = styled.div`
     align-items: center;
     justify-content: center;
     gap: ${(props) => props.theme.space[4]};
+  }
 
-    & > h5 {
-      color: ${(props) => props.theme.colors.gray[100]};
-      line-height: ${(props) => props.theme.lineHeights.base};
-      font-weight: ${(props) => props.theme.fontWeights.regular};
+  div > h5 {
+    color: ${(props) => props.theme.colors.gray[100]};
+    line-height: ${(props) => props.theme.lineHeights.base};
+    font-weight: ${(props) => props.theme.fontWeights.regular};
+  }
 
-      & > span {
-        display: block;
-        color: ${(props) => props.theme.colors.gray[400]};
-        font-size: ${(props) => props.theme.fontSizes.sm};
-      }
-    }
+  h5 > span {
+    display: block;
+    color: ${(props) => props.theme.colors.gray[400]};
+    font-size: ${(props) => props.theme.fontSizes.sm};
   }
 `
 
@@ -165,35 +163,33 @@ export const RecentReviewInformation = styled.div`
   display: flex;
   gap: ${(props) => props.theme.space[5]};
 
-  & > div {
-    & > div:nth-child(1) {
-      & > h4 {
-        color: ${(props) => props.theme.colors.gray[100]};
-        font-weight: ${(props) => props.theme.fontWeights.bold};
-        line-height: ${(props) => props.theme.lineHeights.short};
-      }
-
-      & > p {
-        color: ${(props) => props.theme.colors.gray[400]};
-        line-height: ${(props) => props.theme.lineHeights.base};
-        font-size: ${(props) => props.theme.fontSizes.sm};
-      }
+  div > div:nth-child(1) {
+    & > h4 {
+      color: ${(props) => props.theme.colors.gray[100]};
+      font-weight: ${(props) => props.theme.fontWeights.bold};
+      line-height: ${(props) => props.theme.lineHeights.short};
     }
 
-    & > div:nth-child(2) {
-      margin-top: ${(props) => props.theme.space[5]};
+    & > p {
+      color: ${(props) => props.theme.colors.gray[400]};
+      line-height: ${(props) => props.theme.lineHeights.base};
+      font-size: ${(props) => props.theme.fontSizes.sm};
+    }
+  }
 
-      & > p {
-        color: ${(props) => props.theme.colors.gray[300]};
-        font-size: ${(props) => props.theme.fontSizes.sm};
-        line-height: ${(props) => props.theme.lineHeights.short};
+  div > div:nth-child(2) {
+    margin-top: ${(props) => props.theme.space[5]};
 
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 4;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
+    & > p {
+      color: ${(props) => props.theme.colors.gray[300]};
+      font-size: ${(props) => props.theme.fontSizes.sm};
+      line-height: ${(props) => props.theme.lineHeights.short};
+
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 4;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 `
@@ -203,33 +199,6 @@ export const PopularBookContainer = styled.aside`
   margin-top: 4.625rem;
   margin-left: 4rem;
   line-height: ${(props) => props.theme.lineHeights.base};
-
-  & > div:nth-child(1) {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: ${(props) => props.theme.fontSizes.sm};
-
-    & > p {
-      color: ${(props) => props.theme.colors.gray[100]};
-    }
-
-    & > span {
-      border-radius: ${(props) => props.theme.radii.sm};
-      color: ${(props) => props.theme.colors.purple[100]};
-      font-weight: ${(props) => props.theme.fontWeights.bold};
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: ${(props) => props.theme.space[1]};
-      padding-left: ${(props) => props.theme.space[2]};
-      cursor: pointer;
-
-      &:hover {
-        background-color: ${(props) => props.theme.colors.gray[600]};
-      }
-    }
-  }
 `
 export const PopularBookCard = styled.div`
   border-radius: ${(props) => props.theme.radii.md};
@@ -243,27 +212,27 @@ export const PopularBookCard = styled.div`
 export const PopularBookInformation = styled.div`
   & > div {
     height: 4.125rem;
-
-    & > h4 {
-      color: ${(props) => props.theme.colors.gray[100]};
-      line-height: ${(props) => props.theme.lineHeights.shorter};
-      font-weight: ${(props) => props.theme.fontWeights.bold};
-
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    & > p {
-      color: ${(props) => props.theme.colors.gray[400]};
-      line-height: ${(props) => props.theme.lineHeights.base};
-      font-size: ${(props) => props.theme.fontSizes.sm};
-    }
   }
 
-  img {
+  & > img {
     margin-top: ${(props) => props.theme.space[1]};
+  }
+
+  div > h4 {
+    color: ${(props) => props.theme.colors.gray[100]};
+    line-height: ${(props) => props.theme.lineHeights.shorter};
+    font-weight: ${(props) => props.theme.fontWeights.bold};
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  div > p {
+    color: ${(props) => props.theme.colors.gray[400]};
+    line-height: ${(props) => props.theme.lineHeights.base};
+    font-size: ${(props) => props.theme.fontSizes.sm};
   }
 `
