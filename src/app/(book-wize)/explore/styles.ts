@@ -104,6 +104,8 @@ export const BookCard = styled.div`
   padding: 16px 20px;
   display: flex;
   gap: ${(props) => props.theme.space[5]};
+  background-color: ${(props) => props.theme.colors.gray[700]};
+  border-radius: ${(props) => props.theme.radii.md};
   width: 20rem;
 
   div > img {

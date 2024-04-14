@@ -1,5 +1,9 @@
+'use client'
+
+import Image from 'next/image'
 import { Binoculars } from '@phosphor-icons/react/dist/ssr/Binoculars'
 import { MagnifyingGlass } from '@phosphor-icons/react/dist/ssr/MagnifyingGlass'
+import * as Dialog from '@radix-ui/react-dialog'
 import {
   BookCard,
   BookCategoryContainer,
@@ -9,7 +13,7 @@ import {
   MainContainer,
   SearchBookForm,
 } from './styles'
-import Image from 'next/image'
+import BookDetailsModal from '@/app/components/book-details-modal'
 
 export default function Explore() {
   return (
@@ -36,57 +40,24 @@ export default function Explore() {
         </BookCategoryContainer>
 
         <BookListContainer>
-          <BookCard>
-            <Image src="/book.png" height={152} width={108} alt="test" />
+          <Dialog.Root>
+            <Dialog.Trigger asChild>
+              <BookCard>
+                <Image src="/book.png" height={152} width={108} alt="test" />
 
-            <div>
-              <div>
-                <h4>14 Hábitos de Desenvolvedores Altamente Produtivos</h4>
-                <p>Zeno Rocha</p>
-              </div>
+                <div>
+                  <div>
+                    <h4>14 Hábitos de Desenvolvedores Altamente Produtivos</h4>
+                    <p>Zeno Rocha</p>
+                  </div>
 
-              <Image src="/rating.png" width={96} height={16} alt="test" />
-            </div>
-          </BookCard>
+                  <Image src="/rating.png" width={96} height={16} alt="test" />
+                </div>
+              </BookCard>
+            </Dialog.Trigger>
 
-          <BookCard>
-            <Image src="/book.png" height={152} width={108} alt="test" />
-
-            <div>
-              <div>
-                <h4>14 Hábitos de Desenvolvedores Altamente Produtivos</h4>
-                <p>Zeno Rocha</p>
-              </div>
-
-              <Image src="/rating.png" width={96} height={16} alt="test" />
-            </div>
-          </BookCard>
-
-          <BookCard>
-            <Image src="/book.png" height={152} width={108} alt="test" />
-
-            <div>
-              <div>
-                <h4>14 Hábitos de Desenvolvedores Altamente Produtivos</h4>
-                <p>Zeno Rocha</p>
-              </div>
-
-              <Image src="/rating.png" width={96} height={16} alt="test" />
-            </div>
-          </BookCard>
-
-          <BookCard>
-            <Image src="/book.png" height={152} width={108} alt="test" />
-
-            <div>
-              <div>
-                <h4>14 Hábitos de Desenvolvedores Altamente Produtivos</h4>
-                <p>Zeno Rocha</p>
-              </div>
-
-              <Image src="/rating.png" width={96} height={16} alt="test" />
-            </div>
-          </BookCard>
+            <BookDetailsModal />
+          </Dialog.Root>
         </BookListContainer>
       </MainContainer>
     </ExploreContainer>

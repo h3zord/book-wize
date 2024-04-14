@@ -2,7 +2,6 @@ import Image from 'next/image'
 import { CaretRight } from '@phosphor-icons/react/dist/ssr/CaretRight'
 import { ChartLineUp } from '@phosphor-icons/react/dist/ssr/ChartLineUp'
 import {
-  AvatarAndRatingContainer,
   HomeContainer,
   LastReadingCard,
   LastReadingContainer,
@@ -16,6 +15,7 @@ import {
   RecentReviewInformation,
   SeeAllContainer,
 } from './styles'
+import { AvatarAndRating } from '@/app/components/avatar-and-rating/styles'
 
 export default function Home() {
   return (
@@ -28,9 +28,9 @@ export default function Home() {
         <LastReadingContainer>
           <SeeAllContainer>
             <p>Sua última leitura</p>
-            <span>
-              Ver todas <CaretRight size={16} />
-            </span>
+            <button>
+              Ver todos <CaretRight size={16} />
+            </button>
           </SeeAllContainer>
 
           <LastReadingCard>
@@ -67,7 +67,7 @@ export default function Home() {
           <p>Avaliações mais recentes</p>
 
           <RecentReviewCard>
-            <AvatarAndRatingContainer>
+            <AvatarAndRating>
               <div>
                 <Image src="/avatar.png" height={40} width={40} alt="test" />
 
@@ -78,7 +78,7 @@ export default function Home() {
               </div>
 
               <Image src="/rating.png" width={96} height={16} alt="test" />
-            </AvatarAndRatingContainer>
+            </AvatarAndRating>
 
             <RecentReviewInformation>
               <Image src="/book.png" height={152} width={108} alt="test" />
@@ -104,7 +104,7 @@ export default function Home() {
           </RecentReviewCard>
 
           <RecentReviewCard>
-            <AvatarAndRatingContainer>
+            <AvatarAndRating>
               <div>
                 <Image src="/avatar.png" height={40} width={40} alt="test" />
 
@@ -115,7 +115,7 @@ export default function Home() {
               </div>
 
               <Image src="/rating.png" width={96} height={16} alt="test" />
-            </AvatarAndRatingContainer>
+            </AvatarAndRating>
 
             <RecentReviewInformation>
               <Image src="/book.png" height={152} width={108} alt="test" />
@@ -145,9 +145,9 @@ export default function Home() {
       <PopularBookContainer>
         <SeeAllContainer>
           <p>Livros populares</p>
-          <span>
-            Ver todas <CaretRight size={16} />
-          </span>
+          <button>
+            Ver todos <CaretRight size={16} />
+          </button>
         </SeeAllContainer>
 
         <PopularBookCard>
