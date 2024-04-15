@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { X } from '@phosphor-icons/react/dist/ssr/X'
 import { BookmarkSimple } from '@phosphor-icons/react/dist/ssr/BookmarkSimple'
 import { BookOpen } from '@phosphor-icons/react/dist/ssr/BookOpen'
+import { AvatarAndRating } from '../avatar-and-rating/styles'
 import {
   BookInformationContainer,
   BookInformationContent,
@@ -15,9 +16,8 @@ import {
   RatingContainer,
   RatingContent,
 } from './styles'
-import { AvatarAndRating } from '../avatar-and-rating/styles'
 
-export default function BookDetailsModal() {
+export function BookDetailsModal() {
   return (
     <Dialog.Portal>
       <Overlay />
@@ -64,95 +64,79 @@ export default function BookDetailsModal() {
               </h4>
             </div>
           </CategoryAndPageNumber>
-
-          <RatingContainer>
-            <RateButtonContainer>
-              <span>Avaliações</span>
-
-              <button>Avaliar</button>
-            </RateButtonContainer>
-
-            <RatingContent>
-              <RatingCard>
-                <AvatarAndRating>
-                  <div>
-                    <Image
-                      src="/avatar.png"
-                      height={40}
-                      width={40}
-                      alt="test"
-                    />
-
-                    <h4>
-                      Brandon Botosh
-                      <span>Há 2 dias</span>
-                    </h4>
-                  </div>
-
-                  <Image src="/rating.png" width={96} height={16} alt="test" />
-                </AvatarAndRating>
-
-                <p>
-                  Nec tempor nunc in egestas. Euismod nisi eleifend at et in
-                  sagittis. Penatibus id vestibulum imperdiet a at imperdiet
-                  lectus leo. Sit porta eget nec vitae sit vulputate eget
-                </p>
-              </RatingCard>
-
-              <RatingCard>
-                <AvatarAndRating>
-                  <div>
-                    <Image
-                      src="/avatar.png"
-                      height={40}
-                      width={40}
-                      alt="test"
-                    />
-
-                    <h4>
-                      Brandon Botosh
-                      <span>Há 2 dias</span>
-                    </h4>
-                  </div>
-
-                  <Image src="/rating.png" width={96} height={16} alt="test" />
-                </AvatarAndRating>
-
-                <p>
-                  Nec tempor nunc in egestas. Euismod nisi eleifend at et in
-                  sagittis. Penatibus id vestibulum imperdiet a at imperdiet
-                  lectus leo. Sit porta eget nec vitae sit vulputate eget
-                </p>
-              </RatingCard>
-
-              <RatingCard>
-                <AvatarAndRating>
-                  <div>
-                    <Image
-                      src="/avatar.png"
-                      height={40}
-                      width={40}
-                      alt="test"
-                    />
-
-                    <h4>
-                      Brandon Botosh
-                      <span>Há 2 dias</span>
-                    </h4>
-                  </div>
-
-                  <Image src="/rating.png" width={96} height={16} alt="test" />
-                </AvatarAndRating>
-
-                <p>
-                  Nec tempor nunc in egestas. Euismod nisi eleifend at et in
-                  sagittis. Penatibus id vestibulum imperdiet a at imperdiet
-                  lectus leo. Sit porta eget nec vitae sit vulputate eget
-                </p>
-              </RatingCard>
-            </RatingContent>
-          </RatingContainer>
         </BookInformationContainer>
+
+        <RatingContainer>
+          <RateButtonContainer>
+            <span>Avaliações</span>
+
+            <button>Avaliar</button>
+          </RateButtonContainer>
+
+          <RatingContent>
+            <RatingCard>
+              <AvatarAndRating>
+                <div>
+                  <Image src="/avatar.png" height={40} width={40} alt="test" />
+
+                  <h4>
+                    Brandon Botosh
+                    <span>Há 2 dias</span>
+                  </h4>
+                </div>
+
+                <Image src="/rating.png" width={96} height={16} alt="test" />
+              </AvatarAndRating>
+
+              <p>
+                Nec tempor nunc in egestas. Euismod nisi eleifend at et in
+                sagittis.
+              </p>
+            </RatingCard>
+
+            <RatingCard>
+              <AvatarAndRating>
+                <div>
+                  <Image src="/avatar.png" height={40} width={40} alt="test" />
+
+                  <h4>
+                    Brandon Botosh
+                    <span>Há 2 dias</span>
+                  </h4>
+                </div>
+
+                <Image src="/rating.png" width={96} height={16} alt="test" />
+              </AvatarAndRating>
+
+              <p>
+                Nec tempor nunc in egestas. Euismod nisi eleifend at et in
+                sagittis. Penatibus id vestibulum imperdiet a at imperdiet
+                lectus leo. Sit porta eget nec vitae sit vulputate eget
+              </p>
+            </RatingCard>
+
+            <RatingCard>
+              <AvatarAndRating>
+                <div>
+                  <Image src="/avatar.png" height={40} width={40} alt="test" />
+
+                  <h4>
+                    Brandon Botosh
+                    <span>Há 2 dias</span>
+                  </h4>
+                </div>
+
+                <Image src="/rating.png" width={96} height={16} alt="test" />
+              </AvatarAndRating>
+
+              <p>
+                Nec tempor nunc in egestas. Euismod nisi eleifend at et in
+                sagittis. Penatibus id vestibulum imperdiet a at imperdiet
+                lectus leo. Sit porta eget nec vitae sit vulputate eget
+              </p>
+            </RatingCard>
+          </RatingContent>
+        </RatingContainer>
       </Content>
     </Dialog.Portal>
   )

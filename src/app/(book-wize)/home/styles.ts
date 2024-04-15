@@ -10,20 +10,6 @@ export const HomeContainer = styled.div`
 
 export const MainContainer = styled.main`
   width: 38rem;
-
-  & > h1 {
-    display: flex;
-    align-items: center;
-    gap: ${(props) => props.theme.space[3]};
-    color: ${(props) => props.theme.colors.gray[100]};
-    font-size: ${(props) => props.theme.fontSizes['2xl']};
-    line-height: ${(props) => props.theme.lineHeights.short};
-    font-weight: ${(props) => props.theme.fontWeights.bold};
-  }
-
-  h1 > svg {
-    color: ${(props) => props.theme.colors.green[100]};
-  }
 `
 
 export const LastReadingContainer = styled.section`
@@ -64,7 +50,7 @@ export const SeeAllContainer = styled.div`
 export const LastReadingCard = styled.div`
   border-radius: ${(props) => props.theme.radii.md};
   margin-top: ${(props) => props.theme.space[4]};
-  padding: ${(props) => props.theme.space[4]};
+  padding: ${(props) => props.theme.space[6]};
   display: flex;
   gap: ${(props) => props.theme.space[4]};
   background-color: ${(props) => props.theme.colors.gray[600]};
@@ -87,7 +73,7 @@ export const LastReadingInformation = styled.div`
   }
 
   div > div:nth-child(2) {
-    margin-top: ${(props) => props.theme.space[2]};
+    margin-top: ${(props) => props.theme.space[3]};
     height: 2.75rem;
 
     & > h4 {
@@ -101,22 +87,6 @@ export const LastReadingInformation = styled.div`
       color: ${(props) => props.theme.colors.gray[400]};
       line-height: ${(props) => props.theme.lineHeights.base};
       font-size: ${(props) => props.theme.fontSizes.sm};
-    }
-  }
-
-  div > div:nth-child(3) {
-    margin-top: ${(props) => props.theme.space[6]};
-
-    & > p {
-      color: ${(props) => props.theme.colors.gray[300]};
-      font-size: ${(props) => props.theme.fontSizes.sm};
-      line-height: ${(props) => props.theme.lineHeights.base};
-
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
   }
 `
@@ -135,7 +105,7 @@ export const RecentReviewCard = styled.div`
   border-radius: ${(props) => props.theme.radii.md};
   background-color: ${(props) => props.theme.colors.gray[700]};
   margin-top: ${(props) => props.theme.space[4]};
-  padding: ${(props) => props.theme.space[4]};
+  padding: ${(props) => props.theme.space[6]};
 `
 
 export const RecentReviewInformation = styled.div`
@@ -159,26 +129,10 @@ export const RecentReviewInformation = styled.div`
       font-size: ${(props) => props.theme.fontSizes.sm};
     }
   }
-
-  div > div:nth-child(2) {
-    margin-top: ${(props) => props.theme.space[6]};
-
-    & > p {
-      color: ${(props) => props.theme.colors.gray[300]};
-      font-size: ${(props) => props.theme.fontSizes.sm};
-      line-height: ${(props) => props.theme.lineHeights.short};
-
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 4;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-  }
 `
 
 export const PopularBookContainer = styled.aside`
-  width: 20.25rem;
+  width: 23rem;
   margin-top: 4.625rem;
   margin-left: 4rem;
   line-height: ${(props) => props.theme.lineHeights.base};
@@ -187,7 +141,7 @@ export const PopularBookCard = styled.div`
   border-radius: ${(props) => props.theme.radii.md};
   background-color: ${(props) => props.theme.colors.gray[700]};
   margin-top: ${(props) => props.theme.space[4]};
-  padding: ${(props) => props.theme.space[4]};
+  padding: 16px 20px;
   display: flex;
   gap: ${(props) => props.theme.space[4]};
 `
@@ -218,5 +172,6 @@ export const PopularBookInformation = styled.div`
     color: ${(props) => props.theme.colors.gray[400]};
     line-height: ${(props) => props.theme.lineHeights.base};
     font-size: ${(props) => props.theme.fontSizes.sm};
+    font-weight: ${(props) => props.theme.fontWeights.regular};
   }
 `

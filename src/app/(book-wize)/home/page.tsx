@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import { CaretRight } from '@phosphor-icons/react/dist/ssr/CaretRight'
 import { ChartLineUp } from '@phosphor-icons/react/dist/ssr/ChartLineUp'
+import { AvatarAndRating } from '@/app/components/avatar-and-rating/styles'
+import { NavegationRouteTitle } from '@/app/components/navegation-route-title/styles'
 import {
   HomeContainer,
   LastReadingCard,
@@ -15,15 +17,15 @@ import {
   RecentReviewInformation,
   SeeAllContainer,
 } from './styles'
-import { AvatarAndRating } from '@/app/components/avatar-and-rating/styles'
+import { SummaryBook } from '@/app/components/summary-book/styles'
 
 export default function Home() {
   return (
     <HomeContainer>
       <MainContainer>
-        <h1>
+        <NavegationRouteTitle>
           <ChartLineUp size={32} /> Início
-        </h1>
+        </NavegationRouteTitle>
 
         <LastReadingContainer>
           <SeeAllContainer>
@@ -48,7 +50,7 @@ export default function Home() {
                   <p>Aditya Bhargava</p>
                 </div>
 
-                <div>
+                <SummaryBook $lineClamp={2}>
                   <p>
                     test test test test test test test test test test test test
                     test test test test test test test test test test test test
@@ -57,7 +59,7 @@ export default function Home() {
                     test test test test test test test test test test test test
                     test test test test test test test test
                   </p>
-                </div>
+                </SummaryBook>
               </div>
             </LastReadingInformation>
           </LastReadingCard>
@@ -89,7 +91,7 @@ export default function Home() {
                   <p>J.R.R Tolkien</p>
                 </div>
 
-                <div>
+                <SummaryBook $lineClamp={4}>
                   <p>
                     test test test test test test test test test test test test
                     test test test test test test test test test test test test
@@ -98,7 +100,7 @@ export default function Home() {
                     test test test test test test test test test test test test
                     test test test test test test test test
                   </p>
-                </div>
+                </SummaryBook>
               </div>
             </RecentReviewInformation>
           </RecentReviewCard>
@@ -126,7 +128,7 @@ export default function Home() {
                   <p>J.R.R Tolkien</p>
                 </div>
 
-                <div>
+                <SummaryBook $lineClamp={4}>
                   <p>
                     test test test test test test test test test test test test
                     test test test test test test test test test test test test
@@ -135,7 +137,7 @@ export default function Home() {
                     test test test test test test test test test test test test
                     test test test test test test test test
                   </p>
-                </div>
+                </SummaryBook>
               </div>
             </RecentReviewInformation>
           </RecentReviewCard>

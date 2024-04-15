@@ -18,8 +18,9 @@ export const Content = styled(Dialog.Content)`
   right: 0;
   width: 41.25rem;
   background-color: ${(props) => props.theme.colors.gray[800]};
-  padding: 4rem 3rem;
+  padding: 4rem 3rem 2rem;
   overflow-y: auto;
+  height: 100%;
 `
 
 export const CloseButton = styled(Dialog.Close)`
@@ -44,7 +45,7 @@ export const BookInformationContent = styled.div`
   gap: ${(props) => props.theme.space[8]};
 
   div > div:nth-child(1) {
-    height: 84px;
+    height: 5.25rem;
 
     & > h4 {
       font-size: ${(props) => props.theme.fontSizes.lg};
@@ -114,7 +115,6 @@ export const RateButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid red;
 
   & > span {
     color: ${(props) => props.theme.colors.gray[200]};
@@ -140,7 +140,6 @@ export const RateButtonContainer = styled.div`
 `
 
 export const RatingContent = styled.div`
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
   gap: ${(props) => props.theme.space[3]};
@@ -148,7 +147,6 @@ export const RatingContent = styled.div`
 `
 
 export const RatingCard = styled.div`
-  border: 1px solid red;
   background-color: ${(props) => props.theme.colors.gray[700]};
   border-radius: ${(props) => props.theme.radii.md};
   padding: 24px;

@@ -5,6 +5,12 @@ import { BookOpen } from '@phosphor-icons/react/dist/ssr/BookOpen'
 import { Books } from '@phosphor-icons/react/dist/ssr/Books'
 import { UserList } from '@phosphor-icons/react/dist/ssr/UserList'
 import { BookmarkSimple } from '@phosphor-icons/react/dist/ssr/BookmarkSimple'
+import { NavegationRouteTitle } from '@/app/components/navegation-route-title/styles'
+import { SummaryBook } from '@/app/components/summary-book/styles'
+import {
+  SearchInput,
+  SearchInputSubmit,
+} from '@/app/components/search-input/styles'
 import {
   AvatarContainer,
   LineSeparation,
@@ -22,13 +28,15 @@ export default function Profile() {
   return (
     <ProfileContainer>
       <MainContainer>
-        <h1>
+        <NavegationRouteTitle>
           <User size={32} /> Perfil
-        </h1>
+        </NavegationRouteTitle>
 
         <SearchReviewedBookForm>
-          <input type="text" placeholder="Buscar livro avaliado" />
-          <button type="submit">{<MagnifyingGlass size={24} />}</button>
+          <SearchInput type="text" placeholder="Buscar livro avaliado" />
+          <SearchInputSubmit type="submit">
+            <MagnifyingGlass size={24} />
+          </SearchInputSubmit>
         </SearchReviewedBookForm>
 
         <ReviewedBookContainer>
@@ -48,12 +56,14 @@ export default function Profile() {
               </div>
             </ReviewedBookInformation>
 
-            <p>
-              aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa
-              aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa
-              aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa
-              aaa aaa aaa aaa
-            </p>
+            <SummaryBook $lineClamp={7}>
+              <p>
+                aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa
+                aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa
+                aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa
+                aaa aaa aaa aaa
+              </p>
+            </SummaryBook>
           </ReviewedBookCard>
         </ReviewedBookContainer>
 
@@ -74,12 +84,14 @@ export default function Profile() {
               </div>
             </ReviewedBookInformation>
 
-            <p>
-              aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa
-              aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa
-              aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa
-              aaa aaa aaa aaa
-            </p>
+            <SummaryBook $lineClamp={7}>
+              <p>
+                aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa
+                aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa
+                aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa
+                aaa aaa aaa aaa
+              </p>
+            </SummaryBook>
           </ReviewedBookCard>
         </ReviewedBookContainer>
       </MainContainer>

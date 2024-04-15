@@ -1,9 +1,14 @@
 'use client'
 
 import Image from 'next/image'
+import * as Dialog from '@radix-ui/react-dialog'
+import { BookDetailsModal } from '@/app/components/book-details-modal'
 import { Binoculars } from '@phosphor-icons/react/dist/ssr/Binoculars'
 import { MagnifyingGlass } from '@phosphor-icons/react/dist/ssr/MagnifyingGlass'
-import * as Dialog from '@radix-ui/react-dialog'
+import {
+  SearchInput,
+  SearchInputSubmit,
+} from '@/app/components/search-input/styles'
 import {
   BookCard,
   BookCategoryContainer,
@@ -13,19 +18,21 @@ import {
   MainContainer,
   SearchBookForm,
 } from './styles'
-import BookDetailsModal from '@/app/components/book-details-modal'
+import { NavegationRouteTitle } from '@/app/components/navegation-route-title/styles'
 
 export default function Explore() {
   return (
     <ExploreContainer>
       <MainContainer>
         <SearchBookForm>
-          <h1>
+          <NavegationRouteTitle>
             <Binoculars size={32} /> Explorar
-          </h1>
+          </NavegationRouteTitle>
 
-          <input placeholder="Buscar livro ou autor" />
-          <button type="submit">{<MagnifyingGlass size={24} />}</button>
+          <SearchInput placeholder="Buscar livro ou autor" />
+          <SearchInputSubmit type="submit">
+            <MagnifyingGlass size={24} />
+          </SearchInputSubmit>
         </SearchBookForm>
 
         <BookCategoryContainer>
