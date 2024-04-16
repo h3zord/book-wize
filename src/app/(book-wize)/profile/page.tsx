@@ -20,6 +20,7 @@ import {
   ProfileInformation,
   ReviewedBookCard,
   ReviewedBookContainer,
+  ReviewedBookContent,
   ReviewedBookInformation,
   SearchReviewedBookForm,
 } from './styles'
@@ -40,59 +41,61 @@ export default function Profile() {
         </SearchReviewedBookForm>
 
         <ReviewedBookContainer>
-          <span>Há 2 dias</span>
+          <ReviewedBookContent>
+            <span>Há 2 dias</span>
 
-          <ReviewedBookCard>
-            <ReviewedBookInformation>
-              <Image src="/book.png" width={98} height={134} alt="test" />
+            <ReviewedBookCard>
+              <ReviewedBookInformation>
+                <Image src="/book.png" width={98} height={134} alt="test" />
 
-              <div>
                 <div>
-                  <h3>14 Hábitos de Desenvolvedores Altamente Produtivos</h3>
-                  <p>Aditya Bhargava</p>
+                  <div>
+                    <h3>14 Hábitos de Desenvolvedores Altamente Produtivos</h3>
+                    <p>Aditya Bhargava</p>
+                  </div>
+
+                  <Image src="/rating.png" width={96} height={16} alt="test" />
                 </div>
+              </ReviewedBookInformation>
 
-                <Image src="/rating.png" width={96} height={16} alt="test" />
-              </div>
-            </ReviewedBookInformation>
+              <SummaryBook $lineClamp={7}>
+                <p>
+                  aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa
+                  aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa
+                  aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa
+                  aaa aaa aaa aaa aaa aaa aaa
+                </p>
+              </SummaryBook>
+            </ReviewedBookCard>
+          </ReviewedBookContent>
 
-            <SummaryBook $lineClamp={7}>
-              <p>
-                aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa
-                aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa
-                aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa
-                aaa aaa aaa aaa
-              </p>
-            </SummaryBook>
-          </ReviewedBookCard>
-        </ReviewedBookContainer>
+          <ReviewedBookContent>
+            <span>Há 2 dias</span>
 
-        <ReviewedBookContainer>
-          <span>Há 2 dias</span>
+            <ReviewedBookCard>
+              <ReviewedBookInformation>
+                <Image src="/book.png" width={98} height={134} alt="test" />
 
-          <ReviewedBookCard>
-            <ReviewedBookInformation>
-              <Image src="/book.png" width={98} height={134} alt="test" />
-
-              <div>
                 <div>
-                  <h3>Entendendo Algoritmos</h3>
-                  <p>Aditya Bhargava</p>
+                  <div>
+                    <h3>14 Hábitos de Desenvolvedores Altamente Produtivos</h3>
+                    <p>Aditya Bhargava</p>
+                  </div>
+
+                  <Image src="/rating.png" width={96} height={16} alt="test" />
                 </div>
+              </ReviewedBookInformation>
 
-                <Image src="/rating.png" width={96} height={16} alt="test" />
-              </div>
-            </ReviewedBookInformation>
-
-            <SummaryBook $lineClamp={7}>
-              <p>
-                aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa
-                aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa
-                aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa
-                aaa aaa aaa aaa
-              </p>
-            </SummaryBook>
-          </ReviewedBookCard>
+              <SummaryBook $lineClamp={7}>
+                <p>
+                  aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa
+                  aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa
+                  aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa
+                  aaa aaa aaa aaa aaa aaa aaa
+                </p>
+              </SummaryBook>
+            </ReviewedBookCard>
+          </ReviewedBookContent>
         </ReviewedBookContainer>
       </MainContainer>
 

@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import SignInOptions from './sign-in-options'
+import { SignInOptions } from '../../components/sign-in-options'
 import { LoginContainer, SignInContainer, WelcomeText } from './styles'
 
 export default function Login() {

@@ -1,14 +1,13 @@
 'use client'
 
 import { signIn } from 'next-auth/react'
-import { SignInContent } from './styles'
+import { SignInButton, SignInContent } from './styles'
 import { FcGoogle } from 'react-icons/fc'
 import { FaGithub } from 'react-icons/fa6'
 import { PiRocketLaunchLight } from 'react-icons/pi'
 import { useRouter } from 'next/navigation'
-import { SignInButton } from '@/app/components/sign-in-button/styles'
 
-export default function SignInOptions() {
+export function SignInOptions() {
   const router = useRouter()
 
   function LoginWithGoogle() {

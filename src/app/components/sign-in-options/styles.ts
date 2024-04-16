@@ -2,10 +2,15 @@
 
 import styled from 'styled-components'
 
+export const SignInContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${(props) => props.theme.space[4]};
+`
 export const SignInButton = styled.button`
   all: unset;
-  width: 21.75rem;
-  padding: ${(props) => props.theme.space[6]};
+  width: 20.25rem;
+  padding: ${(props) => props.theme.space[5]} ${(props) => props.theme.space[6]};
   display: flex;
   align-items: center;
   gap: ${(props) => props.theme.space[5]};

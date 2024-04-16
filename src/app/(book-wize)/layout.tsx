@@ -26,7 +26,7 @@ export default function CustomerLayout({
           alt="sidebar logo"
         />
         <NavigationOptions>
-          <NavigationButton>
+          <NavigationButton $isSelected>
             <ChartLineUp size={24} /> Início
           </NavigationButton>
 

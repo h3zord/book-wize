@@ -18,7 +18,7 @@ export const Content = styled(Dialog.Content)`
   right: 0;
   width: 41.25rem;
   background-color: ${(props) => props.theme.colors.gray[800]};
-  padding: 4rem 3rem 2rem;
+  padding: 3rem 2rem 1rem;
   overflow-y: auto;
   height: 100%;
 `
@@ -108,7 +108,7 @@ export const CategoryAndPageNumber = styled.div`
 `
 
 export const RatingContainer = styled.section`
-  margin-top: ${(props) => props.theme.space[10]};
+  margin-top: ${(props) => props.theme.space[8]};
 `
 
 export const RateButtonContainer = styled.div`
@@ -159,5 +159,64 @@ export const RatingCard = styled.div`
     line-height: ${(props) => props.theme.lineHeights.base};
     font-size: ${(props) => props.theme.fontSizes.sm};
     font-weight: ${(props) => props.theme.fontWeights.regular};
+  }
+`
+
+export const BookRatingForm = styled.form`
+  & > textarea {
+    background-color: ${(props) => props.theme.colors.gray[800]};
+    font-size: ${(props) => props.theme.fontSizes.sm};
+    line-height: ${(props) => props.theme.lineHeights.base};
+    color: ${(props) => props.theme.colors.gray[200]};
+    font-family: ${(props) => props.theme.fonts.default};
+    border: 1px solid ${(props) => props.theme.colors.gray[500]};
+    border-radius: ${(props) => props.theme.radii.sm};
+    padding: 14px 20px;
+    height: 10.25rem;
+    width: 100%;
+    resize: none;
+
+    &::placeholder {
+      font-size: ${(props) => props.theme.fontSizes.sm};
+      line-height: ${(props) => props.theme.lineHeights.base};
+      color: ${(props) => props.theme.colors.gray[400]};
+    }
+
+    &:focus {
+      outline: 0;
+      box-shadow: 0 0 0 1px ${(props) => props.theme.colors.green[200]};
+    }
+  }
+
+  & > div {
+    display: flex;
+    gap: ${(props) => props.theme.space[2]};
+    margin-top: ${(props) => props.theme.space[3]};
+    width: 5.5rem;
+    margin-left: auto;
+  }
+
+  div > button {
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+    border-radius: ${(props) => props.theme.radii.sm};
+    padding: ${(props) => props.theme.space[2]};
+    background-color: ${(props) => props.theme.colors.gray[600]};
+    cursor: pointer;
+
+    &:hover {
+      background-color: ${(props) => props.theme.colors.gray[500]};
+    }
+  }
+
+  div > button:nth-child(1) {
+    color: ${(props) => props.theme.colors.purple[100]};
+  }
+
+  div > button:nth-child(2) {
+    color: ${(props) => props.theme.colors.green[100]};
   }
 `

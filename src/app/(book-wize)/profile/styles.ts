@@ -26,6 +26,12 @@ export const ReviewedBookContainer = styled.section`
   display: flex;
   flex-direction: column;
   gap: ${(props) => props.theme.space[6]};
+`
+
+export const ReviewedBookContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${(props) => props.theme.space[2]};
 
   & > span {
     font-size: ${(props) => props.theme.fontSizes.sm};
@@ -35,7 +41,6 @@ export const ReviewedBookContainer = styled.section`
 `
 
 export const ReviewedBookCard = styled.div`
-  margin-top: ${(props) => props.theme.space[2]};
   background-color: ${(props) => props.theme.colors.gray[700]};
   border-radius: ${(props) => props.theme.radii.md};
   padding: ${(props) => props.theme.space[6]};

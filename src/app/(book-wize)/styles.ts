@@ -68,6 +68,8 @@ export const LoginButton = styled.button`
   align-items: center;
   justify-content: center;
   gap: ${(props) => props.theme.space[2]};
+  padding: 4px 8px;
+  border-radius: ${(props) => props.theme.radii.sm};
   cursor: pointer;
 
   & > svg {
@@ -75,6 +77,6 @@ export const LoginButton = styled.button`
   }
 
   &:hover {
-    opacity: 0.8;
+    background-color: rgba(230, 232, 242, 4%);
   }
 `

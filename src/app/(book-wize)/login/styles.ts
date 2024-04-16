@@ -19,7 +19,7 @@ export const SignInContainer = styled.section`
 `
 
 export const WelcomeText = styled.div`
-  width: 24.75rem;
+  width: 23.25rem;
 
   & > h2 {
     font-size: ${(props) => props.theme.fontSizes['2xl']};
@@ -32,31 +32,5 @@ export const WelcomeText = styled.div`
     font-size: ${(props) => props.theme.fontSizes.md};
     line-height: ${(props) => props.theme.lineHeights.base};
     color: ${(props) => props.theme.colors.gray[200]};
-  }
-`
-
-export const SignInContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: ${(props) => props.theme.space[4]};
-`
-
-export const SignInButton = styled.button`
-  all: unset;
-  width: 21.75rem;
-  padding: ${(props) => props.theme.space[6]};
-  display: flex;
-  align-items: center;
-  gap: ${(props) => props.theme.space[5]};
-  background-color: ${(props) => props.theme.colors.gray[600]};
-  border-radius: ${(props) => props.theme.radii.md};
-  font-size: ${(props) => props.theme.fontSizes.lg};
-  font-weight: ${(props) => props.theme.fontWeights.bold};
-  color: ${(props) => props.theme.colors.gray[200]};
-  line-height: ${(props) => props.theme.lineHeights.base};
-  cursor: pointer;
-
-  &:hover {
-    background-color: ${(props) => props.theme.colors.gray[500]};
   }
 `

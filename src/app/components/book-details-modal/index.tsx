@@ -2,11 +2,13 @@ import * as Dialog from '@radix-ui/react-dialog'
 import Image from 'next/image'
 import { X } from '@phosphor-icons/react/dist/ssr/X'
 import { BookmarkSimple } from '@phosphor-icons/react/dist/ssr/BookmarkSimple'
+import { Check } from '@phosphor-icons/react/dist/ssr/Check'
 import { BookOpen } from '@phosphor-icons/react/dist/ssr/BookOpen'
 import { AvatarAndRating } from '../avatar-and-rating/styles'
 import {
   BookInformationContainer,
   BookInformationContent,
+  BookRatingForm,
   CategoryAndPageNumber,
   CloseButton,
   Content,
@@ -74,6 +76,35 @@ export function BookDetailsModal() {
           </RateButtonContainer>
 
           <RatingContent>
+            <RatingCard>
+              <AvatarAndRating>
+                <div>
+                  <Image src="/avatar.png" height={40} width={40} alt="test" />
+                  <h4>Brandon Botosh</h4>
+                </div>
+
+                <Image src="/rating.png" width={96} height={16} alt="test" />
+              </AvatarAndRating>
+
+              <BookRatingForm>
+                <textarea
+                  placeholder="Escreva sua avaliação"
+                  maxLength={450}
+                  required
+                />
+
+                <div>
+                  <button type="reset">
+                    <X size={24} />
+                  </button>
+
+                  <button type="submit">
+                    <Check size={24} />
+                  </button>
+                </div>
+              </BookRatingForm>
+            </RatingCard>
+
             <RatingCard>
               <AvatarAndRating>
                 <div>
