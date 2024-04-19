@@ -32,6 +32,10 @@ export const CloseButton = styled(Dialog.Close)`
   line-height: 0;
   cursor: pointer;
   color: ${(props) => props.theme.colors.gray[400]};
+
+  &:hover {
+    color: ${(props) => props.theme.colors.gray[200]};
+  }
 `
 
 export const BookInformationContainer = styled.section`
@@ -130,7 +134,7 @@ export const RateButtonContainer = styled.div`
     border: none;
     color: ${(props) => props.theme.colors.purple[100]};
     font-weight: ${(props) => props.theme.fontWeights.bold};
-    padding: 0 ${(props) => props.theme.space[2]};
+    padding: 4px 8px;
     cursor: pointer;
 
     &:hover {

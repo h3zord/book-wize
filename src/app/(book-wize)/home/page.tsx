@@ -11,9 +11,11 @@ import {
   MainContainer,
   PopularBookCard,
   PopularBookContainer,
+  PopularBookContent,
   PopularBookInformation,
   RecentReviewCard,
   RecentReviewContainer,
+  RecentReviewContent,
   RecentReviewInformation,
   SeeAllContainer,
 } from './styles'
@@ -68,79 +70,83 @@ export default function Home() {
         <RecentReviewContainer>
           <p>Avaliações mais recentes</p>
 
-          <RecentReviewCard>
-            <AvatarAndRating>
-              <div>
-                <Image src="/avatar.png" height={40} width={40} alt="test" />
-
-                <h4>
-                  Jaxson Dias
-                  <span>Hoje</span>
-                </h4>
-              </div>
-
-              <Image src="/rating.png" width={96} height={16} alt="test" />
-            </AvatarAndRating>
-
-            <RecentReviewInformation>
-              <Image src="/book.png" height={152} width={108} alt="test" />
-
-              <div>
+          <RecentReviewContent>
+            <RecentReviewCard>
+              <AvatarAndRating>
                 <div>
-                  <h4>O Hobbit</h4>
-                  <p>J.R.R Tolkien</p>
+                  <Image src="/avatar.png" height={40} width={40} alt="test" />
+
+                  <h4>
+                    Jaxson Dias
+                    <span>Hoje</span>
+                  </h4>
                 </div>
 
-                <SummaryBook $lineClamp={4}>
-                  <p>
-                    test test test test test test test test test test test test
-                    test test test test test test test test test test test test
-                    test test test test test test test test test test test test
-                    test test test test test testtest test test test test test
-                    test test test test test test test test test test test test
-                    test test test test test test test test
-                  </p>
-                </SummaryBook>
-              </div>
-            </RecentReviewInformation>
-          </RecentReviewCard>
+                <Image src="/rating.png" width={96} height={16} alt="test" />
+              </AvatarAndRating>
 
-          <RecentReviewCard>
-            <AvatarAndRating>
-              <div>
-                <Image src="/avatar.png" height={40} width={40} alt="test" />
+              <RecentReviewInformation>
+                <Image src="/book.png" height={152} width={108} alt="test" />
 
-                <h4>
-                  Jaxson Dias
-                  <span>Hoje</span>
-                </h4>
-              </div>
-
-              <Image src="/rating.png" width={96} height={16} alt="test" />
-            </AvatarAndRating>
-
-            <RecentReviewInformation>
-              <Image src="/book.png" height={152} width={108} alt="test" />
-
-              <div>
                 <div>
-                  <h4>O Hobbit</h4>
-                  <p>J.R.R Tolkien</p>
+                  <div>
+                    <h4>O Hobbit</h4>
+                    <p>J.R.R Tolkien</p>
+                  </div>
+
+                  <SummaryBook $lineClamp={4}>
+                    <p>
+                      test test test test test test test test test test test
+                      test test test test test test test test test test test
+                      test test test test test test test test test test test
+                      test test test test test test test test testtest test test
+                      test test test test test test test test test test test
+                      test test test test test test test test test test test
+                      test
+                    </p>
+                  </SummaryBook>
+                </div>
+              </RecentReviewInformation>
+            </RecentReviewCard>
+
+            <RecentReviewCard>
+              <AvatarAndRating>
+                <div>
+                  <Image src="/avatar.png" height={40} width={40} alt="test" />
+
+                  <h4>
+                    Jaxson Dias
+                    <span>Hoje</span>
+                  </h4>
                 </div>
 
-                <SummaryBook $lineClamp={4}>
-                  <p>
-                    test test test test test test test test test test test test
-                    test test test test test test test test test test test test
-                    test test test test test test test test test test test test
-                    test test test test test testtest test test test test test
-                    test test test test test test test test test test test test
-                    test test test test test test test test
-                  </p>
-                </SummaryBook>
-              </div>
-            </RecentReviewInformation>
-          </RecentReviewCard>
+                <Image src="/rating.png" width={96} height={16} alt="test" />
+              </AvatarAndRating>
+
+              <RecentReviewInformation>
+                <Image src="/book.png" height={152} width={108} alt="test" />
+
+                <div>
+                  <div>
+                    <h4>O Hobbit</h4>
+                    <p>J.R.R Tolkien</p>
+                  </div>
+
+                  <SummaryBook $lineClamp={4}>
+                    <p>
+                      test test test test test test test test test test test
+                      test test test test test test test test test test test
+                      test test test test test test test test test test test
+                      test test test test test test test test testtest test test
+                      test test test test test test test test test test test
+                      test test test test test test test test test test test
+                      test
+                    </p>
+                  </SummaryBook>
+                </div>
+              </RecentReviewInformation>
+            </RecentReviewCard>
+          </RecentReviewContent>
         </RecentReviewContainer>
       </MainContainer>
 
@@ -152,31 +158,34 @@ export default function Home() {
           </button>
         </SeeAllContainer>
 
-        <PopularBookCard>
-          <Image src="/book.png" width={64} height={94} alt="test" />
+        <PopularBookContent>
+          <PopularBookCard>
+            <PopularBookInformation>
+              <Image src="/book.png" width={64} height={94} alt="test" />
+              <div>
+                <div>
+                  <h4>14 Hábitos de Desenvolvedores Altamente Produtivos</h4>
+                  <p>Aditya Bhargava</p>
+                </div>
+                <Image src="/rating.png" width={96} height={16} alt="test" />
+              </div>
+            </PopularBookInformation>
+          </PopularBookCard>
 
-          <PopularBookInformation>
-            <div>
-              <h4>14 Hábitos de Desenvolvedores Altamente Produtivos</h4>
-              <p>Aditya Bhargava</p>
-            </div>
+          <PopularBookCard>
+            <PopularBookInformation>
+              <Image src="/book.png" width={64} height={94} alt="test" />
+              <div>
+                <div>
+                  <h4>Entendendo Algoritmos</h4>
+                  <p>Aditya Bhargava</p>
+                </div>
 
-            <Image src="/rating.png" width={96} height={16} alt="test" />
-          </PopularBookInformation>
-        </PopularBookCard>
-
-        <PopularBookCard>
-          <Image src="/book.png" width={64} height={94} alt="test" />
-
-          <PopularBookInformation>
-            <div>
-              <h4>Entendendo Algoritmos</h4>
-              <p>Aditya Bhargava</p>
-            </div>
-
-            <Image src="/rating.png" width={96} height={16} alt="test" />
-          </PopularBookInformation>
-        </PopularBookCard>
+                <Image src="/rating.png" width={96} height={16} alt="test" />
+              </div>
+            </PopularBookInformation>
+          </PopularBookCard>
+        </PopularBookContent>
       </PopularBookContainer>
     </HomeContainer>
   )

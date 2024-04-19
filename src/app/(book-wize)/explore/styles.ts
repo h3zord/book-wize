@@ -27,14 +27,24 @@ export const BookCategoryContainer = styled.section`
   gap: ${(props) => props.theme.space[3]};
 `
 
-export const BookCategoryContent = styled.div`
+export const BookCategoryContent = styled.div<{ $isSelected?: boolean }>`
   padding: 4px 16px;
-  color: ${(props) => props.theme.colors.purple[100]};
-  background-color: transparent;
-  border: 1.5px solid ${(props) => props.theme.colors.purple[100]};
   border-radius: ${(props) => props.theme.radii.full};
   font-size: ${(props) => props.theme.fontSizes.md};
   line-height: ${(props) => props.theme.lineHeights.base};
+
+  border: ${(props) =>
+    props.$isSelected
+      ? '1.5px solid transparent'
+      : `1.5px solid ${props.theme.colors.purple[100]}`};
+
+  color: ${(props) =>
+    props.$isSelected
+      ? props.theme.colors.gray[100]
+      : props.theme.colors.purple[100]};
+
+  background-color: ${(props) =>
+    props.$isSelected ? props.theme.colors.purple[200] : 'transparent'};
 
   &:hover {
     background-color: ${(props) => props.theme.colors.purple[200]};
@@ -52,11 +62,15 @@ export const BookListContainer = styled.section`
 
 export const BookCard = styled.div`
   padding: 16px 20px;
-  display: flex;
-  gap: ${(props) => props.theme.space[5]};
   background-color: ${(props) => props.theme.colors.gray[700]};
   border-radius: ${(props) => props.theme.radii.md};
   width: 20rem;
+`
+
+export const BookCardInformation = styled.div`
+  display: flex;
+  gap: ${(props) => props.theme.space[5]};
+  cursor: pointer;
 
   div > img {
     margin-top: 4rem;

@@ -14,7 +14,6 @@ export const MainContainer = styled.main`
 
 export const LastReadingContainer = styled.section`
   margin-top: ${(props) => props.theme.space[10]};
-  line-height: ${(props) => props.theme.lineHeights.base};
 `
 
 export const SeeAllContainer = styled.div`
@@ -22,6 +21,8 @@ export const SeeAllContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   font-size: ${(props) => props.theme.fontSizes.sm};
+  margin-bottom: ${(props) => props.theme.space[4]};
+  line-height: ${(props) => props.theme.lineHeights.base};
 
   & > p {
     color: ${(props) => props.theme.colors.gray[100]};
@@ -38,7 +39,7 @@ export const SeeAllContainer = styled.div`
     align-items: center;
     justify-content: center;
     gap: ${(props) => props.theme.space[1]};
-    padding-left: ${(props) => props.theme.space[2]};
+    padding: 4px 8px;
     cursor: pointer;
 
     &:hover {
@@ -49,16 +50,13 @@ export const SeeAllContainer = styled.div`
 
 export const LastReadingCard = styled.div`
   border-radius: ${(props) => props.theme.radii.md};
-  margin-top: ${(props) => props.theme.space[4]};
-  padding: ${(props) => props.theme.space[6]};
-  display: flex;
-  gap: ${(props) => props.theme.space[4]};
   background-color: ${(props) => props.theme.colors.gray[600]};
+  padding: 24px;
 `
 
 export const LastReadingInformation = styled.div`
   display: flex;
-  gap: ${(props) => props.theme.space[5]};
+  gap: ${(props) => props.theme.space[6]};
 
   div > div:nth-child(1) {
     display: flex;
@@ -98,14 +96,20 @@ export const RecentReviewContainer = styled.section`
     color: ${(props) => props.theme.colors.gray[100]};
     font-size: ${(props) => props.theme.fontSizes.sm};
     line-height: ${(props) => props.theme.lineHeights.base};
+    margin-bottom: ${(props) => props.theme.space[4]};
   }
+`
+
+export const RecentReviewContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${(props) => props.theme.space[3]};
 `
 
 export const RecentReviewCard = styled.div`
   border-radius: ${(props) => props.theme.radii.md};
   background-color: ${(props) => props.theme.colors.gray[700]};
-  margin-top: ${(props) => props.theme.space[4]};
-  padding: ${(props) => props.theme.space[6]};
+  padding: 24px;
 `
 
 export const RecentReviewInformation = styled.div`
@@ -135,24 +139,29 @@ export const PopularBookContainer = styled.aside`
   width: 23rem;
   margin-top: 4.625rem;
   margin-left: 4rem;
-  line-height: ${(props) => props.theme.lineHeights.base};
 `
+export const PopularBookContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${(props) => props.theme.space[3]};
+`
+
 export const PopularBookCard = styled.div`
   border-radius: ${(props) => props.theme.radii.md};
   background-color: ${(props) => props.theme.colors.gray[700]};
-  margin-top: ${(props) => props.theme.space[4]};
   padding: 16px 20px;
-  display: flex;
-  gap: ${(props) => props.theme.space[4]};
 `
 
 export const PopularBookInformation = styled.div`
-  & > div {
+  display: flex;
+  gap: ${(props) => props.theme.space[5]};
+
+  div > div {
     height: 4.125rem;
   }
 
-  & > img {
-    margin-top: ${(props) => props.theme.space[1]};
+  div > img {
+    margin-top: ${(props) => props.theme.space[2]};
   }
 
   div > h4 {

@@ -20,20 +20,20 @@ export const NavigationOptions = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: ${(props) => props.theme.space[5]};
+  gap: ${(props) => props.theme.space[7]};
   margin-top: ${(props) => props.theme.space[10]};
   padding-top: ${(props) => props.theme.space[5]};
   width: 100%;
   height: 85%;
 `
 
-export const NavigationButton = styled.button<{ $isSelected?: boolean }>`
+export const NavigationButton = styled.button<{ $isSelected: boolean }>`
   all: unset;
   width: 6rem;
   padding: 0 ${(props) => props.theme.space[3]};
   line-height: ${(props) => props.theme.lineHeights.base};
   background-color: transparent;
-  border: 4px solid transparent;
+  border-left: 4px solid transparent;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -58,7 +58,7 @@ export const NavigationButton = styled.button<{ $isSelected?: boolean }>`
   }
 `
 
-export const LoginButton = styled.button`
+export const LoginButton = styled.button<{ $isLogged?: boolean }>`
   all: unset;
   color: ${(props) => props.theme.colors.gray[200]};
   font-weight: ${(props) => props.theme.fontWeights.bold};
@@ -67,16 +67,23 @@ export const LoginButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: ${(props) => props.theme.space[2]};
+  gap: ${(props) => props.theme.space[3]};
   padding: 4px 8px;
-  border-radius: ${(props) => props.theme.radii.sm};
   cursor: pointer;
 
+  & > img {
+    border-radius: ${(props) => props.theme.radii.full};
+  }
+
   & > svg {
-    color: ${(props) => props.theme.colors.green[100]};
+    color: ${(props) =>
+      props.$isLogged
+        ? props.theme.colors.red[100]
+        : props.theme.colors.green[100]};
   }
 
   &:hover {
-    background-color: rgba(230, 232, 242, 4%);
+    /* background-color: rgba(230, 232, 242, 4%); */
+    color: ${(props) => props.theme.colors.gray[100]};
   }
 `

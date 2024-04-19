@@ -5,12 +5,14 @@ import * as Dialog from '@radix-ui/react-dialog'
 import { BookDetailsModal } from '@/app/components/book-details-modal'
 import { Binoculars } from '@phosphor-icons/react/dist/ssr/Binoculars'
 import { MagnifyingGlass } from '@phosphor-icons/react/dist/ssr/MagnifyingGlass'
+import { NavegationRouteTitle } from '@/app/components/navegation-route-title/styles'
 import {
   SearchInput,
   SearchInputSubmit,
 } from '@/app/components/search-input/styles'
 import {
   BookCard,
+  BookCardInformation,
   BookCategoryContainer,
   BookCategoryContent,
   BookListContainer,
@@ -18,7 +20,6 @@ import {
   MainContainer,
   SearchBookForm,
 } from './styles'
-import { NavegationRouteTitle } from '@/app/components/navegation-route-title/styles'
 
 export default function Explore() {
   return (
@@ -36,7 +37,7 @@ export default function Explore() {
         </SearchBookForm>
 
         <BookCategoryContainer>
-          <BookCategoryContent>Tudo</BookCategoryContent>
+          <BookCategoryContent $isSelected>Tudo</BookCategoryContent>
           <BookCategoryContent>Computação</BookCategoryContent>
           <BookCategoryContent>Educação</BookCategoryContent>
           <BookCategoryContent>Fantasia</BookCategoryContent>
@@ -50,16 +51,25 @@ export default function Explore() {
           <Dialog.Root>
             <Dialog.Trigger asChild>
               <BookCard>
-                <Image src="/book.png" height={152} width={108} alt="test" />
+                <BookCardInformation>
+                  <Image src="/book.png" height={152} width={108} alt="test" />
 
-                <div>
                   <div>
-                    <h4>14 Hábitos de Desenvolvedores Altamente Produtivos</h4>
-                    <p>Zeno Rocha</p>
-                  </div>
+                    <div>
+                      <h4>
+                        14 Hábitos de Desenvolvedores Altamente Produtivos
+                      </h4>
+                      <p>Zeno Rocha</p>
+                    </div>
 
-                  <Image src="/rating.png" width={96} height={16} alt="test" />
-                </div>
+                    <Image
+                      src="/rating.png"
+                      width={96}
+                      height={16}
+                      alt="test"
+                    />
+                  </div>
+                </BookCardInformation>
               </BookCard>
             </Dialog.Trigger>
 

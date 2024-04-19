@@ -5,10 +5,11 @@ import { SignInButton, SignInContent } from './styles'
 import { FcGoogle } from 'react-icons/fc'
 import { FaGithub } from 'react-icons/fa6'
 import { PiRocketLaunchLight } from 'react-icons/pi'
-import { useRouter } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 
 export function SignInOptions() {
   const router = useRouter()
+  const pathname = usePathname()
 
   function LoginWithGoogle() {
     signIn('google', { callbackUrl: '/home' })
@@ -32,10 +33,13 @@ export function SignInOptions() {
         <FaGithub size={32} />
         Entrar com Github
       </SignInButton>
-      <SignInButton onClick={LoginAsGuest}>
-        <PiRocketLaunchLight size={32} color="#8381D9" />
-        Acessar como visitante
-      </SignInButton>
+
+      {pathname === '/' && (
+        <SignInButton onClick={LoginAsGuest}>
+          <PiRocketLaunchLight size={32} color="#8381D9" />
+          Acessar como visitante
+        </SignInButton>
+      )}
     </SignInContent>
   )
 }
