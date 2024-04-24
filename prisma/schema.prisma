@@ -18,6 +18,7 @@ model User {
   accounts Account[]
   sessions Session[]
   ratings  Rating[]
+  readings Reading[]
 
   @@map("users")
 }
@@ -33,6 +34,7 @@ model Book {
 
   categories CategoriesOnBooks[]
   ratings    Rating[]
+  readings   Reading[]
 
   @@map("books")
 }
@@ -46,6 +48,34 @@ model Category {
   @@map("categories")
 }
 
+model Rating {
+  id          String   @id @default(uuid())
+  rate        Int
+  description String
+  created_at  DateTime @default(now())
+  book_id     String
+  user_id     String
+
+  book Book @relation(fields: [book_id], references: [id])
+  user User @relation(fields: [user_id], references: [id])
+
+  @@unique([user_id, book_id])
+  @@map("ratings")
+}
+
+model Reading {
+  id         String   @id @default(uuid())
+  created_at DateTime @default(now())
+  user_id    String
+  book_id    String
+
+  book Book @relation(fields: [book_id], references: [id])
+  user User @relation(fields: [user_id], references: [id])
+
+  @@unique([user_id, book_id])
+  @@map("readings")
+}
+
 model CategoriesOnBooks {
   book_id     String
   category_id String
@@ -54,21 +84,6 @@ model CategoriesOnBooks {
   category Category @relation(fields: [category_id], references: [id])
 
   @@id([book_id, category_id])
-}
-
-model Rating {
-  id          String   @id @default(uuid())
-  rate        Int
-  description String
-  created_at  DateTime @default(now())
-
-  book    Book   @relation(fields: [book_id], references: [id])
-  book_id String
-
-  user    User   @relation(fields: [user_id], references: [id])
-  user_id String
-
-  @@map("ratings")
 }
 
 model Account {
@@ -96,7 +111,8 @@ model Session {
   sessionToken String   @unique @map("session_token")
   userId       String   @map("user_id")
   expires      DateTime
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@map("sessions")
 }

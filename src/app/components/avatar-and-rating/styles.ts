@@ -13,6 +13,10 @@ export const AvatarAndRating = styled.div`
     gap: ${(props) => props.theme.space[4]};
   }
 
+  div > img {
+    border-radius: ${(props) => props.theme.radii.full};
+  }
+
   div > h4 {
     font-size: ${(props) => props.theme.fontSizes.md};
     color: ${(props) => props.theme.colors.gray[100]};

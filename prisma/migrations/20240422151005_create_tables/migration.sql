@@ -26,16 +26,6 @@ CREATE TABLE "categories" (
 );
 
 -- CreateTable
-CREATE TABLE "CategoriesOnBooks" (
-    "book_id" TEXT NOT NULL,
-    "category_id" TEXT NOT NULL,
-
-    PRIMARY KEY ("book_id", "category_id"),
-    CONSTRAINT "CategoriesOnBooks_book_id_fkey" FOREIGN KEY ("book_id") REFERENCES "books" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
-    CONSTRAINT "CategoriesOnBooks_category_id_fkey" FOREIGN KEY ("category_id") REFERENCES "categories" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
-);
-
--- CreateTable
 CREATE TABLE "ratings" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "rate" INTEGER NOT NULL,
@@ -45,6 +35,26 @@ CREATE TABLE "ratings" (
     "user_id" TEXT NOT NULL,
     CONSTRAINT "ratings_book_id_fkey" FOREIGN KEY ("book_id") REFERENCES "books" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
     CONSTRAINT "ratings_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "users" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
+-- CreateTable
+CREATE TABLE "readings" (
+    "id" TEXT NOT NULL PRIMARY KEY,
+    "created_at" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "user_id" TEXT NOT NULL,
+    "book_id" TEXT NOT NULL,
+    CONSTRAINT "readings_book_id_fkey" FOREIGN KEY ("book_id") REFERENCES "books" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
+    CONSTRAINT "readings_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "users" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
+-- CreateTable
+CREATE TABLE "CategoriesOnBooks" (
+    "book_id" TEXT NOT NULL,
+    "category_id" TEXT NOT NULL,
+
+    PRIMARY KEY ("book_id", "category_id"),
+    CONSTRAINT "CategoriesOnBooks_book_id_fkey" FOREIGN KEY ("book_id") REFERENCES "books" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
+    CONSTRAINT "CategoriesOnBooks_category_id_fkey" FOREIGN KEY ("category_id") REFERENCES "categories" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 -- CreateTable
@@ -78,6 +88,12 @@ CREATE UNIQUE INDEX "users_email_key" ON "users"("email");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "categories_name_key" ON "categories"("name");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "ratings_user_id_book_id_key" ON "ratings"("user_id", "book_id");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "readings_user_id_book_id_key" ON "readings"("user_id", "book_id");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "accounts_provider_provider_account_id_key" ON "accounts"("provider", "provider_account_id");

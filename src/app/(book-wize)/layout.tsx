@@ -68,12 +68,14 @@ export default function CustomerLayout({
             <Binoculars size={24} /> Explorar
           </NavigationButton>
 
-          <NavigationButton
-            $isSelected={pathname === '/profile'}
-            onClick={moveToProfile}
-          >
-            <User size={24} /> Perfil
-          </NavigationButton>
+          {session && (
+            <NavigationButton
+              $isSelected={pathname === '/profile'}
+              onClick={moveToProfile}
+            >
+              <User size={24} /> Perfil
+            </NavigationButton>
+          )}
         </NavigationOptions>
 
         {session ? (

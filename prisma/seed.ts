@@ -3,6 +3,7 @@ import { books } from './constants/books'
 import { categories } from './constants/categories'
 import { ratings } from './constants/ratings'
 import { users } from './constants/users'
+import { readings } from './constants/readings'
 
 const prisma = new PrismaClient()
 
@@ -74,11 +75,25 @@ async function main() {
     })
   })
 
+  const readingsSeed = readings.map((reading) => {
+    return prisma.reading.create({
+      data: {
+        user: {
+          connect: { id: reading.user_id },
+        },
+        book: {
+          connect: { id: reading.book_id },
+        },
+      },
+    })
+  })
+
   await prisma.$transaction([
     ...categoriesSeed,
     ...booksSeed,
     ...usersSeed,
     ...ratingsSeed,
+    ...readingsSeed,
   ])
 }
 
