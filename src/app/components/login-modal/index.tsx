@@ -3,9 +3,9 @@
 import * as Dialog from '@radix-ui/react-dialog'
 import { SignInOptions } from '../sign-in-options'
 import { CloseButton, Content, LoginOptionsContainer, Overlay } from './styles'
-import { X } from '@phosphor-icons/react/dist/ssr/X'
 import { ReactNode } from 'react'
 import { usePathname } from 'next/navigation'
+import { X } from '@phosphor-icons/react'
 
 interface LoginModalProps {
   children: ReactNode

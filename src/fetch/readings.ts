@@ -1,12 +1,12 @@
-interface IFetchReadings {
-  id?: string
+interface IFetchReadingsProps {
+  id: string
 }
 
-interface IReadings {
+export interface IReadings {
   id: string
-  created_at: Date
   user_id: string
   book_id: string
+  created_at: Date
   book: {
     name: string
     author: string
@@ -15,12 +15,12 @@ interface IReadings {
   }
 }
 
-export async function fetchReadings({ id }: IFetchReadings) {
+export async function fetchReadings({ id }: IFetchReadingsProps) {
   const data = await fetch(`http://localhost:3000/api/readings/${id}`, {
     cache: 'no-cache',
   })
 
-  const readingsList: IReadings[] = await data.json()
+  const readingsListOrderByDate: IReadings[] = await data.json()
 
-  return { readings: readingsList }
+  return { readings: readingsListOrderByDate }
 }

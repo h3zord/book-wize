@@ -31,6 +31,10 @@ export const CloseButton = styled(Dialog.Close)`
   line-height: 0;
   cursor: pointer;
   color: ${(props) => props.theme.colors.gray[400]};
+
+  &:hover {
+    color: ${(props) => props.theme.colors.gray[200]};
+  }
 `
 
 export const LoginOptionsContainer = styled.div`

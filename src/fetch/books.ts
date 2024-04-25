@@ -1,4 +1,4 @@
-interface IBooks {
+export interface IBooks {
   id: string
   name: string
   author: string
@@ -30,7 +30,7 @@ function getTopRatedBooks(booksList: IBooks[]) {
     (a, b) => b.avgRating - a.avgRating,
   )
 
-  return sortedBooks.slice(0, 5)
+  return sortedBooks
 }
 
 export async function fetchBooks() {
