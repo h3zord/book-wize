@@ -1,7 +1,7 @@
 import { prisma } from '@/lib/prisma'
 
 export async function GET() {
-  const ratings = await prisma.book.findMany({
+  const books = await prisma.book.findMany({
     include: {
       ratings: {
         select: {
@@ -11,5 +11,5 @@ export async function GET() {
     },
   })
 
-  return Response.json(ratings)
+  return Response.json(books)
 }

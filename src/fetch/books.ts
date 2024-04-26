@@ -1,4 +1,4 @@
-export interface IBooks {
+interface IBooks {
   id: string
   name: string
   author: string
@@ -11,13 +11,19 @@ export interface IBooks {
   }[]
 }
 
-function getTopRatedBooks(booksList: IBooks[]) {
+export interface IBooksWithAvgRating extends IBooks {
+  avgRating: number
+}
+
+function getBookAvgRating(booksList: IBooks[]) {
   const booksWithAvgRating = booksList.map((book) => {
     const totalRatings = book.ratings.length
+
     const sumRatings = book.ratings.reduce(
       (sum, rating) => sum + rating.rate,
       0,
     )
+
     const avgRating = totalRatings > 0 ? sumRatings / totalRatings : 0
 
     return {
@@ -26,11 +32,7 @@ function getTopRatedBooks(booksList: IBooks[]) {
     }
   })
 
-  const sortedBooks = booksWithAvgRating.sort(
-    (a, b) => b.avgRating - a.avgRating,
-  )
-
-  return sortedBooks
+  return booksWithAvgRating
 }
 
 export async function fetchBooks() {
@@ -38,7 +40,7 @@ export async function fetchBooks() {
 
   const booksList: IBooks[] = await data.json()
 
-  const topRatedBooks = getTopRatedBooks(booksList)
+  const booksWithAvgRating: IBooksWithAvgRating[] = getBookAvgRating(booksList)
 
-  return { books: topRatedBooks }
+  return { books: booksWithAvgRating }
 }

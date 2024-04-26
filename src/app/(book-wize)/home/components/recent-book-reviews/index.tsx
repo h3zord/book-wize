@@ -2,12 +2,14 @@ import Image from 'next/image'
 import { fetchRatings } from '@/fetch/ratings'
 import { AvatarAndRating } from '@/app/components/avatar-and-rating/styles'
 import { SummaryBook } from '@/app/components/summary-book/styles'
+import { distanceToNow } from '@/utils/distanceToNow'
 import {
   RecentReviewCard,
   RecentReviewContainer,
   RecentReviewContent,
   RecentReviewInformation,
 } from './styles'
+import { Rating } from '@/app/components/rating'
 
 export async function RecentBookReviews() {
   const { ratings } = await fetchRatings()
@@ -30,11 +32,11 @@ export async function RecentBookReviews() {
 
                 <h4>
                   {rating.user.name}
-                  <span>Hoje</span>
+                  <span>{distanceToNow(rating.created_at)}</span>
                 </h4>
               </div>
 
-              <Image src="/rating.png" width={96} height={16} alt="test" />
+              <Rating value={rating.rate} readOnly />
             </AvatarAndRating>
 
             <RecentReviewInformation>
