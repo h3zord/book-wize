@@ -1,20 +1,27 @@
-interface IRatings {
+interface IBook {
+  name: string
+  author: string
+  summary: string
+  cover_url: string
+  ratings: {
+    rate: number
+  }[]
+}
+
+interface IUser {
+  name: string
+  image: string
+}
+
+export interface IRatings {
   id: string
   rate: number
   description: string
   created_at: Date
   book_id: string
   user_id: string
-  book: {
-    name: string
-    author: string
-    summary: string
-    cover_url: string
-  }
-  user: {
-    name: string
-    image: string
-  }
+  book: IBook
+  user: IUser
 }
 
 function selectRecentUniqueBookRatings(ratingsList: IRatings[]) {
@@ -42,9 +49,11 @@ export async function fetchRatings() {
     cache: 'no-cache',
   })
 
-  const ratingsList: IRatings[] = await data.json()
+  const ratingsListOrderByDate: IRatings[] = await data.json()
 
-  const recentUniqueBookRatings = selectRecentUniqueBookRatings(ratingsList)
+  const recentUniqueBookRatings = selectRecentUniqueBookRatings(
+    ratingsListOrderByDate,
+  )
 
   return { ratings: recentUniqueBookRatings }
 }

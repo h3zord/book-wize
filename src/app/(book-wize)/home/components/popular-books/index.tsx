@@ -2,7 +2,7 @@ import { fetchBooks } from '@/fetch/books'
 import { SeeAllContainer } from '../../styles'
 import { PopularBooksModal } from './popular-books-modal'
 import { PopularBookContainer, PopularBookContent } from './styles'
-import { PopularBooksCard } from '@/app/components/popular-books-card'
+import { PopularBooksCard } from './popular-books-card'
 
 export async function PopularBooks() {
   const { books } = await fetchBooks()

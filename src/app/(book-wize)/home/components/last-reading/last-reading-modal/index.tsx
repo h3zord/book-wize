@@ -2,13 +2,13 @@
 
 import * as Dialog from '@radix-ui/react-dialog'
 import { CaretRight, X } from '@phosphor-icons/react'
-import { IReadings } from '@/fetch/readings'
 import { CloseButton, Content, Overlay, Title } from '../../../styles'
 import { LastReadingContent } from '../styles'
-import { ReadingCard } from '@/app/components/reading-card'
+import { IReadingsWithAvgRating } from '@/fetch/readings'
+import { ReadingCard } from '../reading-card'
 
 interface ILastReadingModalProps {
-  readings: IReadings[]
+  readings: IReadingsWithAvgRating[]
 }
 
 export function LastReadingModal({ readings }: ILastReadingModalProps) {

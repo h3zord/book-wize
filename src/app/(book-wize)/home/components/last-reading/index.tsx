@@ -4,7 +4,7 @@ import { cookies } from 'next/headers'
 import { SeeAllContainer } from '../../styles'
 import { LastReadingModal } from './last-reading-modal'
 import { LastReadingContainer, LastReadingContent } from './styles'
-import { ReadingCard } from '@/app/components/reading-card'
+import { ReadingCard } from '@/app/(book-wize)/home/components/last-reading/reading-card'
 
 export async function LastReading() {
   const { value: userID } = cookies().get('userID') as RequestCookie

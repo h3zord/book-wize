@@ -1,12 +1,12 @@
 import Image from 'next/image'
-import { IReadings } from '@/fetch/readings'
 import { LastReadingCard, LastReadingInformation } from './styles'
 import { distanceToNow } from '@/utils/distanceToNow'
-import { SummaryBook } from '../summary-book/styles'
-import { Rating } from '../rating'
+import { SummaryBook } from '../../../../../components/summary-book/styles'
+import { Rating } from '../../../../../components/rating'
+import { IReadingsWithAvgRating } from '@/fetch/readings'
 
 interface IReadingsCardProps {
-  reading: IReadings
+  reading: IReadingsWithAvgRating
 }
 
 export function ReadingCard({ reading }: IReadingsCardProps) {
@@ -23,7 +23,7 @@ export function ReadingCard({ reading }: IReadingsCardProps) {
         <div>
           <div>
             <p>{distanceToNow(reading.created_at)}</p>
-            <Rating value={3} readOnly />
+            <Rating value={reading.book.avgRating} readOnly />
           </div>
 
           <div>

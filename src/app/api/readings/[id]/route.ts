@@ -23,6 +23,11 @@ export async function GET(_request: Request, { params }: IParamsProps) {
           author: true,
           summary: true,
           cover_url: true,
+          ratings: {
+            select: {
+              rate: true,
+            },
+          },
         },
       },
     },

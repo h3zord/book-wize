@@ -12,6 +12,11 @@ export async function GET() {
           author: true,
           summary: true,
           cover_url: true,
+          ratings: {
+            select: {
+              rate: true,
+            },
+          },
         },
       },
       user: {

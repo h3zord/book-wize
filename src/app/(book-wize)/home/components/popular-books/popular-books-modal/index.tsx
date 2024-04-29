@@ -4,8 +4,8 @@ import * as Dialog from '@radix-ui/react-dialog'
 import { CaretRight, X } from '@phosphor-icons/react'
 import { CloseButton, Content, Overlay, Title } from '../../../styles'
 import { PopularBookContent } from '../styles'
-import { PopularBooksCard } from '@/app/components/popular-books-card'
 import { IBooksWithAvgRating } from '@/fetch/books'
+import { PopularBooksCard } from '../popular-books-card'
 
 interface PopularBooksModalProps {
   books: IBooksWithAvgRating[]

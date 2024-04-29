@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { IBooksWithAvgRating } from '@/fetch/books'
 import { PopularBookCard, PopularBookInformation } from './styles'
-import { Rating } from '../rating'
+import { Rating } from '../../../../../components/rating'
 
 interface IPopularBooksCardProps {
   book: IBooksWithAvgRating

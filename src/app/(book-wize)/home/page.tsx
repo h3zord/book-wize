@@ -3,9 +3,9 @@ import { NavegationRouteTitle } from '@/app/components/navegation-route-title/st
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 import { LastReading } from './components/last-reading'
-import { RecentBookReviews } from './components/recent-book-reviews'
 import { HomeContainer, MainContainer } from './styles'
 import { PopularBooks } from './components/popular-books'
+import { RecentReviews } from './components/recent-reviews'
 
 export default async function Home() {
   const session = await getServerSession(authOptions)
@@ -19,7 +19,7 @@ export default async function Home() {
 
         {session && <LastReading />}
 
-        <RecentBookReviews />
+        <RecentReviews />
       </MainContainer>
 
       <PopularBooks />
