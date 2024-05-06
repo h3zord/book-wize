@@ -45,9 +45,7 @@ export function ReviewCard({ rating }: ReviewCardProps) {
             <p>{rating.book.author}</p>
           </div>
 
-          <SummaryBook $lineClamp={4}>
-            <p>{rating.book.summary}</p>
-          </SummaryBook>
+          <SummaryBook $lineClamp={4}>{rating.book.summary}</SummaryBook>
         </div>
       </RecentReviewInformation>
     </RecentReviewCard>

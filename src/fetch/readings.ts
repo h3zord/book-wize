@@ -18,7 +18,7 @@ interface IReadings {
   id: string
   user_id: string
   book_id: string
-  created_at: Date
+  created_at: string
   book: IBook
 }
 

@@ -7,7 +7,7 @@ export interface IBooks {
   summary: string
   cover_url: string
   total_pages: number
-  created_at: Date
+  created_at: string
   ratings: {
     rate: number
   }[]

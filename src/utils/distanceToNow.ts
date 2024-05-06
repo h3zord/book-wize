@@ -1,7 +1,7 @@
 import { formatDistanceToNowStrict } from 'date-fns'
 import { ptBR } from 'date-fns/locale/pt-BR'
 
-export function distanceToNow(date: Date) {
+export function distanceToNow(date: string) {
   const distanceToNow = formatDistanceToNowStrict(date, {
     addSuffix: true,
     locale: ptBR,

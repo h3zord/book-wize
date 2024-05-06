@@ -17,7 +17,7 @@ export interface IRatings {
   id: string
   rate: number
   description: string
-  created_at: Date
+  created_at: string
   book_id: string
   user_id: string
   book: IBook

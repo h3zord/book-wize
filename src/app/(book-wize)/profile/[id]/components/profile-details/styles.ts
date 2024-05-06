@@ -2,76 +2,6 @@
 
 import styled from 'styled-components'
 
-export const ProfileContainer = styled.div`
-  margin-top: ${(props) => props.theme.space[10]};
-  margin-left: 6rem;
-  display: flex;
-`
-
-export const MainContainer = styled.main`
-  width: 39rem;
-`
-
-export const SearchReviewedBookForm = styled.form`
-  position: relative;
-  margin-top: ${(props) => props.theme.space[10]};
-
-  & > input {
-    width: 100%;
-  }
-`
-
-export const ReviewedBookContainer = styled.section`
-  margin-top: ${(props) => props.theme.space[8]};
-  display: flex;
-  flex-direction: column;
-  gap: ${(props) => props.theme.space[6]};
-`
-
-export const ReviewedBookContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: ${(props) => props.theme.space[2]};
-
-  & > span {
-    font-size: ${(props) => props.theme.fontSizes.sm};
-    line-height: ${(props) => props.theme.lineHeights.base};
-    color: ${(props) => props.theme.colors.gray[300]};
-  }
-`
-
-export const ReviewedBookCard = styled.div`
-  background-color: ${(props) => props.theme.colors.gray[700]};
-  border-radius: ${(props) => props.theme.radii.md};
-  padding: ${(props) => props.theme.space[6]};
-`
-
-export const ReviewedBookInformation = styled.div`
-  display: flex;
-  gap: ${(props) => props.theme.space[6]};
-
-  div > img {
-    margin-top: 2.5rem;
-  }
-
-  div > div {
-    height: 4.5rem;
-
-    & > h3 {
-      color: ${(props) => props.theme.colors.gray[100]};
-      font-size: ${(props) => props.theme.fontSizes.lg};
-      line-height: ${(props) => props.theme.lineHeights.short};
-    }
-
-    & > p {
-      color: ${(props) => props.theme.colors.gray[400]};
-      line-height: ${(props) => props.theme.lineHeights.base};
-      font-size: ${(props) => props.theme.fontSizes.sm};
-      margin-top: 2px;
-    }
-  }
-`
-
 export const ProfileContent = styled.aside`
   border-left: 2px solid ${(props) => props.theme.colors.gray[700]};
   margin-left: 4rem;
@@ -89,6 +19,10 @@ export const AvatarContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: ${(props) => props.theme.space[5]};
+
+  & > img {
+    border-radius: ${(props) => props.theme.radii.full};
+  }
 
   & > h2 {
     font-size: ${(props) => props.theme.fontSizes.xl};
@@ -120,19 +54,19 @@ export const ProfileInformation = styled.section`
   flex-direction: column;
   align-items: center;
   gap: ${(props) => props.theme.space[10]};
+`
 
-  & > div {
-    width: 12.25rem;
-    display: flex;
-    align-items: center;
-    gap: ${(props) => props.theme.space[5]};
-  }
+export const UserStatistics = styled.div`
+  width: 12.25rem;
+  display: flex;
+  align-items: center;
+  gap: ${(props) => props.theme.space[5]};
 
-  div > svg {
+  & > svg {
     color: ${(props) => props.theme.colors.green[100]};
   }
 
-  div > h4 {
+  & > h4 {
     font-size: ${(props) => props.theme.fontSizes.md};
     color: ${(props) => props.theme.colors.gray[200]};
     line-height: ${(props) => props.theme.lineHeights.short};

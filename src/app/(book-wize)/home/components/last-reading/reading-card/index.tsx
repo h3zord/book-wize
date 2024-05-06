@@ -31,9 +31,7 @@ export function ReadingCard({ reading }: IReadingsCardProps) {
             <p>{reading.book.author}</p>
           </div>
 
-          <SummaryBook $lineClamp={2}>
-            <p>{reading.book.summary}</p>
-          </SummaryBook>
+          <SummaryBook $lineClamp={2}>{reading.book.summary}</SummaryBook>
         </div>
       </LastReadingInformation>
     </LastReadingCard>

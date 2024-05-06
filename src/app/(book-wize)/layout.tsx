@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import { parseCookies } from 'nookies'
 import { ChartLineUp } from '@phosphor-icons/react/dist/ssr/ChartLineUp'
 import { User } from '@phosphor-icons/react/dist/ssr/User'
 import { SignIn } from '@phosphor-icons/react/dist/ssr/SignIn'
@@ -26,6 +27,8 @@ export default function CustomerLayout({
   const pathname = usePathname()
   const router = useRouter()
 
+  const { userID } = parseCookies()
+
   const firstName = session?.user?.name?.split(' ')[0]
 
   function moveToHome() {
@@ -37,7 +40,7 @@ export default function CustomerLayout({
   }
 
   function moveToProfile() {
-    router.push('/profile')
+    router.push(`/profile/c296c6c0-5c59-40dd-aa8a-ef2b015b7502`)
   }
 
   function logOff() {
