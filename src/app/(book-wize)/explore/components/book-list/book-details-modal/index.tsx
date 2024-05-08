@@ -4,7 +4,7 @@ import { X } from '@phosphor-icons/react/dist/ssr/X'
 import { BookmarkSimple } from '@phosphor-icons/react/dist/ssr/BookmarkSimple'
 import { Check } from '@phosphor-icons/react/dist/ssr/Check'
 import { BookOpen } from '@phosphor-icons/react/dist/ssr/BookOpen'
-import { AvatarAndRating } from '../avatar-and-rating/styles'
+import { AvatarAndRating } from '@/app/components/avatar-and-rating/styles'
 import {
   BookInformationContainer,
   BookInformationContent,

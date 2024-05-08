@@ -7,7 +7,7 @@ interface IPopularBooksCardProps {
   book: IBooksWithAvgRating
 }
 
-export function PopularBooksCard({ book }: IPopularBooksCardProps) {
+export function PopularCard({ book }: IPopularBooksCardProps) {
   return (
     <PopularBookCard>
       <PopularBookInformation>

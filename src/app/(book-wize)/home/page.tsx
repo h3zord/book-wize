@@ -14,7 +14,9 @@ export default async function Home() {
     <HomeContainer>
       <MainContainer>
         <NavegationRouteTitle>
-          <ChartLineUp size={32} /> Início
+          <h1>
+            <ChartLineUp size={32} /> Início
+          </h1>
         </NavegationRouteTitle>
 
         {session && <LastReading />}

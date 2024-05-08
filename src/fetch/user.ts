@@ -43,9 +43,7 @@ export interface IUser {
 }
 
 export async function fetchUser({ id }: IFetchUserProps) {
-  const data = await fetch(`http://localhost:3000/api/user/${id}`, {
-    cache: 'no-cache',
-  })
+  const data = await fetch(`http://localhost:3000/api/user/${id}`)
 
   const userDetails: IUser = await data.json()
 

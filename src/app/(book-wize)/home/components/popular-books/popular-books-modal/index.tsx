@@ -5,7 +5,7 @@ import { CaretRight, X } from '@phosphor-icons/react'
 import { CloseButton, Content, Overlay, Title } from '../../../styles'
 import { PopularBookContent } from '../styles'
 import { IBooksWithAvgRating } from '@/fetch/books'
-import { PopularBooksCard } from '../popular-books-card'
+import { PopularCard } from '../popular-card'
 
 interface PopularBooksModalProps {
   books: IBooksWithAvgRating[]
@@ -30,9 +30,7 @@ export function PopularBooksModal({ books }: PopularBooksModalProps) {
           <Title>Livros populares</Title>
 
           <PopularBookContent>
-            {books?.map((book) => (
-              <PopularBooksCard key={book.id} book={book} />
-            ))}
+            {books?.map((book) => <PopularCard key={book.id} book={book} />)}
           </PopularBookContent>
         </Content>
       </Dialog.Portal>

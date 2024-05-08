@@ -2,7 +2,7 @@ import { fetchBooks } from '@/fetch/books'
 import { SeeAllContainer } from '../../styles'
 import { PopularBooksModal } from './popular-books-modal'
 import { PopularBookContainer, PopularBookContent } from './styles'
-import { PopularBooksCard } from './popular-books-card'
+import { PopularCard } from './popular-card'
 
 export async function PopularBooks() {
   const { books } = await fetchBooks()
@@ -23,7 +23,7 @@ export async function PopularBooks() {
 
       <PopularBookContent>
         {topFiveRatedBooks?.map((book) => (
-          <PopularBooksCard key={book.id} book={book} />
+          <PopularCard key={book.id} book={book} />
         ))}
       </PopularBookContent>
     </PopularBookContainer>

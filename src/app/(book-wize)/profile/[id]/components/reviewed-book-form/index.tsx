@@ -3,32 +3,30 @@
 import { ReviewedBookContainer, SearchReviewedBookForm } from './styles'
 import { MagnifyingGlass } from '@phosphor-icons/react/dist/ssr/MagnifyingGlass'
 import { ReviewFeed } from './review-feed'
-import { FormEvent, useCallback, useEffect, useState } from 'react'
-import { IRating, fetchUser } from '@/fetch/user'
+import { useEffect, useState } from 'react'
+import { IRating } from '@/fetch/user'
+import { useForm } from 'react-hook-form'
 import {
   SearchInput,
   SearchInputSubmit,
 } from '@/app/components/search-input/styles'
 
-interface IReviwedBookFormAndFeedProps {
-  userId: string
+interface IReviwedBookFormProps {
+  userRatings: IRating[]
 }
 
-export function ReviewedBookFormAndFeed({
-  userId,
-}: IReviwedBookFormAndFeedProps) {
+interface IFormInputs {
+  searchTerm: string
+}
+
+export function ReviewedBookForm({ userRatings }: IReviwedBookFormProps) {
   const [ratings, setRatings] = useState([] as IRating[])
 
-  const fetchUserData = useCallback(async () => {
-    const { userDetails } = await fetchUser({
-      id: userId,
-    })
-    setRatings(userDetails.ratings)
-  }, [userId])
+  const { register, handleSubmit, reset } = useForm<IFormInputs>()
 
   useEffect(() => {
-    fetchUserData()
-  }, [fetchUserData])
+    setRatings(userRatings)
+  }, [userRatings])
 
   async function filterReviewByBookName(searchTerm: string) {
     const filteredReviewedBooks = ratings.filter((rating) => {
@@ -38,30 +36,28 @@ export function ReviewedBookFormAndFeed({
       return lowerCaseBookName.includes(lowerCaseSearchTerm)
     })
 
-    return setRatings(filteredReviewedBooks)
+    setRatings(filteredReviewedBooks)
   }
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault()
-
-    const formData = new FormData(event.currentTarget)
-
-    const searchTerm = formData.get('searchTerm') as string
+  function onSubmit(formInputs: IFormInputs) {
+    const { searchTerm } = formInputs
 
     if (!searchTerm.trim()) {
-      fetchUserData()
+      setRatings(userRatings)
     } else {
       filterReviewByBookName(searchTerm)
     }
+
+    reset()
   }
 
   return (
     <>
-      <SearchReviewedBookForm onSubmit={handleSubmit}>
+      <SearchReviewedBookForm onSubmit={handleSubmit(onSubmit)}>
         <SearchInput
           type="text"
-          name="searchTerm"
           placeholder="Buscar livro avaliado"
+          {...register('searchTerm')}
         />
 
         <SearchInputSubmit type="submit">

@@ -3,7 +3,7 @@ import { NavegationRouteTitle } from '@/app/components/navegation-route-title/st
 import { fetchUser } from '@/fetch/user'
 import { ProfileDetails } from './components/profile-details'
 import { MainContainer, ProfileContainer } from './styles'
-import { ReviewedBookFormAndFeed } from './components/reviewed-book-form-and-feed'
+import { ReviewedBookForm } from './components/reviewed-book-form'
 
 interface IProfileProps {
   params: {
@@ -20,10 +20,12 @@ export default async function Profile({ params }: IProfileProps) {
     <ProfileContainer>
       <MainContainer>
         <NavegationRouteTitle>
-          <User size={32} /> Perfil
+          <h1>
+            <User size={32} /> Perfil
+          </h1>
         </NavegationRouteTitle>
 
-        <ReviewedBookFormAndFeed userId={params.id} />
+        <ReviewedBookForm userRatings={userDetails.ratings} />
       </MainContainer>
 
       <ProfileDetails userDetails={userDetails} />
