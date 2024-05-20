@@ -20,16 +20,17 @@ import {
   SideBarContainer,
 } from './styles'
 
-export default function CustomerLayout({
+export default function NavBarLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const { data: session } = useSession()
+  const { data: session, status } = useSession()
 
   const { userId } = parseCookies()
 
   const pathname = usePathname()
+
   const router = useRouter()
 
   const firstName = session?.user?.name?.split(' ')[0]
@@ -74,9 +75,9 @@ export default function CustomerLayout({
             <Binoculars size={24} /> Explorar
           </NavigationButton>
 
-          {session && (
+          {status === 'authenticated' && (
             <NavigationButton
-              $isSelected={pathname.includes('/profile')}
+              $isSelected={pathname.startsWith('/profile')}
               onClick={moveToProfile}
             >
               <User size={24} /> Perfil
@@ -84,7 +85,7 @@ export default function CustomerLayout({
           )}
         </NavigationOptions>
 
-        {session ? (
+        {status === 'authenticated' ? (
           <LoginButton $isLogged onClick={logOff}>
             <Image
               src={session.user?.image || ''}
