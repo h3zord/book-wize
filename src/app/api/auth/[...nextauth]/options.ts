@@ -30,14 +30,14 @@ export const authOptions: NextAuthOptions = {
 
   callbacks: {
     async signIn({ user }) {
-      cookies().set('userID', user.id)
+      cookies().set('userId', user.id)
 
       return true
     },
 
     async redirect({ url, baseUrl }) {
       if (url.startsWith('/')) {
-        cookies().delete('userID')
+        cookies().delete('userId')
 
         return `${baseUrl}${url}`
       } else if (new URL(url).origin === baseUrl) {

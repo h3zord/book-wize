@@ -2,10 +2,16 @@
 
 import * as Dialog from '@radix-ui/react-dialog'
 import { CaretRight, X } from '@phosphor-icons/react'
-import { CloseButton, Content, Overlay, Title } from '../../../styles'
 import { PopularBookContent } from '../styles'
 import { IBooksWithAvgRating } from '@/fetch/books'
 import { PopularCard } from '../popular-card'
+import {
+  CloseButton,
+  Content,
+  Overlay,
+  SeeAllButton,
+  Title,
+} from '../../../styles'
 
 interface PopularBooksModalProps {
   books: IBooksWithAvgRating[]
@@ -15,9 +21,9 @@ export function PopularBooksModal({ books }: PopularBooksModalProps) {
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
-        <button>
+        <SeeAllButton>
           Ver todos <CaretRight size={16} />
-        </button>
+        </SeeAllButton>
       </Dialog.Trigger>
       <Dialog.Portal>
         <Overlay />

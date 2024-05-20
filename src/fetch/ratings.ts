@@ -3,9 +3,6 @@ interface IBook {
   author: string
   summary: string
   cover_url: string
-  ratings: {
-    rate: number
-  }[]
 }
 
 interface IUser {
@@ -45,15 +42,106 @@ function selectRecentUniqueBookRatings(ratingsList: IRatings[]) {
 }
 
 export async function fetchRatings() {
-  const data = await fetch('http://localhost:3000/api/ratings', {
-    cache: 'no-cache',
-  })
+  try {
+    const response = await fetch('http://localhost:3000/api/ratings')
 
-  const ratingsListOrderByDate: IRatings[] = await data.json()
+    if (!response.ok) {
+      throw new Error(
+        `Failed to fetch ratings: ${response.status} ${response.statusText}`,
+      )
+    }
 
-  const recentUniqueBookRatings = selectRecentUniqueBookRatings(
-    ratingsListOrderByDate,
-  )
+    const ratingsListOrderByDate: IRatings[] = await response.json()
 
-  return { ratings: recentUniqueBookRatings }
+    const recentUniqueBookRatings = selectRecentUniqueBookRatings(
+      ratingsListOrderByDate,
+    )
+
+    return recentUniqueBookRatings
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message)
+    } else {
+      console.error('Failed to fetch ratings:', error)
+    }
+
+    return []
+  }
+}
+
+interface IUserFindByBookId {
+  name: string
+  image: string
+}
+
+export interface IRatingFindByBookId {
+  id: string
+  rate: number
+  description: string
+  created_at: string
+  book_id: string
+  user_id: string
+  user: IUserFindByBookId
+}
+
+export async function fetchRatingsByBookId(bookId: string) {
+  try {
+    const response = await fetch(`http://localhost:3000/api/ratings/${bookId}`)
+
+    if (!response.ok) {
+      throw new Error(
+        `Failed to fetch ratings by id: ${response.status} ${response.statusText}`,
+      )
+    }
+
+    const ratings: IRatingFindByBookId[] = await response.json()
+
+    return ratings
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message)
+    } else {
+      console.error('Failed to fetch ratings by id:', error)
+    }
+
+    return []
+  }
+}
+
+interface IRatingData {
+  userId: string
+  bookId: string
+  description: string
+  rate: number
+}
+
+export async function createRating({
+  userId,
+  bookId,
+  description,
+  rate,
+}: IRatingData) {
+  try {
+    const response = await fetch('http://localhost:3000/api/ratings', {
+      method: 'POST',
+      body: JSON.stringify({
+        user_id: userId,
+        book_id: bookId,
+        description,
+        rate,
+      }),
+    })
+
+    if (!response.ok) {
+      throw new Error(
+        `Failed to create rating: ${response.status} ${response.statusText}`,
+      )
+    }
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message)
+    } else {
+      console.error('Failed to create rating:', error)
+    }
+  }
 }

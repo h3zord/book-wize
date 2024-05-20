@@ -1,7 +1,3 @@
-interface IFetchUserProps {
-  id: string
-}
-
 interface IBook {
   name: string
   author: string
@@ -42,10 +38,24 @@ export interface IUser {
   readings: IReading[]
 }
 
-export async function fetchUser({ id }: IFetchUserProps) {
-  const data = await fetch(`http://localhost:3000/api/user/${id}`)
+export async function fetchUser(id: string): Promise<IUser | undefined> {
+  try {
+    const response = await fetch(`http://localhost:3000/api/user/${id}`)
 
-  const userDetails: IUser = await data.json()
+    if (!response.ok) {
+      throw new Error(
+        `Failed to fetch user: ${response.status} ${response.statusText}`,
+      )
+    }
 
-  return { userDetails }
+    const userDetails: IUser = await response.json()
+
+    return userDetails
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message)
+    } else {
+      console.error('Failed to fetch error:', error)
+    }
+  }
 }

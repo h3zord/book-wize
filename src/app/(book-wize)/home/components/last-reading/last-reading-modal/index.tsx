@@ -2,10 +2,16 @@
 
 import * as Dialog from '@radix-ui/react-dialog'
 import { CaretRight, X } from '@phosphor-icons/react'
-import { CloseButton, Content, Overlay, Title } from '../../../styles'
 import { LastReadingContent } from '../styles'
 import { IReadingsWithAvgRating } from '@/fetch/readings'
 import { ReadingCard } from '../reading-card'
+import {
+  CloseButton,
+  Content,
+  Overlay,
+  SeeAllButton,
+  Title,
+} from '../../../styles'
 
 interface ILastReadingModalProps {
   readings: IReadingsWithAvgRating[]
@@ -15,9 +21,9 @@ export function LastReadingModal({ readings }: ILastReadingModalProps) {
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
-        <button>
+        <SeeAllButton>
           Ver todos <CaretRight size={16} />
-        </button>
+        </SeeAllButton>
       </Dialog.Trigger>
       <Dialog.Portal>
         <Overlay />

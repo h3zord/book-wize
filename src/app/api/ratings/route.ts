@@ -1,4 +1,5 @@
 import { prisma } from '@/lib/prisma'
+import { NextRequest } from 'next/server'
 
 export async function GET() {
   const ratings = await prisma.rating.findMany({
@@ -12,11 +13,6 @@ export async function GET() {
           author: true,
           summary: true,
           cover_url: true,
-          ratings: {
-            select: {
-              rate: true,
-            },
-          },
         },
       },
       user: {
@@ -29,4 +25,19 @@ export async function GET() {
   })
 
   return Response.json(ratings)
+}
+
+export async function POST(request: NextRequest) {
+  const ratingData = await request.json()
+
+  const rating = await prisma.rating.create({
+    data: {
+      user_id: ratingData.user_id,
+      book_id: ratingData.book_id,
+      description: ratingData.description,
+      rate: ratingData.rate,
+    },
+  })
+
+  return Response.json(rating)
 }

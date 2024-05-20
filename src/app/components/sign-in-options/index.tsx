@@ -12,11 +12,15 @@ export function SignInOptions() {
   const pathname = usePathname()
 
   function LoginWithGoogle() {
-    signIn('google', { callbackUrl: '/home' })
+    signIn('google', {
+      callbackUrl: pathname === '/explore' ? '/explore' : '/home',
+    })
   }
 
   function LoginWithGithub() {
-    signIn('github', { callbackUrl: '/home' })
+    signIn('github', {
+      callbackUrl: pathname === '/explore' ? '/explore' : '/home',
+    })
   }
 
   function LoginAsGuest() {

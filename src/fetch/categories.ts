@@ -4,9 +4,25 @@ export interface ICategories {
 }
 
 export async function fetchCategories() {
-  const data = await fetch('http://localhost:3000/api/categories')
+  try {
+    const response = await fetch('http://localhost:3000/api/categories')
 
-  const categoriesList: ICategories[] = await data.json()
+    if (!response.ok) {
+      throw new Error(
+        `Failed to fetch categories: ${response.status} ${response.statusText}`,
+      )
+    }
 
-  return { categoriesList }
+    const categoriesList: ICategories[] = await response.json()
+
+    return categoriesList
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message)
+    } else {
+      console.error('Failed to fetch categories:', error)
+    }
+
+    return []
+  }
 }

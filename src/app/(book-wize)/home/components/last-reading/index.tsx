@@ -7,23 +7,25 @@ import { LastReadingContainer, LastReadingContent } from './styles'
 import { ReadingCard } from '@/app/(book-wize)/home/components/last-reading/reading-card'
 
 export async function LastReading() {
-  const { value: userID } = cookies().get('userID') as RequestCookie
+  const { value: userId } = cookies().get('userId') as RequestCookie
 
-  const { readings: readingsOderByDate } = await fetchReadings({ id: userID })
+  const readingsOderByDate = await fetchReadings(userId)
 
   const lastReading = readingsOderByDate[0]
 
   return (
-    <LastReadingContainer>
-      <SeeAllContainer>
-        <p>Sua última leitura</p>
+    !!readingsOderByDate.length && (
+      <LastReadingContainer>
+        <SeeAllContainer>
+          <p>Sua última leitura</p>
 
-        <LastReadingModal readings={readingsOderByDate} />
-      </SeeAllContainer>
+          <LastReadingModal readings={readingsOderByDate} />
+        </SeeAllContainer>
 
-      <LastReadingContent>
-        <ReadingCard reading={lastReading} />
-      </LastReadingContent>
-    </LastReadingContainer>
+        <LastReadingContent>
+          <ReadingCard reading={lastReading} />
+        </LastReadingContent>
+      </LastReadingContainer>
+    )
   )
 }

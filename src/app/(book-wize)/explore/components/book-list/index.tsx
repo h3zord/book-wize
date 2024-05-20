@@ -1,23 +1,28 @@
+'use client'
+
 import * as Dialog from '@radix-ui/react-dialog'
+import BookCard from './book-card'
 import { BookListContainer } from './styles'
 import { BookDetailsModal } from './book-details-modal'
-import { BookCard } from './book-card'
-import { IBooksWithAvgRating } from '@/fetch/books'
+import { useContext } from 'react'
+import { ExploreBooksContext } from '@/context/explore-books'
+import { checkIfBookWasRead } from '@/utils/checkIfBookWasRead'
 
-interface IBooksList {
-  books: IBooksWithAvgRating[]
-}
+export function BooksList() {
+  const { books, readBookIds } = useContext(ExploreBooksContext)
 
-export function BooksList({ books }: IBooksList) {
   return (
     <BookListContainer>
       {books.map((book) => (
         <Dialog.Root key={book.id}>
           <Dialog.Trigger asChild>
-            <BookCard book={book} />
+            <BookCard
+              book={book}
+              wasRead={checkIfBookWasRead(book.id, readBookIds)}
+            />
           </Dialog.Trigger>
 
-          <BookDetailsModal />
+          <BookDetailsModal book={book} />
         </Dialog.Root>
       ))}
     </BookListContainer>

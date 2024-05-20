@@ -2,14 +2,16 @@
 
 import Image from 'next/image'
 import { parseCookies } from 'nookies'
-import { ChartLineUp } from '@phosphor-icons/react/dist/ssr/ChartLineUp'
-import { User } from '@phosphor-icons/react/dist/ssr/User'
-import { SignIn } from '@phosphor-icons/react/dist/ssr/SignIn'
-import { SignOut } from '@phosphor-icons/react/dist/ssr/SignOut'
-import { Binoculars } from '@phosphor-icons/react/dist/ssr/Binoculars'
 import { signOut, useSession } from 'next-auth/react'
 import { LoginModal } from '../components/login-modal'
 import { usePathname, useRouter } from 'next/navigation'
+import {
+  Binoculars,
+  ChartLineUp,
+  SignIn,
+  SignOut,
+  User,
+} from '@phosphor-icons/react'
 import {
   LayoutContainer,
   LoginButton,
@@ -24,10 +26,11 @@ export default function CustomerLayout({
   children: React.ReactNode
 }>) {
   const { data: session } = useSession()
+
+  const { userId } = parseCookies()
+
   const pathname = usePathname()
   const router = useRouter()
-
-  const { userID } = parseCookies()
 
   const firstName = session?.user?.name?.split(' ')[0]
 
@@ -40,7 +43,7 @@ export default function CustomerLayout({
   }
 
   function moveToProfile() {
-    router.push(`/profile/c296c6c0-5c59-40dd-aa8a-ef2b015b7502`)
+    router.push(`/profile/${userId}`)
   }
 
   function logOff() {
@@ -73,7 +76,7 @@ export default function CustomerLayout({
 
           {session && (
             <NavigationButton
-              $isSelected={pathname === '/profile'}
+              $isSelected={pathname.includes('/profile')}
               onClick={moveToProfile}
             >
               <User size={24} /> Perfil

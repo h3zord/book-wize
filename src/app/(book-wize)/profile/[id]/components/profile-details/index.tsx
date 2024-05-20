@@ -1,9 +1,10 @@
 import Image from 'next/image'
+
+import { IReading, IUser } from '@/fetch/user'
 import { BookOpen } from '@phosphor-icons/react/dist/ssr/BookOpen'
 import { Books } from '@phosphor-icons/react/dist/ssr/Books'
 import { UserList } from '@phosphor-icons/react/dist/ssr/UserList'
 import { BookmarkSimple } from '@phosphor-icons/react/dist/ssr/BookmarkSimple'
-import { IReading, IUser } from '@/fetch/user'
 import {
   AvatarContainer,
   LineSeparation,
@@ -16,17 +17,13 @@ interface IProfileDetailsProps {
   userDetails: IUser
 }
 
-interface IGetMostReadCategoryParams {
-  readings: IReading[]
-}
-
 export function ProfileDetails({ userDetails }: IProfileDetailsProps) {
-  function getMostReadCategory({ readings }: IGetMostReadCategoryParams) {
+  function getMostReadCategory(readings: IReading[]) {
     const categoryCounts: { [key: string]: number } = {}
 
     readings.forEach((reading) => {
-      reading.book.categories.forEach((categoryObj) => {
-        const categoryName = categoryObj.category.name
+      reading.book.categories.forEach(({ category }) => {
+        const categoryName = category.name
         categoryCounts[categoryName] = (categoryCounts[categoryName] || 0) + 1
       })
     })
@@ -52,13 +49,13 @@ export function ProfileDetails({ userDetails }: IProfileDetailsProps) {
     return totalPages
   }, 0)
 
-  const reviewedBooks = userDetails.ratings.length
+  const numberReviewedBooks = userDetails.ratings.length
 
-  const readAuthors = userDetails.readings.length
+  const numberReadAuthors = userDetails.readings.length
 
-  const mostReadCategory = getMostReadCategory({
-    readings: userDetails.readings,
-  })
+  const { readings } = userDetails
+
+  const mostReadCategory = getMostReadCategory(readings)
 
   return (
     <ProfileContent>
@@ -90,7 +87,7 @@ export function ProfileDetails({ userDetails }: IProfileDetailsProps) {
         <UserStatistics>
           <Books size={32} />
           <h4>
-            {reviewedBooks}
+            {numberReviewedBooks}
             <span>Livros avaliados</span>
           </h4>
         </UserStatistics>
@@ -98,7 +95,7 @@ export function ProfileDetails({ userDetails }: IProfileDetailsProps) {
         <UserStatistics>
           <UserList size={32} />
           <h4>
-            {readAuthors}
+            {numberReadAuthors}
             <span>Autores lidos</span>
           </h4>
         </UserStatistics>

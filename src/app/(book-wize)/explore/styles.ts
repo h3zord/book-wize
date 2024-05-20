@@ -10,11 +10,3 @@ export const ExploreContainer = styled.div`
 export const MainContainer = styled.main`
   width: 62.5rem;
 `
-
-export const SearchBookForm = styled.form`
-  position: relative;
-
-  & > input {
-    width: 26.05rem;
-  }
-`

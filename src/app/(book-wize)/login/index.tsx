@@ -7,10 +7,11 @@ export default function Login() {
     <LoginContainer>
       <Image
         src="/login-logo.svg"
-        alt="book wize logo"
+        alt="Book wize logo"
         width={598}
         height={912}
         quality={100}
+        priority
       />
 
       <SignInContainer>
@@ -18,6 +19,7 @@ export default function Login() {
           <h2>Boas vindas!</h2>
           <p>Faça seu login ou acesse como visitante.</p>
         </WelcomeText>
+
         <SignInOptions />
       </SignInContainer>
     </LoginContainer>

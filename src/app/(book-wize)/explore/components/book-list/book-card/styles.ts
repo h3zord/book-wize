@@ -3,10 +3,24 @@
 import styled from 'styled-components'
 
 export const BookCardContent = styled.div`
-  padding: 16px 20px;
+  position: relative;
+  padding: 18px 20px;
   background-color: ${(props) => props.theme.colors.gray[700]};
   border-radius: ${(props) => props.theme.radii.md};
   width: 20rem;
+`
+
+export const ReadLabel = styled.div`
+  border-top-right-radius: ${(props) => props.theme.radii.md};
+  border-bottom-left-radius: ${(props) => props.theme.radii.md};
+  background-color: ${(props) => props.theme.colors.green[300]};
+  color: ${(props) => props.theme.colors.green[100]};
+  font-weight: ${(props) => props.theme.fontWeights.bold};
+  font-size: ${(props) => props.theme.fontSizes.xs};
+  padding: 2px 8px;
+  position: absolute;
+  top: 0;
+  right: 0;
 `
 
 export const BookCardInformation = styled.div`

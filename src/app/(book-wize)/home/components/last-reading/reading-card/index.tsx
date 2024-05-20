@@ -14,7 +14,7 @@ export function ReadingCard({ reading }: IReadingsCardProps) {
     <LastReadingCard>
       <LastReadingInformation>
         <Image
-          src={reading.book.cover_url}
+          src={reading.book.cover_url ?? ''}
           height={152}
           width={108}
           alt="Most recent reading book cover"

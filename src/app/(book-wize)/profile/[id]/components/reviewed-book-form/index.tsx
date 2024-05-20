@@ -1,11 +1,11 @@
 'use client'
 
 import { ReviewedBookContainer, SearchReviewedBookForm } from './styles'
-import { MagnifyingGlass } from '@phosphor-icons/react/dist/ssr/MagnifyingGlass'
 import { ReviewFeed } from './review-feed'
 import { useEffect, useState } from 'react'
 import { IRating } from '@/fetch/user'
 import { useForm } from 'react-hook-form'
+import { MagnifyingGlass } from '@phosphor-icons/react'
 import {
   SearchInput,
   SearchInputSubmit,
@@ -39,7 +39,7 @@ export function ReviewedBookForm({ userRatings }: IReviwedBookFormProps) {
     setRatings(filteredReviewedBooks)
   }
 
-  function onSubmit(formInputs: IFormInputs) {
+  function searchReviewByBookName(formInputs: IFormInputs) {
     const { searchTerm } = formInputs
 
     if (!searchTerm.trim()) {
@@ -53,7 +53,7 @@ export function ReviewedBookForm({ userRatings }: IReviwedBookFormProps) {
 
   return (
     <>
-      <SearchReviewedBookForm onSubmit={handleSubmit(onSubmit)}>
+      <SearchReviewedBookForm onSubmit={handleSubmit(searchReviewByBookName)}>
         <SearchInput
           type="text"
           placeholder="Buscar livro avaliado"

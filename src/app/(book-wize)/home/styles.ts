@@ -24,28 +24,28 @@ export const SeeAllContainer = styled.div`
   & > p {
     color: ${(props) => props.theme.colors.gray[100]};
   }
+`
+export const SeeAllButton = styled.button`
+  all: unset;
+  border-radius: ${(props) => props.theme.radii.sm};
+  background-color: transparent;
+  border: none;
+  color: ${(props) => props.theme.colors.purple[100]};
+  font-weight: ${(props) => props.theme.fontWeights.bold};
+  line-height: ${(props) => props.theme.lineHeights.base};
+  font-size: ${(props) => props.theme.fontSizes.sm};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: ${(props) => props.theme.space[1]};
+  padding: 4px 8px;
+  cursor: pointer;
 
-  & > button {
-    all: unset;
-    border-radius: ${(props) => props.theme.radii.sm};
-    background-color: transparent;
-    border: none;
-    color: ${(props) => props.theme.colors.purple[100]};
-    font-weight: ${(props) => props.theme.fontWeights.bold};
-    line-height: ${(props) => props.theme.lineHeights.base};
-    font-size: ${(props) => props.theme.fontSizes.sm};
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: ${(props) => props.theme.space[1]};
-    padding: 4px 8px;
-    cursor: pointer;
-
-    &:hover {
-      background-color: ${(props) => props.theme.colors.gray[600]};
-    }
+  &:hover {
+    background-color: ${(props) => props.theme.colors.gray[600]};
   }
 `
+
 export const Overlay = styled(Dialog.Overlay)`
   background: rgba(0 0 0 / 0.75);
   position: fixed;
@@ -59,7 +59,7 @@ export const Content = styled(Dialog.Content)<{ $modalWidth?: string }>`
   position: fixed;
   top: 0;
   right: 0;
-  width: ${(props) => (props.$modalWidth ? props.$modalWidth : '40rem')};
+  width: ${(props) => (props.$modalWidth ? props.$modalWidth : '42rem')};
   background-color: ${(props) => props.theme.colors.gray[800]};
   padding: 2rem 2.5rem;
   overflow-y: auto;

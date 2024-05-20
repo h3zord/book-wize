@@ -1,16 +1,12 @@
 import { getBookAvgRating } from '@/utils/getBookAvgRating'
 
-interface IFetchBookParams {
-  categoryQuery?: string
-}
-
-interface ICategory {
+export interface ICategory {
   category: {
     name: string
   }
 }
 
-export interface IBooks {
+interface IBooks {
   id: string
   name: string
   author: string
@@ -23,29 +19,44 @@ export interface IBooks {
     rate: number
   }[]
 }
-
 export interface IBooksWithAvgRating extends IBooks {
   avgRating: number
 }
 
-export async function fetchBooks({ categoryQuery }: IFetchBookParams = {}) {
+export async function fetchBooks(categoryQuery?: string) {
   let url = 'http://localhost:3000/api/books'
 
   if (categoryQuery) {
     url += `?category=${encodeURIComponent(categoryQuery)}`
   }
 
-  const data = await fetch(url)
+  try {
+    const response = await fetch(url)
 
-  const booksList: IBooks[] = await data.json()
+    if (!response.ok) {
+      throw new Error(
+        `Failed to fetch books: ${response.status} ${response.statusText}`,
+      )
+    }
 
-  const booksWithAvgRating: IBooksWithAvgRating[] = booksList.map(
-    ({ ratings, ...rest }) => {
-      const avgRating = getBookAvgRating(ratings)
+    const booksList: IBooks[] = await response.json()
 
-      return { ...rest, ratings, avgRating }
-    },
-  )
+    const booksWithAvgRating: IBooksWithAvgRating[] = booksList.map(
+      ({ ratings, ...rest }) => {
+        const avgRating = getBookAvgRating(ratings)
 
-  return { books: booksWithAvgRating }
+        return { ...rest, ratings, avgRating }
+      },
+    )
+
+    return booksWithAvgRating
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message)
+    } else {
+      console.error('Failed to fetch books:', error)
+    }
+
+    return []
+  }
 }

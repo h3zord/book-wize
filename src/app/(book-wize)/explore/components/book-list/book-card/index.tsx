@@ -1,27 +1,39 @@
 import Image from 'next/image'
-import { BookCardContent, BookCardInformation } from './styles'
-import { IBooksWithAvgRating } from '@/fetch/books'
+import { BookCardContent, BookCardInformation, ReadLabel } from './styles'
 import { Rating } from '@/app/components/rating'
+import { ForwardRefRenderFunction, forwardRef } from 'react'
+import { IBooksWithAvgRating } from '@/fetch/books'
 
-interface IBookCard {
+interface IBookCardProps {
   book: IBooksWithAvgRating
+  wasRead: boolean
 }
 
-export function BookCard({ book }: IBookCard) {
-  return (
-    <BookCardContent>
-      <BookCardInformation>
-        <Image src={book.cover_url} height={152} width={108} alt="Book cover" />
-
-        <div>
+const BookCard: ForwardRefRenderFunction<HTMLDivElement, IBookCardProps> =
+  function ({ book, wasRead, ...props }, forwardedRef) {
+    return (
+      <BookCardContent {...props} ref={forwardedRef}>
+        <BookCardInformation>
+          <Image
+            src={book.cover_url}
+            height={152}
+            width={108}
+            alt="Book cover"
+          />
           <div>
-            <h4>{book.name}</h4>
-            <p>{book.author}</p>
+            <div>
+              <h4>{book.name}</h4>
+              <p>{book.author}</p>
+            </div>
+            <Rating defaultValue={book.avgRating} readOnly />
           </div>
+        </BookCardInformation>
 
-          <Rating defaultValue={book.avgRating} readOnly />
-        </div>
-      </BookCardInformation>
-    </BookCardContent>
-  )
-}
+        {wasRead && <ReadLabel>Lido</ReadLabel>}
+      </BookCardContent>
+    )
+  }
+
+BookCard.displayName = 'BookCardWithRef'
+
+export default forwardRef(BookCard)
