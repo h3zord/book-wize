@@ -5,7 +5,6 @@ import { Rating } from '@/app/components/rating'
 import { IBooksWithAvgRating, ICategory } from '@/fetch/books'
 import { Checkbox } from '@mui/material'
 import { ChangeEvent, useContext, useEffect, useState } from 'react'
-import { parseCookies } from 'nookies'
 import { checkIfBookWasRead } from '@/utils/checkIfBookWasRead'
 import { ExploreBooksContext } from '@/context/explore-books'
 import { createReading, deleteReading } from '@/fetch/readings'
@@ -28,9 +27,11 @@ export function BookInformations({ book }: IBookInformationsProps) {
   const { ratings, readBookIds, getUserReadBookIds } =
     useContext(ExploreBooksContext)
 
-  const { userId } = parseCookies()
+  const { data: session, status } = useSession()
 
-  const { status } = useSession()
+  const userId = session?.user.id
+
+  const isAuthenticated = status === 'authenticated'
 
   const avgRating = getBookAvgRating(ratings)
 
@@ -67,7 +68,7 @@ export function BookInformations({ book }: IBookInformationsProps) {
 
     setChecked(event.target.checked)
 
-    await getUserReadBookIds(userId)
+    if (userId) await getUserReadBookIds(userId)
   }
 
   return (
@@ -108,7 +109,7 @@ export function BookInformations({ book }: IBookInformationsProps) {
           </h4>
         </div>
 
-        {status === 'authenticated' && (
+        {isAuthenticated && (
           <label>
             <Checkbox
               checked={checked}

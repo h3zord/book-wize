@@ -43,5 +43,7 @@ export async function GET(request: NextRequest) {
     books = await prisma.book.findMany(bookQuery)
   }
 
+  await prisma.$disconnect()
+
   return Response.json(books)
 }

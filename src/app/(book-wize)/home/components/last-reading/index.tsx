@@ -1,13 +1,15 @@
 import { fetchReadings } from '@/fetch/readings'
-import { RequestCookie } from 'next/dist/compiled/@edge-runtime/cookies'
-import { cookies } from 'next/headers'
 import { SeeAllContainer } from '../../styles'
 import { LastReadingModal } from './last-reading-modal'
 import { LastReadingContainer, LastReadingContent } from './styles'
 import { ReadingCard } from '@/app/(book-wize)/home/components/last-reading/reading-card'
+import { getServerSession } from 'next-auth'
+import { authOptions } from '@/app/api/auth/[...nextauth]/options'
 
 export async function LastReading() {
-  const { value: userId } = cookies().get('userId') as RequestCookie
+  const session = await getServerSession(authOptions)
+
+  const userId = session?.user.id
 
   const readingsOderByDate = await fetchReadings(userId)
 

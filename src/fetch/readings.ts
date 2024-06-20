@@ -26,9 +26,13 @@ export interface IReadingsWithAvgRating extends IReadings {
   book: IBookWithAvgRating
 }
 
-export async function fetchReadings(id: string) {
+export async function fetchReadings(userId?: string) {
   try {
-    const response = await fetch(`http://localhost:3000/api/readings/${id}`)
+    if (!userId) {
+      throw new Error('ID not found!')
+    }
+
+    const response = await fetch(`http://localhost:3000/api/readings/${userId}`)
 
     if (!response.ok) {
       throw new Error(
@@ -58,12 +62,16 @@ export async function fetchReadings(id: string) {
 }
 
 interface ICreateReading {
-  userId: string
+  userId?: string
   bookId: string
 }
 
 export async function createReading({ userId, bookId }: ICreateReading) {
   try {
+    if (!userId) {
+      throw new Error('UserID not found!')
+    }
+
     const response = await fetch('http://localhost:3000/api/readings', {
       method: 'POST',
       body: JSON.stringify({
@@ -87,11 +95,15 @@ export async function createReading({ userId, bookId }: ICreateReading) {
 }
 
 interface IDeleteReading {
-  userId: string
+  userId?: string
   bookId: string
 }
 
 export async function deleteReading({ userId, bookId }: IDeleteReading) {
+  if (!userId) {
+    throw new Error('UserID not found!')
+  }
+
   try {
     const response = await fetch('http://localhost:3000/api/readings', {
       method: 'DELETE',

@@ -40,7 +40,9 @@ export interface IUser {
 
 export async function fetchUser(id: string): Promise<IUser | undefined> {
   try {
-    const response = await fetch(`http://localhost:3000/api/user/${id}`)
+    const response = await fetch(`http://localhost:3000/api/user/${id}`, {
+      cache: 'no-cache',
+    })
 
     if (!response.ok) {
       throw new Error(

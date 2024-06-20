@@ -23,5 +23,7 @@ export async function GET(_request: Request, { params }: IParamsProps) {
     },
   })
 
+  await prisma.$disconnect()
+
   return Response.json(ratings)
 }

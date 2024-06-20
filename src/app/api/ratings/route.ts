@@ -24,6 +24,8 @@ export async function GET() {
     },
   })
 
+  await prisma.$disconnect()
+
   return Response.json(ratings)
 }
 
@@ -38,6 +40,8 @@ export async function POST(request: NextRequest) {
       rate: ratingData.rate,
     },
   })
+
+  await prisma.$disconnect()
 
   return Response.json(rating)
 }

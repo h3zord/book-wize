@@ -3,7 +3,7 @@
 import { IBooksWithAvgRating, fetchBooks } from '@/fetch/books'
 import { IRatingFindByBookId, fetchRatingsByBookId } from '@/fetch/ratings'
 import { fetchReadings } from '@/fetch/readings'
-import { parseCookies } from 'nookies'
+import { useSession } from 'next-auth/react'
 import {
   Dispatch,
   ReactNode,
@@ -46,6 +46,10 @@ export function ExploreBooksContextProvider({
     'no category selected',
   )
 
+  const { data: session } = useSession()
+
+  const userId = session?.user.id
+
   async function getAllBooks() {
     const booksList = await fetchBooks()
 
@@ -73,10 +77,8 @@ export function ExploreBooksContextProvider({
   useEffect(() => {
     getAllBooks()
 
-    const { userId } = parseCookies()
-
     if (userId) getUserReadBookIds(userId)
-  }, [])
+  }, [userId])
 
   return (
     <ExploreBooksContext.Provider

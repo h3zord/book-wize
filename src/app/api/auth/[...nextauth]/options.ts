@@ -2,7 +2,6 @@ import GithubProvider from 'next-auth/providers/github'
 import GoogleProvider from 'next-auth/providers/google'
 import { prisma } from '@/lib/prisma'
 import { PrismaAdapter } from '@auth/prisma-adapter'
-import { cookies } from 'next/headers'
 import { NextAuthOptions } from 'next-auth'
 import type { Adapter } from 'next-auth/adapters'
 
@@ -29,22 +28,11 @@ export const authOptions: NextAuthOptions = {
   ],
 
   callbacks: {
-    async signIn({ user }) {
-      cookies().set('userId', user.id)
-
-      return true
-    },
-
-    async redirect({ url, baseUrl }) {
-      if (url.startsWith('/')) {
-        cookies().delete('userId')
-
-        return `${baseUrl}${url}`
-      } else if (new URL(url).origin === baseUrl) {
-        return url
+    async session({ session, user }) {
+      return {
+        ...session,
+        user,
       }
-
-      return baseUrl
     },
   },
 }

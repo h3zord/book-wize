@@ -8,7 +8,6 @@ import { Controller, useForm } from 'react-hook-form'
 import { useSession } from 'next-auth/react'
 import { Rating } from '@/app/components/rating'
 import { distanceToNow } from '@/utils/distanceToNow'
-import { parseCookies } from 'nookies'
 import { ExploreBooksContext } from '@/context/explore-books'
 import { IRatingFindByBookId, createRating } from '@/fetch/ratings'
 import { Check, X } from '@phosphor-icons/react'
@@ -40,7 +39,9 @@ export function Ratings({ bookId }: IRatingsProps) {
     },
   })
 
-  const { data, status } = useSession()
+  const { data: session, status } = useSession()
+
+  const isAuthenticated = status === 'authenticated'
 
   useEffect(() => {
     getAllRatings(bookId)
@@ -49,7 +50,7 @@ export function Ratings({ bookId }: IRatingsProps) {
   async function createNewRating(formInputs: IFormInputs) {
     const { rate, description } = formInputs
 
-    const { userId } = parseCookies()
+    const userId = session?.user.id
 
     await createRating({
       userId,
@@ -71,12 +72,12 @@ export function Ratings({ bookId }: IRatingsProps) {
         <AvatarAndRating>
           <div>
             <Image
-              src={data?.user?.image || ''}
+              src={session?.user?.image || ''}
               height={40}
               width={40}
               alt="User avatar"
             />
-            <h4>{data?.user?.name}</h4>
+            <h4>{session?.user?.name}</h4>
           </div>
 
           <Controller
@@ -145,7 +146,7 @@ export function Ratings({ bookId }: IRatingsProps) {
       <RateButtonContainer>
         <span>Avaliações</span>
 
-        {status === 'authenticated' ? (
+        {isAuthenticated ? (
           <button onClick={() => setShowCommentBox(true)}>Avaliar</button>
         ) : (
           <LoginModal>

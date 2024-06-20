@@ -109,7 +109,7 @@ export async function fetchRatingsByBookId(bookId: string) {
 }
 
 interface IRatingData {
-  userId: string
+  userId?: string
   bookId: string
   description: string
   rate: number
@@ -122,6 +122,10 @@ export async function createRating({
   rate,
 }: IRatingData) {
   try {
+    if (!userId) {
+      throw new Error('UserID not found!')
+    }
+
     const response = await fetch('http://localhost:3000/api/ratings', {
       method: 'POST',
       body: JSON.stringify({

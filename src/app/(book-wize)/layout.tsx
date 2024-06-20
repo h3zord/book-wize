@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import { parseCookies } from 'nookies'
 import { signOut, useSession } from 'next-auth/react'
 import { LoginModal } from '../components/login-modal'
 import { usePathname, useRouter } from 'next/navigation'
@@ -27,7 +26,9 @@ export default function NavBarLayout({
 }>) {
   const { data: session, status } = useSession()
 
-  const { userId } = parseCookies()
+  const userId = session?.user.id
+
+  const isAuthenticated = status === 'authenticated'
 
   const pathname = usePathname()
 
@@ -37,6 +38,7 @@ export default function NavBarLayout({
 
   function moveToHome() {
     router.push('/home')
+    router.refresh()
   }
 
   function moveToExplore() {
@@ -45,6 +47,7 @@ export default function NavBarLayout({
 
   function moveToProfile() {
     router.push(`/profile/${userId}`)
+    router.refresh()
   }
 
   function logOff() {
@@ -75,7 +78,7 @@ export default function NavBarLayout({
             <Binoculars size={24} /> Explorar
           </NavigationButton>
 
-          {status === 'authenticated' && (
+          {isAuthenticated && (
             <NavigationButton
               $isSelected={pathname.startsWith('/profile')}
               onClick={moveToProfile}
@@ -85,7 +88,7 @@ export default function NavBarLayout({
           )}
         </NavigationOptions>
 
-        {status === 'authenticated' ? (
+        {isAuthenticated ? (
           <LoginButton $isLogged onClick={logOff}>
             <Image
               src={session.user?.image || ''}

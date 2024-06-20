@@ -14,6 +14,9 @@ export async function GET(_request: Request, { params }: IParamsProps) {
 
     include: {
       ratings: {
+        orderBy: {
+          created_at: 'desc',
+        },
         select: {
           id: true,
           rate: true,
@@ -48,6 +51,8 @@ export async function GET(_request: Request, { params }: IParamsProps) {
       },
     },
   })
+
+  await prisma.$disconnect()
 
   return Response.json(readings)
 }

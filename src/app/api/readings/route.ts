@@ -10,6 +10,8 @@ export async function POST(request: Request) {
     },
   })
 
+  await prisma.$disconnect()
+
   return Response.json({ reading })
 }
 
@@ -24,6 +26,8 @@ export async function DELETE(request: Request) {
       },
     },
   })
+
+  await prisma.$disconnect()
 
   return Response.json(reading)
 }
