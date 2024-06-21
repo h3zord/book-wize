@@ -39,7 +39,7 @@ export interface IUser {
 }
 
 export async function fetchUser(id: string): Promise<IUser | undefined> {
-  const url = `${process.env.NEXT_PUBLIC_RAILWAY_URL}/users/${id}` as string
+  const url = `${process.env.NEXT_PUBLIC_RAILWAY_URL}/user/${id}` as string
 
   try {
     const response = await fetch(url, {
