@@ -24,14 +24,18 @@ export interface IBooksWithAvgRating extends IBooks {
 }
 
 export async function fetchBooks(categoryQuery?: string) {
-  let url = 'http://localhost:3000/api/books'
+  let url = `${process.env.NEXT_PUBLIC_RAILWAY_URL}/books/` as string
 
   if (categoryQuery) {
     url += `?category=${encodeURIComponent(categoryQuery)}`
   }
 
   try {
-    const response = await fetch(url)
+    const response = await fetch(url, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
 
     if (!response.ok) {
       throw new Error(

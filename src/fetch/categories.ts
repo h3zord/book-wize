@@ -5,7 +5,9 @@ export interface ICategories {
 
 export async function fetchCategories() {
   try {
-    const response = await fetch('http://localhost:3000/api/categories')
+    const url = `${process.env.NEXT_PUBLIC_RAILWAY_URL}/categories` as string
+
+    const response = await fetch(url)
 
     if (!response.ok) {
       throw new Error(

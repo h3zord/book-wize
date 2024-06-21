@@ -27,12 +27,15 @@ export interface IReadingsWithAvgRating extends IReadings {
 }
 
 export async function fetchReadings(userId?: string) {
+  const url =
+    `${process.env.NEXT_PUBLIC_RAILWAY_URL}/readings/${userId}` as string
+
   try {
     if (!userId) {
       throw new Error('ID not found!')
     }
 
-    const response = await fetch(`http://localhost:3000/api/readings/${userId}`)
+    const response = await fetch(url)
 
     if (!response.ok) {
       throw new Error(
@@ -67,12 +70,14 @@ interface ICreateReading {
 }
 
 export async function createReading({ userId, bookId }: ICreateReading) {
+  const url = `${process.env.NEXT_PUBLIC_RAILWAY_URL}/readings/` as string
+
   try {
     if (!userId) {
       throw new Error('UserID not found!')
     }
 
-    const response = await fetch('http://localhost:3000/api/readings', {
+    const response = await fetch(url, {
       method: 'POST',
       body: JSON.stringify({
         userId,
@@ -100,12 +105,14 @@ interface IDeleteReading {
 }
 
 export async function deleteReading({ userId, bookId }: IDeleteReading) {
+  const url = `${process.env.NEXT_PUBLIC_RAILWAY_URL}/readings/` as string
+
   if (!userId) {
     throw new Error('UserID not found!')
   }
 
   try {
-    const response = await fetch('http://localhost:3000/api/readings', {
+    const response = await fetch(url, {
       method: 'DELETE',
       body: JSON.stringify({
         userId,

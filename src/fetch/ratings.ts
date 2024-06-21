@@ -43,7 +43,9 @@ function selectRecentUniqueBookRatings(ratingsList: IRatings[]) {
 
 export async function fetchRatings() {
   try {
-    const response = await fetch('http://localhost:3000/api/ratings')
+    const url = `${process.env.NEXT_PUBLIC_RAILWAY_URL}/ratings` as string
+
+    const response = await fetch(url)
 
     if (!response.ok) {
       throw new Error(
@@ -86,7 +88,10 @@ export interface IRatingFindByBookId {
 
 export async function fetchRatingsByBookId(bookId: string) {
   try {
-    const response = await fetch(`http://localhost:3000/api/ratings/${bookId}`)
+    const url =
+      `${process.env.NEXT_PUBLIC_RAILWAY_URL}/ratings/${bookId}` as string
+
+    const response = await fetch(url)
 
     if (!response.ok) {
       throw new Error(
@@ -122,11 +127,13 @@ export async function createRating({
   rate,
 }: IRatingData) {
   try {
+    const url = `${process.env.NEXT_PUBLIC_RAILWAY_URL}/ratings` as string
+
     if (!userId) {
       throw new Error('UserID not found!')
     }
 
-    const response = await fetch('http://localhost:3000/api/ratings', {
+    const response = await fetch(url, {
       method: 'POST',
       body: JSON.stringify({
         user_id: userId,
