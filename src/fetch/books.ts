@@ -31,11 +31,7 @@ export async function fetchBooks(categoryQuery?: string) {
   }
 
   try {
-    const response = await fetch(url, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
+    const response = await fetch(url)
 
     if (!response.ok) {
       throw new Error(
