@@ -5,20 +5,22 @@ import { PopularCard } from './popular-card'
 import { fetchBooks } from '@/fetch/books'
 
 export async function PopularBooks() {
-  const booksList = await fetchBooks()
+  const bookList = await fetchBooks()
 
-  const bestRatedBooks = booksList.filter((book) => book.avgRating >= 4)
+  const bestRatedBooks = bookList.filter((book) => book.avgRating >= 4)
 
-  const sortedBooks = bestRatedBooks.sort((a, b) => b.avgRating - a.avgRating)
+  const sortedBestRatedBooks = bestRatedBooks.sort(
+    (a, b) => b.avgRating - a.avgRating,
+  )
 
-  const topFiveRatedBooks = sortedBooks.slice(0, 5)
+  const topFiveRatedBooks = sortedBestRatedBooks.slice(0, 5)
 
   return (
     <PopularBookContainer>
       <SeeAllContainer>
         <p>Livros populares</p>
 
-        <PopularBooksModal books={sortedBooks} />
+        <PopularBooksModal books={sortedBestRatedBooks} />
       </SeeAllContainer>
 
       <PopularBookContent>

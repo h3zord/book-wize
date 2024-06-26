@@ -15,9 +15,9 @@ export async function fetchCategories() {
       )
     }
 
-    const categoriesList: ICategories[] = await response.json()
+    const categoryList: ICategories[] = await response.json()
 
-    return categoriesList
+    return categoryList
   } catch (error) {
     if (error instanceof Error) {
       console.error(error.message)

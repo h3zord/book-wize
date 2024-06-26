@@ -8,37 +8,42 @@ import {
   ReviewedBookContent,
   ReviewedBookInformation,
 } from './styles'
+import BookNotFound from '@/app/components/book-not-found'
 
 interface IReviewFeedProps {
   ratings: IRating[]
 }
 
 export function ReviewFeed({ ratings }: IReviewFeedProps) {
-  return ratings?.map((rating) => (
-    <ReviewedBookContent key={rating.id}>
-      <span>{distanceToNow(rating.created_at)}</span>
+  return ratings.length ? (
+    ratings.map((rating) => (
+      <ReviewedBookContent key={rating.id}>
+        <span>{distanceToNow(rating.created_at)}</span>
 
-      <ReviewedBookCard>
-        <ReviewedBookInformation>
-          <Image
-            src={rating.book.cover_url}
-            width={98}
-            height={134}
-            alt="Book cover"
-          />
+        <ReviewedBookCard>
+          <ReviewedBookInformation>
+            <Image
+              src={rating.book.cover_url}
+              width={98}
+              height={134}
+              alt="Book cover"
+            />
 
-          <div>
             <div>
-              <h3>{rating.book.name}</h3>
-              <p>{rating.book.author}</p>
+              <div>
+                <h3>{rating.book.name}</h3>
+                <p>{rating.book.author}</p>
+              </div>
+
+              <Rating value={rating.rate} readOnly />
             </div>
+          </ReviewedBookInformation>
 
-            <Rating value={rating.rate} readOnly />
-          </div>
-        </ReviewedBookInformation>
-
-        <SummaryBook $lineClamp={7}>{rating.book.summary}</SummaryBook>
-      </ReviewedBookCard>
-    </ReviewedBookContent>
-  ))
+          <SummaryBook $lineClamp={7}>{rating.book.summary}</SummaryBook>
+        </ReviewedBookCard>
+      </ReviewedBookContent>
+    ))
+  ) : (
+    <BookNotFound />
+  )
 }

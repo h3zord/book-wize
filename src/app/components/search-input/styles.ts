@@ -33,7 +33,7 @@ export const SearchInputSubmit = styled.button`
   align-items: center;
   justify-content: center;
   position: absolute;
-  right: 14px;
+  right: 80px;
   top: 14px;
   background-color: red;
   border: none;

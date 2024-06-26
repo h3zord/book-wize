@@ -38,13 +38,15 @@ export interface IUser {
   readings: IReading[]
 }
 
-export async function fetchUser(id: string): Promise<IUser | undefined> {
-  const url = `${process.env.NEXT_PUBLIC_RAILWAY_URL}/user/${id}` as string
+export async function fetchUser(userId: string) {
+  const url = `${process.env.NEXT_PUBLIC_RAILWAY_URL}/user/${userId}` as string
 
   try {
-    const response = await fetch(url, {
-      cache: 'no-cache',
-    })
+    if (!userId) {
+      throw new Error('ID not found!')
+    }
+
+    const response = await fetch(url)
 
     if (!response.ok) {
       throw new Error(

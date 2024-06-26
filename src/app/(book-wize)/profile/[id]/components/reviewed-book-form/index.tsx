@@ -5,11 +5,12 @@ import { ReviewFeed } from './review-feed'
 import { useEffect, useState } from 'react'
 import { IRating } from '@/fetch/user'
 import { useForm } from 'react-hook-form'
-import { MagnifyingGlass } from '@phosphor-icons/react'
+import { ArrowsCounterClockwise, MagnifyingGlass } from '@phosphor-icons/react'
 import {
   SearchInput,
   SearchInputSubmit,
 } from '@/app/components/search-input/styles'
+import { RefreshButton } from '@/app/components/refresh-button/styles'
 
 interface IReviwedBookFormProps {
   userRatings: IRating[]
@@ -24,12 +25,16 @@ export function ReviewedBookForm({ userRatings }: IReviwedBookFormProps) {
 
   const { register, handleSubmit, reset } = useForm<IFormInputs>()
 
+  const totalRatings = userRatings.length
+  const currentRatings = ratings.length
+
   useEffect(() => {
     setRatings(userRatings)
   }, [userRatings])
 
+  // Filtragem local ↓
   async function filterReviewByBookName(searchTerm: string) {
-    const filteredReviewedBooks = ratings.filter((rating) => {
+    const filteredReviewedBooks = userRatings.filter((rating) => {
       const lowerCaseSearchTerm = searchTerm.toLowerCase()
       const lowerCaseBookName = rating.book.name.toLowerCase()
 
@@ -42,12 +47,15 @@ export function ReviewedBookForm({ userRatings }: IReviwedBookFormProps) {
   function searchReviewByBookName(formInputs: IFormInputs) {
     const { searchTerm } = formInputs
 
-    if (!searchTerm.trim()) {
-      setRatings(userRatings)
-    } else {
+    if (searchTerm.trim()) {
       filterReviewByBookName(searchTerm)
     }
 
+    reset()
+  }
+
+  function resetRatings() {
+    setRatings(userRatings)
     reset()
   }
 
@@ -63,6 +71,14 @@ export function ReviewedBookForm({ userRatings }: IReviwedBookFormProps) {
         <SearchInputSubmit type="submit">
           <MagnifyingGlass size={24} />
         </SearchInputSubmit>
+
+        <RefreshButton
+          type="button"
+          onClick={resetRatings}
+          disabled={currentRatings === totalRatings}
+        >
+          <ArrowsCounterClockwise size={24} />
+        </RefreshButton>
       </SearchReviewedBookForm>
 
       <ReviewedBookContainer>

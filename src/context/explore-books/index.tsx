@@ -9,9 +9,9 @@ import {
   ReactNode,
   SetStateAction,
   createContext,
-  useCallback,
   useEffect,
   useState,
+  useCallback,
 } from 'react'
 
 interface IExploreBooksContext {
@@ -25,6 +25,7 @@ interface IExploreBooksContext {
   getAllBooks: () => Promise<void>
   getAllRatings: (book: string) => Promise<void>
   getUserReadBookIds: (userId: string) => Promise<void>
+  resetBooks: () => void
 }
 
 interface IBooksContextProvider {
@@ -51,15 +52,15 @@ export function ExploreBooksContextProvider({
   const userId = session?.user.id
 
   async function getAllBooks() {
-    const booksList = await fetchBooks()
+    const bookList = await fetchBooks()
 
-    setBooks(booksList)
+    setBooks(bookList)
   }
 
   async function getUserReadBookIds(userId: string) {
-    const readingsList = await fetchReadings(userId)
+    const readingList = await fetchReadings(userId)
 
-    const bookIdListFromReadings = readingsList?.map(
+    const bookIdListFromReadings = readingList?.map(
       (reading) => reading.book_id,
     )
 
@@ -68,11 +69,18 @@ export function ExploreBooksContextProvider({
 
   const getAllRatings = useCallback(
     async function (bookId: string) {
-      const ratingsList = await fetchRatingsByBookId(bookId)
-      setRatings(ratingsList)
+      const ratingList = await fetchRatingsByBookId(bookId)
+
+      setRatings(ratingList)
     },
     [setRatings],
   )
+
+  function resetBooks() {
+    setSelectedCategory('no category selected')
+
+    getAllBooks()
+  }
 
   useEffect(() => {
     getAllBooks()
@@ -93,6 +101,7 @@ export function ExploreBooksContextProvider({
         getAllBooks,
         getAllRatings,
         getUserReadBookIds,
+        resetBooks,
       }}
     >
       {children}

@@ -11,6 +11,7 @@ import { distanceToNow } from '@/utils/distanceToNow'
 import { ExploreBooksContext } from '@/context/explore-books'
 import { IRatingFindByBookId, createRating } from '@/fetch/ratings'
 import { Check, X } from '@phosphor-icons/react'
+import { Loader } from '@/app/components/loader'
 import {
   BookRatingForm,
   RateButtonContainer,
@@ -30,6 +31,7 @@ interface IFormInputs {
 
 export function Ratings({ bookId }: IRatingsProps) {
   const [showCommentBox, setShowCommentBox] = useState(false)
+  const [isCommented, setIsCommented] = useState(false)
 
   const { getAllRatings, ratings } = useContext(ExploreBooksContext)
 
@@ -41,11 +43,19 @@ export function Ratings({ bookId }: IRatingsProps) {
 
   const { data: session, status } = useSession()
 
+  const userId = session?.user.id
+
   const isAuthenticated = status === 'authenticated'
 
   useEffect(() => {
-    getAllRatings(bookId)
-  }, [bookId, getAllRatings])
+    if (userId) {
+      const alreadyCommented = ratings.some(
+        (rating) => rating.user_id === userId,
+      )
+
+      setIsCommented(alreadyCommented)
+    }
+  }, [ratings, isCommented, userId])
 
   async function createNewRating(formInputs: IFormInputs) {
     const { rate, description } = formInputs
@@ -66,13 +76,17 @@ export function Ratings({ bookId }: IRatingsProps) {
     await getAllRatings(bookId)
   }
 
+  function handleCLickResetForm() {
+    setShowCommentBox(false)
+  }
+
   function commentBox() {
     return (
       <RatingCard>
         <AvatarAndRating>
           <div>
             <Image
-              src={session?.user?.image || ''}
+              src={session?.user?.image ?? ''}
               height={40}
               width={40}
               alt="User avatar"
@@ -102,7 +116,7 @@ export function Ratings({ bookId }: IRatingsProps) {
           />
 
           <div>
-            <button type="reset" onClick={() => setShowCommentBox(false)}>
+            <button type="reset" onClick={handleCLickResetForm}>
               <X size={24} />
             </button>
 
@@ -141,13 +155,19 @@ export function Ratings({ bookId }: IRatingsProps) {
     ))
   }
 
+  function handleCLickRateButton() {
+    setShowCommentBox(true)
+  }
+
   return (
     <RatingsContainer>
       <RateButtonContainer>
         <span>Avaliações</span>
 
         {isAuthenticated ? (
-          <button onClick={() => setShowCommentBox(true)}>Avaliar</button>
+          <button onClick={handleCLickRateButton} disabled={isCommented}>
+            {isCommented ? 'Avaliado' : 'Avaliar'}
+          </button>
         ) : (
           <LoginModal>
             <button>Avaliar</button>
@@ -158,7 +178,11 @@ export function Ratings({ bookId }: IRatingsProps) {
       <RatingContent>
         {showCommentBox && commentBox()}
 
-        {mapRatings(ratings)}
+        {ratings.length ? (
+          mapRatings(ratings)
+        ) : (
+          <Loader width="200px" height="5px" />
+        )}
       </RatingContent>
     </RatingsContainer>
   )

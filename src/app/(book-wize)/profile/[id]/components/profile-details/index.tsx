@@ -41,21 +41,19 @@ export function ProfileDetails({ userDetails }: IProfileDetailsProps) {
     return mostFrequentCategory
   }
 
+  const mostReadCategory = getMostReadCategory(userDetails.readings)
+
   const registrationYear = new Date(userDetails.created_at).getFullYear()
+
+  const numberReviewedBooks = userDetails.ratings.length
+
+  const numberReadAuthors = userDetails.readings.length
 
   const pagesRead = userDetails.readings.reduce((totalPages, reading) => {
     totalPages += reading.book.total_pages
 
     return totalPages
   }, 0)
-
-  const numberReviewedBooks = userDetails.ratings.length
-
-  const numberReadAuthors = userDetails.readings.length
-
-  const { readings } = userDetails
-
-  const mostReadCategory = getMostReadCategory(readings)
 
   return (
     <ProfileContent>

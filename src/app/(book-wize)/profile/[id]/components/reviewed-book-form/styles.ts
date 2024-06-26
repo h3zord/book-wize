@@ -3,6 +3,10 @@
 import styled from 'styled-components'
 
 export const SearchReviewedBookForm = styled.form`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: ${(props) => props.theme.space[2]};
   position: relative;
   margin-top: ${(props) => props.theme.space[10]};
 

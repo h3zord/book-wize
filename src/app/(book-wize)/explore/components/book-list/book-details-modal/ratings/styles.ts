@@ -28,8 +28,13 @@ export const RateButtonContainer = styled.div`
     padding: 4px 8px;
     cursor: pointer;
 
-    &:hover {
+    &:hover:not(:disabled) {
       background-color: ${(props) => props.theme.colors.gray[600]};
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
     }
   }
 `
@@ -39,6 +44,7 @@ export const RatingContent = styled.div`
   flex-direction: column;
   gap: ${(props) => props.theme.space[3]};
   margin-top: ${(props) => props.theme.space[4]};
+  min-height: 100px;
 `
 
 export const RatingCard = styled.div`

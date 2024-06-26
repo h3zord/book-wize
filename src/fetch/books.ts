@@ -23,6 +23,16 @@ export interface IBooksWithAvgRating extends IBooks {
   avgRating: number
 }
 
+function BookListMap(bookList: IBooks[]): IBooksWithAvgRating[] {
+  const bookListWithAvgRating = bookList.map(({ ratings, ...rest }) => {
+    const avgRating = getBookAvgRating(ratings)
+
+    return { ...rest, ratings, avgRating }
+  })
+
+  return bookListWithAvgRating
+}
+
 export async function fetchBooks(categoryQuery?: string) {
   let url = `${process.env.NEXT_PUBLIC_RAILWAY_URL}/books/` as string
 
@@ -39,17 +49,11 @@ export async function fetchBooks(categoryQuery?: string) {
       )
     }
 
-    const booksList: IBooks[] = await response.json()
+    const bookList: IBooks[] = await response.json()
 
-    const booksWithAvgRating: IBooksWithAvgRating[] = booksList.map(
-      ({ ratings, ...rest }) => {
-        const avgRating = getBookAvgRating(ratings)
+    const bookListWithAvgRating = BookListMap(bookList)
 
-        return { ...rest, ratings, avgRating }
-      },
-    )
-
-    return booksWithAvgRating
+    return bookListWithAvgRating
   } catch (error) {
     if (error instanceof Error) {
       console.error(error.message)

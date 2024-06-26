@@ -22,9 +22,9 @@ interface IBookInformationsProps {
 }
 
 export function BookInformations({ book }: IBookInformationsProps) {
-  const [checked, setChecked] = useState(false)
+  const [checkedRead, setCheckedRead] = useState(false)
 
-  const { ratings, readBookIds, getUserReadBookIds } =
+  const { ratings, getAllRatings, readBookIds, getUserReadBookIds } =
     useContext(ExploreBooksContext)
 
   const { data: session, status } = useSession()
@@ -36,23 +36,25 @@ export function BookInformations({ book }: IBookInformationsProps) {
   const avgRating = getBookAvgRating(ratings)
 
   useEffect(() => {
+    getAllRatings(book.id)
+
     if (userId) {
       const wasRead = checkIfBookWasRead(book.id, readBookIds)
 
-      setChecked(wasRead)
+      setCheckedRead(wasRead)
     }
-  }, [book.id, readBookIds, userId])
+  }, [getAllRatings, book.id, readBookIds, userId])
 
   function mapCategories(categories: ICategory[]) {
-    const categoriesList = categories.map(({ category }) => category.name)
+    const categoryList = categories.map(({ category }) => category.name)
 
-    const formattedCategories = categoriesList.join(', ')
+    const formattedCategories = categoryList.join(', ')
 
     return formattedCategories
   }
 
   async function handleCheckChange(event: ChangeEvent<HTMLInputElement>) {
-    setChecked(event.target.checked)
+    setCheckedRead(event.target.checked)
 
     if (event.target.checked) {
       await createReading({
@@ -65,8 +67,6 @@ export function BookInformations({ book }: IBookInformationsProps) {
         bookId: book.id,
       })
     }
-
-    setChecked(event.target.checked)
 
     if (userId) await getUserReadBookIds(userId)
   }
@@ -112,7 +112,7 @@ export function BookInformations({ book }: IBookInformationsProps) {
         {isAuthenticated && (
           <label>
             <Checkbox
-              checked={checked}
+              checked={checkedRead}
               onChange={handleCheckChange}
               sx={{
                 color: '#50B2C0',

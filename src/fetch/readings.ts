@@ -26,13 +26,23 @@ export interface IReadingsWithAvgRating extends IReadings {
   book: IBookWithAvgRating
 }
 
+function readingListMap(readingList: IReadings[]): IReadingsWithAvgRating[] {
+  const readingListWithAvgRating = readingList.map(({ book, ...rest }) => {
+    const avgRating = getBookAvgRating(book.ratings)
+
+    return { ...rest, book: { ...book, avgRating } }
+  })
+
+  return readingListWithAvgRating
+}
+
 export async function fetchReadings(userId?: string) {
   const url =
     `${process.env.NEXT_PUBLIC_RAILWAY_URL}/readings/${userId}` as string
 
   try {
     if (!userId) {
-      throw new Error('ID not found!')
+      throw new Error('UserID not found!')
     }
 
     const response = await fetch(url)
@@ -43,16 +53,11 @@ export async function fetchReadings(userId?: string) {
       )
     }
 
-    const readingsListOrderByDate: IReadings[] = await response.json()
+    const readingListOrderByDate: IReadings[] = await response.json()
 
-    const readingsListWithAvgRating: IReadingsWithAvgRating[] =
-      readingsListOrderByDate.map(({ book, ...rest }) => {
-        const avgRating = getBookAvgRating(book.ratings)
+    const readingListWithAvgRating = readingListMap(readingListOrderByDate)
 
-        return { ...rest, book: { ...book, avgRating } }
-      })
-
-    return readingsListWithAvgRating
+    return readingListWithAvgRating
   } catch (error) {
     if (error instanceof Error) {
       console.error(error.message)

@@ -21,12 +21,12 @@ export interface IRatings {
   user: IUser
 }
 
-function selectRecentUniqueBookRatings(ratingsList: IRatings[]) {
+function selectRecentUniqueBookRatings(ratingList: IRatings[]) {
   const uniqueBooks: { [key: string]: boolean } = {}
 
   const recentUniqueBookRatings: IRatings[] = []
 
-  for (const rating of ratingsList) {
+  for (const rating of ratingList) {
     if (!uniqueBooks[rating.book_id]) {
       recentUniqueBookRatings.push(rating)
 
@@ -53,10 +53,10 @@ export async function fetchRatings() {
       )
     }
 
-    const ratingsListOrderByDate: IRatings[] = await response.json()
+    const ratingListOrderByDate: IRatings[] = await response.json()
 
     const recentUniqueBookRatings = selectRecentUniqueBookRatings(
-      ratingsListOrderByDate,
+      ratingListOrderByDate,
     )
 
     return recentUniqueBookRatings
@@ -88,6 +88,10 @@ export interface IRatingFindByBookId {
 
 export async function fetchRatingsByBookId(bookId: string) {
   try {
+    if (!bookId) {
+      throw new Error('Book ID not found!')
+    }
+
     const url =
       `${process.env.NEXT_PUBLIC_RAILWAY_URL}/ratings/${bookId}` as string
 
@@ -131,6 +135,10 @@ export async function createRating({
 
     if (!userId) {
       throw new Error('UserID not found!')
+    }
+
+    if (!description) {
+      throw new Error('Description not found!')
     }
 
     const response = await fetch(url, {

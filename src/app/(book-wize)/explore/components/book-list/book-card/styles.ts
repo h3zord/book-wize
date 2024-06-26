@@ -8,6 +8,7 @@ export const BookCardContent = styled.div`
   background-color: ${(props) => props.theme.colors.gray[700]};
   border-radius: ${(props) => props.theme.radii.md};
   width: 20rem;
+  cursor: pointer;
 `
 
 export const ReadLabel = styled.div`

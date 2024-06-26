@@ -10,6 +10,10 @@ export const BookCategoryContainer = styled.section`
 `
 
 export const BookCategoryButton = styled.button<{ $isSelected?: boolean }>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: ${(props) => props.theme.space[1]};
   padding: 4px 16px;
   border-radius: ${(props) => props.theme.radii.full};
   font-size: ${(props) => props.theme.fontSizes.md};

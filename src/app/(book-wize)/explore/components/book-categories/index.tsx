@@ -9,30 +9,28 @@ import { fetchBooks } from '@/fetch/books'
 export function BookCategories() {
   const [categories, setCategories] = useState([] as ICategories[])
 
-  const { selectedCategory, setSelectedCategory, getAllBooks, setBooks } =
+  const { selectedCategory, setSelectedCategory, setBooks, resetBooks } =
     useContext(ExploreBooksContext)
 
+  async function getCategories() {
+    const categoryList = await fetchCategories()
+
+    setCategories(categoryList)
+  }
+
   useEffect(() => {
-    async function getCategories() {
-      const categoriesList = await fetchCategories()
-
-      setCategories(categoriesList)
-    }
-
     getCategories()
   }, [])
 
   async function filterBookByCategory(categoryQuery: string) {
     if (selectedCategory === categoryQuery) {
-      setSelectedCategory('no category selected')
-
-      getAllBooks()
+      resetBooks()
     } else {
-      const booksList = await fetchBooks(categoryQuery)
+      const bookList = await fetchBooks(categoryQuery)
 
       setSelectedCategory(categoryQuery)
 
-      setBooks(booksList)
+      setBooks(bookList)
     }
   }
 

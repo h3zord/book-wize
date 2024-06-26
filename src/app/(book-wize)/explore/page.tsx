@@ -1,7 +1,7 @@
 import { Binoculars } from '@phosphor-icons/react/dist/ssr/Binoculars'
 import { NavegationRouteTitle } from '@/app/components/navegation-route-title/styles'
 import { BookCategories } from './components/book-categories'
-import { BooksList } from './components/book-list'
+import { BookList } from './components/book-list'
 import { ExploreContainer, MainContainer } from './styles'
 import { SearchBookForm } from './components/search-book-form'
 
@@ -19,7 +19,7 @@ export default function Explore() {
 
         <BookCategories />
 
-        <BooksList />
+        <BookList />
       </MainContainer>
     </ExploreContainer>
   )

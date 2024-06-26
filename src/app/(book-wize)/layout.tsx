@@ -50,7 +50,7 @@ export default function NavBarLayout({
     router.refresh()
   }
 
-  function logOff() {
+  function logOut() {
     signOut({ callbackUrl: '/' })
   }
 
@@ -89,7 +89,7 @@ export default function NavBarLayout({
         </NavigationOptions>
 
         {isAuthenticated ? (
-          <LoginButton $isLogged onClick={logOff}>
+          <LoginButton $isLogged onClick={logOut}>
             <Image
               src={session.user?.image || ''}
               width={32}

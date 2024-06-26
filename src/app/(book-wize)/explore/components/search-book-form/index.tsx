@@ -3,8 +3,10 @@
 import { useForm } from 'react-hook-form'
 import { SearchBookFormContainer } from './styles'
 import { ExploreBooksContext } from '@/context/explore-books'
-import { useContext } from 'react'
-import { MagnifyingGlass } from '@phosphor-icons/react'
+import { useContext, useEffect, useState } from 'react'
+import { ArrowsCounterClockwise, MagnifyingGlass } from '@phosphor-icons/react'
+import { RefreshButton } from '@/app/components/refresh-button/styles'
+import { IBooksWithAvgRating, fetchBooks } from '@/fetch/books'
 import {
   SearchInput,
   SearchInputSubmit,
@@ -17,22 +19,38 @@ interface IFormInputs {
 export function SearchBookForm() {
   const { register, handleSubmit, reset } = useForm<IFormInputs>()
 
-  const { books, setBooks, getAllBooks, setSelectedCategory } =
-    useContext(ExploreBooksContext)
+  const [allBooks, setAllBooks] = useState<IBooksWithAvgRating[]>([])
 
+  const { books, setBooks, resetBooks } = useContext(ExploreBooksContext)
+
+  const totalBooks = allBooks.length
+  const currentBooks = books.length
+
+  async function saveAllBooks() {
+    const bookList = await fetchBooks()
+
+    setAllBooks(bookList)
+  }
+
+  useEffect(() => {
+    saveAllBooks()
+  }, [])
+
+  // Filtragem local ↓
   async function filterBookByNameOrAuthor(searchTerm: string) {
     const filteredBooks = books.filter((book) => {
       const lowerCaseSearchTerm = searchTerm.toLowerCase()
 
       const lowerCaseBookName = book.name.toLowerCase()
-      const lowerCaseAuthor = book.author.toLowerCase()
+      const lowerCaseAuthorName = book.author.toLowerCase()
 
       const searchTermInBookName =
         lowerCaseBookName.includes(lowerCaseSearchTerm)
 
-      const searchTermInAuthor = lowerCaseAuthor.includes(lowerCaseSearchTerm)
+      const searchTermInAuthorName =
+        lowerCaseAuthorName.includes(lowerCaseSearchTerm)
 
-      return searchTermInBookName || searchTermInAuthor
+      return searchTermInBookName || searchTermInAuthorName
     })
 
     setBooks(filteredBooks)
@@ -41,11 +59,7 @@ export function SearchBookForm() {
   async function searchBookByNameOrAuthor(formInputs: IFormInputs) {
     const { searchTerm } = formInputs
 
-    if (!searchTerm.trim()) {
-      setSelectedCategory('no category selected')
-
-      getAllBooks()
-    } else {
+    if (searchTerm.trim()) {
       filterBookByNameOrAuthor(searchTerm)
     }
 
@@ -63,6 +77,14 @@ export function SearchBookForm() {
       <SearchInputSubmit type="submit">
         <MagnifyingGlass size={24} />
       </SearchInputSubmit>
+
+      <RefreshButton
+        type="button"
+        onClick={resetBooks}
+        disabled={currentBooks === totalBooks}
+      >
+        <ArrowsCounterClockwise size={24} />
+      </RefreshButton>
     </SearchBookFormContainer>
   )
 }
