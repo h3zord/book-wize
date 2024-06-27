@@ -63,7 +63,7 @@ yarn run dev
   <thead>
     <tr>
       <th>Variável</th>
-      <th>Descrição</th>
+      <th width="500px">Descrição</th>
       <th>Valor</th>
     </tr>
   </thead>
@@ -106,8 +106,7 @@ yarn run dev
   </tbody>
 </table>
 
-
-
+<br/>
 <strong>O Next.js irá executar a aplicação na porta padrão 3000.</strong>
 <br/>
 ➜ http://localhost:3000/
