@@ -29,19 +29,16 @@ export const NavigationOptions = styled.section`
 
 export const NavigationButton = styled.button<{ $isSelected: boolean }>`
   all: unset;
-  width: 6rem;
+  position: relative;
+  width: 7rem;
   padding: 0 ${(props) => props.theme.space[3]};
   line-height: ${(props) => props.theme.lineHeights.base};
   background-color: transparent;
-  border-left: 4px solid transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: ${(props) => props.theme.space[2]};
   cursor: pointer;
-
-  border-left: ${(props) =>
-    props.$isSelected && `4px solid ${props.theme.colors.green[100]}`};
 
   font-weight: ${(props) =>
     props.$isSelected
@@ -55,6 +52,13 @@ export const NavigationButton = styled.button<{ $isSelected: boolean }>`
 
   &:hover {
     color: ${(props) => props.theme.colors.gray[100]};
+  }
+
+  & > div {
+    position: absolute;
+    left: 0;
+    border-left: 4px solid ${(props) => props.theme.colors.green[100]};
+    height: 100%;
   }
 `
 

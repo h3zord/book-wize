@@ -4,9 +4,9 @@ export interface ICategories {
 }
 
 export async function fetchCategories() {
-  try {
-    const url = `${process.env.NEXT_PUBLIC_RAILWAY_URL}/categories` as string
+  const url = `${process.env.NEXT_PUBLIC_API_URL}/categories` as string
 
+  try {
     const response = await fetch(url)
 
     if (!response.ok) {

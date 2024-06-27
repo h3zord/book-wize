@@ -37,8 +37,7 @@ function readingListMap(readingList: IReadings[]): IReadingsWithAvgRating[] {
 }
 
 export async function fetchReadings(userId?: string) {
-  const url =
-    `${process.env.NEXT_PUBLIC_RAILWAY_URL}/readings/${userId}` as string
+  const url = `${process.env.NEXT_PUBLIC_API_URL}/readings/${userId}` as string
 
   try {
     if (!userId) {
@@ -75,7 +74,7 @@ interface ICreateReading {
 }
 
 export async function createReading({ userId, bookId }: ICreateReading) {
-  const url = `${process.env.NEXT_PUBLIC_RAILWAY_URL}/readings/` as string
+  const url = `${process.env.NEXT_PUBLIC_API_URL}/readings/` as string
 
   try {
     if (!userId) {
@@ -110,7 +109,7 @@ interface IDeleteReading {
 }
 
 export async function deleteReading({ userId, bookId }: IDeleteReading) {
-  const url = `${process.env.NEXT_PUBLIC_RAILWAY_URL}/readings/` as string
+  const url = `${process.env.NEXT_PUBLIC_API_URL}/readings/` as string
 
   if (!userId) {
     throw new Error('UserID not found!')

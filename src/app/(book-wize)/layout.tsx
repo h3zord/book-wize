@@ -18,6 +18,7 @@ import {
   NavigationOptions,
   SideBarContainer,
 } from './styles'
+import { motion } from 'framer-motion'
 
 export default function NavBarLayout({
   children,
@@ -35,6 +36,12 @@ export default function NavBarLayout({
   const router = useRouter()
 
   const firstName = session?.user?.name?.split(' ')[0]
+
+  const isHome = pathname === '/home'
+
+  const isExplore = pathname === '/explore'
+
+  const isProfile = pathname.startsWith('/profile')
 
   function moveToHome() {
     router.push('/home')
@@ -64,25 +71,19 @@ export default function NavBarLayout({
           alt="sidebar logo"
         />
         <NavigationOptions>
-          <NavigationButton
-            $isSelected={pathname === '/home'}
-            onClick={moveToHome}
-          >
+          <NavigationButton $isSelected={isHome} onClick={moveToHome}>
+            {isHome && <motion.div layoutId="nav-tab" />}
             <ChartLineUp size={24} /> Início
           </NavigationButton>
 
-          <NavigationButton
-            $isSelected={pathname === '/explore'}
-            onClick={moveToExplore}
-          >
+          <NavigationButton $isSelected={isExplore} onClick={moveToExplore}>
+            {isExplore && <motion.div layoutId="nav-tab" />}
             <Binoculars size={24} /> Explorar
           </NavigationButton>
 
           {isAuthenticated && (
-            <NavigationButton
-              $isSelected={pathname.startsWith('/profile')}
-              onClick={moveToProfile}
-            >
+            <NavigationButton $isSelected={isProfile} onClick={moveToProfile}>
+              {isProfile && <motion.div layoutId="nav-tab" />}
               <User size={24} /> Perfil
             </NavigationButton>
           )}
@@ -91,7 +92,7 @@ export default function NavBarLayout({
         {isAuthenticated ? (
           <LoginButton $isLogged onClick={logOut}>
             <Image
-              src={session.user?.image || ''}
+              src={session.user?.image || '/unknow-user.svg'}
               width={32}
               height={32}
               alt="avatar user"

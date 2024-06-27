@@ -39,14 +39,14 @@ export interface IUser {
 }
 
 export async function fetchUser(userId: string) {
-  const url = `${process.env.NEXT_PUBLIC_RAILWAY_URL}/user/${userId}` as string
+  const url = `${process.env.NEXT_PUBLIC_API_URL}/user/${userId}` as string
 
   try {
     if (!userId) {
-      throw new Error('ID not found!')
+      throw new Error('UserID not found!')
     }
 
-    const response = await fetch(url)
+    const response = await fetch(url, { cache: 'no-cache' })
 
     if (!response.ok) {
       throw new Error(

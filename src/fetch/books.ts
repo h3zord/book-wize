@@ -34,7 +34,7 @@ function BookListMap(bookList: IBooks[]): IBooksWithAvgRating[] {
 }
 
 export async function fetchBooks(categoryQuery?: string) {
-  let url = `${process.env.NEXT_PUBLIC_RAILWAY_URL}/books/` as string
+  let url = `${process.env.NEXT_PUBLIC_API_URL}/books/` as string
 
   if (categoryQuery) {
     url += `?category=${encodeURIComponent(categoryQuery)}`
