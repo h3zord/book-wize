@@ -59,15 +59,53 @@ yarn run dev
 ### 5 - Configure as variáveis de ambiente:
 ➜ <strong>Arquivo .env</strong>
 
-| Variável                | Descrição                                     |      Valor                                                                    |
-|-------------------------|-----------------------------------------------|-------------------------------------------------------------------------------|
-| `DATABASE_URL`          | URL do banco de dados                         | `file:./dev.db`                                                               |
-| `NEXT_PUBLIC_API_URL`   | URL da API                                    | `http://localhost:3000/api`                                                   |
-| `NEXTAUTH_SECRET`       | Segredo para criptografia do NextAuth         | `aPw0HyQCB2m8eWk86WKbwC0uKbDxCh+X6eE3Pt3luF4=`                                |
-| `GITHUB_ID`             | ID do OAuth App do GitHub                     | `c27b67ffb7a0525d73c8`                                                        |
-| `GITHUB_SECRET`         | Segredo do OAuth App do GitHub                | `47e33a05b47b9a3005381b529d5d9e41efb9e745`                                    |
-| `GOOGLE_CLIENT_ID`      | ID do Cliente OAuth App do Google             | `643192943905-h117k0l481mtohpt24uq6s1hooj92em3.apps.googleusercontent.com`    |
-| `GOOGLE_CLIENT_SECRET`  | Segredo do Cliente OAuth App do Google        | `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`                                         |
+<table>
+  <thead>
+    <tr>
+      <th>Variável</th>
+      <th>Descrição</th>
+      <th>Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>DATABASE_URL</code></td>
+      <td>URL do banco de dados</td>
+      <td><code>file:./dev.db</code></td>
+    </tr>
+    <tr>
+      <td><code>NEXT_PUBLIC_API_URL</code></td>
+      <td>URL da API</td>
+      <td><code>http://localhost:3000/api</code></td>
+    </tr>
+    <tr>
+      <td><code>NEXTAUTH_SECRET</code></td>
+      <td>Segredo para criptografia do NextAuth</td>
+      <td><code>aPw0HyQCB2m8eWk86WKbwC0uKbDxCh+X6eE3Pt3luF4=</code></td>
+    </tr>
+    <tr>
+      <td><code>GITHUB_ID</code></td>
+      <td>ID do OAuth App do GitHub</td>
+      <td><code>c27b67ffb7a0525d73c8</code></td>
+    </tr>
+    <tr>
+      <td><code>GITHUB_SECRET</code></td>
+      <td>Segredo do OAuth App do GitHub</td>
+      <td><code>47e33a05b47b9a3005381b529d5d9e41efb9e745</code></td>
+    </tr>
+    <tr>
+      <td><code>GOOGLE_CLIENT_ID</code></td>
+      <td>ID do Cliente OAuth do Google</td>
+      <td><code>643192943905-h117k0l481mtohpt24uq6s1hooj92em3.apps.googleusercontent.com</code></td>
+    </tr>
+    <tr>
+      <td><code>GOOGLE_CLIENT_SECRET</code></td>
+      <td>Segredo do Cliente OAuth do Google</td>
+      <td><code>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</code></td>
+    </tr>
+  </tbody>
+</table>
+
 
 
 <strong>O Next.js irá executar a aplicação na porta padrão 3000.</strong>
