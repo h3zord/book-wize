@@ -59,28 +59,29 @@ yarn run dev
 ### 5 - Configure as variáveis de ambiente:
 ➜ <strong>Arquivo .env</strong>
 
+```javascript
+// URL do banco de dados
+DATABASE_URL="file:./dev.db"
+
+// URL da API
+NEXT_PUBLIC_API_URL="http://localhost:3000/api"
+
+// Segredo para criptografia do NextAuth
+NEXTAUTH_SECRET="aPw0HyQCB2m8eWk86WKbwC0uKbDxCh+X6eE3Pt3luF4="
+
+// ID do OAuth App do GitHub
+GITHUB_ID="c27b67ffb7a0525d73c8"
+
+// Segredo do OAuth App do GitHub
+GITHUB_SECRET="47e33a05b47b9a3005381b529d5d9e41efb9e745"
+
+// ID do Cliente OAuth do Google
+GOOGLE_CLIENT_ID="643192943905-h117k0l481mtohpt24uq6s1hooj92em3.apps.googleusercontent.com"
+
+// Segredo do Cliente OAuth do Google
+GOOGLE_CLIENT_SECRET="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"
 ```
-<!-- URL do banco de dados -->
-DATABASE_URL=file:./dev.db
-
-<!-- URL da API -->
-NEXT_PUBLIC_API_URL=http://localhost:3000/api
-
-<!-- Segredo para criptografia do NextAuth -->
-NEXTAUTH_SECRET=aPw0HyQCB2m8eWk86WKbwC0uKbDxCh+X6eE3Pt3luF4=
-
-<!-- ID do OAuth App do GitHub -->
-GITHUB_ID=c27b67ffb7a0525d73c8
-
-<!-- Segredo do OAuth App do GitHub -->
-GITHUB_SECRET= 47e33a05b47b9a3005381b529d5d9e41efb9e745
-
-<!-- ID do Cliente OAuth do Google -->
-GOOGLE_CLIENT_ID=643192943905-h117k0l481mtohpt24uq6s1hooj92em3.apps.googleusercontent.com
-
-<!-- Segredo do Cliente OAuth do Google -->
-GOOGLE_CLIENT_SECRET=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
-```
+<br/>
 
 <strong>O Next.js irá executar a aplicação na porta padrão 3000.</strong>
 <br/>
