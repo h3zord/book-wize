@@ -1,7 +1,6 @@
 import Image from 'next/image'
-import { LoginContainer } from './styles'
-// import { SignInOptions } from '../../components/sign-in-options'
-// import { LoginContainer, SignInContainer, WelcomeText } from './styles'
+import { SignInOptions } from '../../components/sign-in-options'
+import { LoginContainer, SignInContainer, WelcomeText } from './styles'
 
 export default function Login() {
   return (
@@ -15,14 +14,14 @@ export default function Login() {
         priority
       />
 
-      {/* <SignInContainer>
+      <SignInContainer>
         <WelcomeText>
           <h2>Boas vindas!</h2>
           <p>Faça seu login ou acesse como visitante.</p>
         </WelcomeText>
 
         <SignInOptions />
-      </SignInContainer> */}
+      </SignInContainer>
     </LoginContainer>
   )
 }
