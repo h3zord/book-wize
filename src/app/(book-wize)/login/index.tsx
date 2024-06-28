@@ -1,18 +1,18 @@
-import Image from 'next/image'
+// import Image from 'next/image'
 import { SignInOptions } from '../../components/sign-in-options'
 import { LoginContainer, SignInContainer, WelcomeText } from './styles'
 
 export default function Login() {
   return (
     <LoginContainer>
-      <Image
+      {/* <Image
         src="/login-logo.svg"
         alt="Book wize logo"
         width={598}
         height={912}
         quality={100}
         priority
-      />
+      /> */}
 
       <SignInContainer>
         <WelcomeText>
