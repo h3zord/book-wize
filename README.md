@@ -85,4 +85,4 @@ GOOGLE_CLIENT_SECRET="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"
 
 <strong>O Next.js irá executar a aplicação na porta padrão 3000.</strong>
 <br/>
-➜ http://localhost:3000/
+➜ http://localhost:3000
