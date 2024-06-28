@@ -8,15 +8,9 @@ export const LoginContainer = styled.div`
   height: 100vh;
   width: 100vw;
   padding: ${(props) => props.theme.space[5]};
-  border: 1px solid red;
-
-  & > img {
-    border: 1px solid red;
-  }
 `
 
 export const SignInContainer = styled.section`
-  border: 1px solid red;
   flex: 1;
   display: flex;
   align-items: center;
