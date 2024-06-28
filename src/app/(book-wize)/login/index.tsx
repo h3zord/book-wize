@@ -9,7 +9,7 @@ export default function Login() {
         src="/login-logo.svg"
         alt="Book wize logo"
         width={598}
-        height={912}
+        height={850}
         quality={100}
         priority
       />

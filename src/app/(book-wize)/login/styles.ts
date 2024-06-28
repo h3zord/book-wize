@@ -11,7 +11,6 @@ export const LoginContainer = styled.div`
   border: 1px solid red;
 
   & > img {
-    height: 500px;
     border: 1px solid red;
   }
 `
