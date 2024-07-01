@@ -9,6 +9,8 @@ Após o login, ocorre o direcionamento para a página de "Início", onde o usuá
 
 A aplicação foi desenvolvida com o Next.js na versão 14.1.3 e Typescript, as requisições foram construídas com o Route Handlers do próprio Next.js. O banco de dados escolhido foi o SQLite em conjunto com o Prisma ORM para a abstração das queries. A estilização foi feita com o auxílio da biblioteca Styled Components. Mais algumas bibliotecas foram utilizadas durante a construção desse projeto, como: Eslint, React Hook Form, Date FNS, Framer Motion, Phosphor Icons, Material UI e Radix UI.
 
+➜ <strong>A responsividade desse projeto está em desenvolvimento.</strong>
+
 ## Linguagens e ferramentas
 
 - [Next.js](https://nextjs.org/)
@@ -57,7 +59,7 @@ yarn run dev
 ```
 
 ### 5 - Configure as variáveis de ambiente:
-➜ <strong>Arquivo .env</strong>
+➜ <strong>Crie na raíz do projeto um arquivo .env</strong>
 
 ```javascript
 // URL do banco de dados
