@@ -2,7 +2,7 @@
 
 <h3 align="center">📖</h3>
 <h2 align="center">
-  <a href="https://h3zord.github.io/trybetunes" target="_blank">
+  <a href="https://book-wize.up.railway.app" target="_blank">
     Teste o Book Wize!
   </a>
 </h2>
