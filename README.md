@@ -1,30 +1,38 @@
 <h1 align="center">Boas-vindas ao repositório do Book Wize!</h1>
-<div align="center">📖</div>
+
+<h3 align="center">📖</h3>
+<h2 align="center">
+  <a href="https://h3zord.github.io/trybetunes" target="_blank">
+    Teste o Book Wize!
+  </a>
+</h2>
+
 
 ## O que foi desenvolvido?
 
-O <strong>Book Wize</strong> é uma aplicação de recomendação de livros aos leitores. Se inicia com uma página de login, onde o usuário pode entrar com a sua conta do Google, Github ou como visitante.
-Após o login, ocorre o direcionamento para a página de "Início", onde o usuário recebe algumas informações, tais como: sua última leitura, avaliações mais recentes e também os livros populares. A seção
-"Explorar" conta com uma lista de todos os livros, onde é possível filtrar pelo nome do livro, nome do autor ou pela categoria. Ao clicar sob o card do livro mais informações são exibidas em tela: número de avaliações, número de páginas, categorias que o livro pertence, comentários e uma nota avaliativa, caso o usuário esteja logado, este é permitido deixar seu comentário e uma nota sobre aquele livro, e marcá-lo como "lido". Na seção "Perfil" o usuário recebe informações específicas sobre os últimos livros avaliados por ele, o número de páginas lidas, autores lidos, livros avaliados e a categoria mais lida.
+<strong>Book Wize</strong> é uma plataforma de recomendação de livros para leitores. A aplicação começa com uma página de login, onde o usuário pode entrar com sua conta do Google, GitHub ou como visitante. Após o login, o usuário é direcionado para a página de "Início", que exibe informações como sua última leitura, avaliações mais recentes e livros populares. Na seção "Explorar", o usuário pode visualizar uma lista de todos os livros, filtrando por nome do livro, autor ou categoria. Ao clicar no card de um livro, são exibidas mais informações, como número de avaliações, número de páginas, categorias, comentários e uma nota avaliativa. Usuários logados podem deixar comentários, atribuir notas e marcar o livro como "lido". Na seção "Perfil", o usuário encontra informações específicas sobre seus últimos livros avaliados, número de páginas lidas, autores lidos, livros avaliados e a categoria mais lida.
 
-A aplicação foi desenvolvida com o Next.js na versão 14.1.3 e Typescript, as requisições foram construídas com o Route Handlers do próprio Next.js. O banco de dados escolhido foi o SQLite em conjunto com o Prisma ORM para a abstração das queries. A estilização foi feita com o auxílio da biblioteca Styled Components. Mais algumas bibliotecas foram utilizadas durante a construção desse projeto, como: Eslint, React Hook Form, Date FNS, Framer Motion, Phosphor Icons, Material UI e Radix UI.
+A aplicação foi desenvolvida com Next.js (versão 14.1.3), React (versão 18) e TypeScript. As requisições foram construídas utilizando Route Handlers do próprio Next.js. O banco de dados escolhido foi SQLite, em conjunto com Prisma ORM para abstração das queries. O NextAuth.js foi usado para a configuração do login social. A estilização foi feita com Styled Components. Outras bibliotecas utilizadas incluem: ESLint, React Hook Form, Date FNS, Framer Motion, Phosphor Icons, Material UI, Radix UI e Git para controle de versão.
 
-➜ <strong>A responsividade desse projeto está em desenvolvimento.</strong>
+<strong>➜ A responsividade deste projeto está em desenvolvimento.</strong>
 
 ## Linguagens e ferramentas
 
 - [Next.js](https://nextjs.org/)
-- [Typescript](https://www.typescriptlang.org/)
-- [Prisma ORM](https://www.prisma.io/)
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
 - [SQLite](https://www.sqlite.org/)
+- [Prisma ORM](https://www.prisma.io/)
+- [NextAuth.js](https://next-auth.js.org/)
 - [Styled Components](https://styled-components.com/)
-- [Eslint](https://eslint.org/)
+- [ESLint](https://eslint.org/)
 - [React Hook Form](https://react-hook-form.com/)
 - [Date FNS](https://date-fns.org/)
 - [Framer Motion](https://www.framer.com/motion/)
 - [Phosphor Icons](https://phosphoricons.com/)
 - [Material UI](https://mui.com/material-ui/)
 - [Radix UI](https://www.radix-ui.com/)
+- [Git](https://git-scm.com/)
 
 ## Instalação e execução
 
@@ -59,7 +67,7 @@ yarn run dev
 ```
 
 ### 5 - Configure as variáveis de ambiente:
-➜ <strong>Crie na raíz do projeto um arquivo .env</strong>
+<strong>➜ Crie na raíz do projeto um arquivo .env</strong>
 
 ```javascript
 // URL do banco de dados
@@ -83,8 +91,7 @@ GOOGLE_CLIENT_ID="643192943905-h117k0l481mtohpt24uq6s1hooj92em3.apps.googleuserc
 // Segredo do Cliente OAuth do Google
 GOOGLE_CLIENT_SECRET="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"
 ```
-<br/>
 
-<strong>O Next.js irá executar a aplicação na porta padrão 3000.</strong>
+<strong>Next.js irá executar a aplicação na porta padrão 3000.</strong>
 <br/>
 ➜ http://localhost:3000
