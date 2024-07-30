@@ -7,7 +7,6 @@
   </a>
 </h2>
 
-
 ## O que foi desenvolvido?
 
 <strong>Book Wize</strong> é uma plataforma de recomendação de livros para leitores. A aplicação começa com uma página de login, onde o usuário pode entrar com sua conta do Google, GitHub ou como visitante. Após o login, o usuário é direcionado para a página de "Início", que exibe informações como sua última leitura, avaliações mais recentes e livros populares. Na seção "Explorar", o usuário pode visualizar uma lista de todos os livros, filtrando por nome do livro, autor ou categoria. Ao clicar no card de um livro, são exibidas mais informações, como número de avaliações, número de páginas, categorias, comentários e uma nota avaliativa. Usuários logados podem deixar comentários, atribuir notas e marcar o livro como "lido". Na seção "Perfil", o usuário encontra informações específicas sobre seus últimos livros avaliados, número de páginas lidas, autores lidos, livros avaliados e a categoria mais lida.
