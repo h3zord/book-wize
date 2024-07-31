@@ -4,7 +4,7 @@
 
 <h2 align="center">
   <a href="https://book-wize.up.railway.app" target="_blank">
-    Teste o Book Wize!
+    Conheça o Book Wize!
   </a>
 </h2>
 
