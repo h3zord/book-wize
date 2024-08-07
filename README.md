@@ -56,27 +56,7 @@ git clone git@github.com:h3zord/book-wize.git
 cd book-wize
 ```
 
-### 3 - Instale as dependências:
-Caso utilize o npm
-```
-npm install
-```
-Caso utilize o yarn
-```
-yarn install
-```
-
-### 4 - Inicie o projeto:
-Caso utilize o npm
-```
-npm run dev
-```
-Caso utilize o yarn
-```
-yarn run dev
-```
-
-### 5 - Configure as variáveis de ambiente:
+### 3 - Configure as variáveis de ambiente:
 <strong>➜ Crie na raíz do projeto um arquivo .env</strong>
 
 ```javascript
@@ -101,6 +81,28 @@ GOOGLE_CLIENT_ID="643192943905-h117k0l481mtohpt24uq6s1hooj92em3.apps.googleuserc
 // Segredo do Cliente OAuth do Google
 GOOGLE_CLIENT_SECRET="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"
 ```
+
+### 4 - Instale as dependências:
+Caso utilize o npm
+```
+npm install
+```
+Caso utilize o yarn
+```
+yarn install
+```
+
+### 5 - Inicie o projeto:
+Caso utilize o npm
+```
+npm run dev
+```
+Caso utilize o yarn
+```
+yarn run dev
+```
+
+
 
 <strong>Next.js irá executar a aplicação na porta padrão 3000.</strong>
 <br/>
