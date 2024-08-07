@@ -51,7 +51,7 @@ A aplicação foi desenvolvida com Next.js (versão 14.1.3), React (versão 18) 
 git clone git@github.com:h3zord/book-wize.git
 ```
 
-### 2 - Entre no repositório
+### 2 - Entre no repositório:
 ```
 cd book-wize
 ```
