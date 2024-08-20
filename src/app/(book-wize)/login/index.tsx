@@ -10,7 +10,6 @@ export default function Login() {
         alt="Book wize logo"
         width={598}
         height={870}
-        quality={100}
         priority
       />
 
