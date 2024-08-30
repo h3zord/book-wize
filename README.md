@@ -61,7 +61,8 @@ cd book-wize
 
 ```javascript
 // URL do banco de dados
-DATABASE_URL="file:./dev.db"
+POSTGRES_PRISMA_URL="postgres://default:8AVqMup2BUjK@ep-raspy-firefly-a4rtnpjv-pooler.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require&pgbouncer=true&connect_timeout=15"
+POSTGRES_URL_NON_POOLING="postgres://default:8AVqMup2BUjK@ep-raspy-firefly-a4rtnpjv.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require"
 
 // URL da API
 NEXT_PUBLIC_API_URL="http://localhost:3000/api"
