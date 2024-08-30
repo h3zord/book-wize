@@ -22,7 +22,7 @@
 
 <strong>Book Wize</strong> é uma plataforma de recomendação de livros para leitores. A aplicação começa com uma página de login, onde o usuário pode entrar com sua conta do Google, GitHub ou como visitante. Após o login, o usuário é direcionado para a página de "Início", que exibe informações como sua última leitura, avaliações mais recentes e livros populares. Na seção "Explorar", o usuário pode visualizar uma lista de todos os livros, filtrando por nome do livro, autor ou categoria. Ao clicar no card de um livro, são exibidas mais informações, como número de avaliações, número de páginas, categorias, comentários e uma nota avaliativa. Usuários logados podem deixar comentários, atribuir notas e marcar o livro como "lido". Na seção "Perfil", o usuário encontra informações específicas sobre seus últimos livros avaliados, número de páginas lidas, autores lidos, livros avaliados e a categoria mais lida.
 
-A aplicação foi desenvolvida com Next.js (versão 14.1.3), React (versão 18) e TypeScript. As requisições foram construídas utilizando Route Handlers do próprio Next.js. O banco de dados escolhido foi SQLite, em conjunto com Prisma ORM para abstração das queries. O NextAuth.js foi usado para a configuração do login social. A estilização foi feita com Styled Components. Outras bibliotecas utilizadas incluem: ESLint, React Hook Form, Date FNS, Framer Motion, Phosphor Icons, Material UI, Radix UI e Git para controle de versão.
+A aplicação foi desenvolvida com Next.js (versão 14.1.3), React (versão 18) e TypeScript. As requisições foram construídas utilizando Route Handlers do próprio Next.js. O banco de dados escolhido foi PostgreSQL, em conjunto com Prisma ORM para abstração das queries. O NextAuth.js foi usado para a configuração do login social. A estilização foi feita com Styled Components. Outras bibliotecas utilizadas incluem: ESLint, React Hook Form, Date FNS, Framer Motion, Phosphor Icons, Material UI, Radix UI e Git para controle de versão.
 
 <strong>➜ A responsividade deste projeto está em desenvolvimento.</strong>
 
@@ -31,7 +31,7 @@ A aplicação foi desenvolvida com Next.js (versão 14.1.3), React (versão 18) 
 - [Next.js](https://nextjs.org/)
 - [React](https://react.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
-- [SQLite](https://www.sqlite.org/)
+- [PostgreSQL](https://www.postgresql.org/)
 - [Prisma ORM](https://www.prisma.io/)
 - [NextAuth.js](https://next-auth.js.org/)
 - [Styled Components](https://styled-components.com/)
